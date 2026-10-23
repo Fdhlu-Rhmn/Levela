@@ -80,16 +80,16 @@ Pakai template ini, lalu ganti bagian dalam kurung:
 ```
 Close-up head-and-shoulders portrait of [DESKRIPSI], looking directly at the camera with a friendly professional smile, centered, plain orange backdrop, soft even light. Aspect ratio 1:1.
 ```
-- `talent-bd-1.webp`: `a young Indonesian man, about 23, short neat hair, wearing a black polo shirt`
-- `talent-bd-2.webp`: `a young Indonesian woman, about 24, wearing a light grey hijab and a cream blazer`
-- `talent-dm-1.webp`: `a young Indonesian woman, about 22, long straight black hair, wearing a dark brown blouse`
-- `talent-dm-2.webp`: `a young Indonesian man, about 25, glasses with thin frames, wearing a beige crew-neck sweater`
+- `talent-bd-1.webp`: `a young Indonesian man, about 23, short neat black hair, wearing a black polo shirt`
+- `talent-bd-2.webp`: `a young Indonesian man, about 25, slightly wavy hair swept back, wearing a cream blazer over a white t-shirt`
+- `talent-dm-1.webp`: `a young Indonesian man, about 22, short textured fringe haircut, wearing a dark brown overshirt`
+- `talent-dm-2.webp`: `a young Indonesian man, about 24, glasses with thin frames, wearing a beige crew-neck sweater`
 
-Catatan: buat keempat avatar ini beragam (pria/wanita, berhijab/tidak) supaya calon peserta melihat diri mereka di sana.
+Catatan: keempat avatar laki-laki dan tanpa hijab. Supaya tidak terlihat seperti orang yang sama, bedakan gaya rambut, kacamata, dan warna pakaian, lalu buat setiap avatar di sesi atau seed yang berbeda.
 
 ### 11. `about-group.webp` — Foto grup About Us
 ```
-A group of five young Indonesian professionals (mixed men and women, one wearing a hijab) standing together in a relaxed, natural arrangement, some arms crossed, some hands in pockets, all smiling, coordinated outfits in cream, beige, black, and dark brown. Full-body to knee framing, centered, wide orange backdrop with space above their heads. Aspect ratio 16:9.
+A group of five young Indonesian professionals (mixed men and women, no hijab) standing together in a relaxed, natural arrangement, some arms crossed, some hands in pockets, all smiling, coordinated outfits in cream, beige, black, and dark brown. Full-body to knee framing, centered, wide orange backdrop with space above their heads. Aspect ratio 16:9.
 ```
 
 ## Cek sebelum dipakai
