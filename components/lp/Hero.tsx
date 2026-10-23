@@ -13,7 +13,7 @@ export function Hero({ program: p }: { program: Program }) {
     { label: 'Batch', value: p.batchStart },
   ].filter((f) => f.value)
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-8 sm:pt-10">
+    <section className="mx-auto w-full max-w-6xl px-4 pt-8 pb-14 sm:px-8 sm:pt-10 sm:pb-20">
       <div className="grid items-center gap-8 lg:min-h-[580px] lg:grid-cols-[1.15fr_1fr]">
         <div className="relative z-10 pt-6">
           <StatusBadge status={p.status} />
