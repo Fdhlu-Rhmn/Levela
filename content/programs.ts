@@ -11,19 +11,20 @@ const bdLp: ProgramLp = {
     { title: 'Negotiation & Sales', desc: 'Susun penawaran, tangani keberatan, dan tutup kesepakatan.' },
     { title: 'Performance Marketing', desc: 'Dukung target penjualan dengan channel digital yang terukur.' },
   ],
+  // Overview dari talentiv.id/bizdev (Okt 2026); nama sertifikat disesuaikan ke Levela.
   overview: [
-    'Relevan untuk entry hingga mid level',
-    'Materi untuk tantangan kerja sehari-hari',
-    'Praktik lewat real business project',
-    'Mentoring project bersama praktisi',
-    'Sertifikat dan profil di Talentiv Jobs',
+    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja sales dan Business Development.' },
+    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset pasar, prospecting, pitching, negosiasi, dan closing untuk menghadapi kebutuhan pelanggan serta target penjualan.' },
+    { title: 'Praktik melalui Real Business Project', desc: 'Terapkan pembelajaran dalam proyek bisnis bersama mitra dan dapatkan pengalaman menyusun solusi untuk kebutuhan bisnis.' },
+    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek bisnis untuk menerapkan strategi yang dipelajari, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.' },
+    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan sales serta Business Development.' },
   ],
   // TODO: konfirmasi jumlah live class (sumber Talentiv menyebut 21+, daftar sesi berisi 11)
   stats: [
-    { value: '11', label: 'Sesi live class' },
-    { value: '30 hari', label: 'Fase intensif' },
-    { value: 'Entry', label: 'Level peserta' },
-    { value: 'Online', label: 'Metode belajar' },
+    { value: '11', label: 'Sesi live class', desc: 'Kelas interaktif pukul 19.30 WIB, dengan rekaman yang bisa ditonton ulang.' },
+    { value: '30 hari', label: 'Fase intensif', desc: 'Live class terlebih dahulu, lalu dilanjutkan mentoring project 1on1.' },
+    { value: 'Entry', label: 'Level peserta', desc: 'Cocok untuk fresh graduate hingga staf entry dan mid level.' },
+    { value: 'Online', label: 'Metode belajar', desc: 'Belajar dari mana saja, cukup dengan laptop dan koneksi internet.' },
   ],
   careers: [
     'Business Development Executive',
@@ -163,6 +164,13 @@ const dmLp: ProgramLp = {
     { title: 'Campaign Planning', desc: 'Rancang campaign dengan tujuan, pesan, dan channel yang jelas.' },
     { title: 'Paid Traffic', desc: 'Jalankan Meta Ads dan Google Ads dengan budget yang terukur.' },
     { title: 'Performance Analytics', desc: 'Baca data dan optimasi hasil campaign.' },
+  ],
+  overview: [
+    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja digital marketing.' },
+    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset audiens, perencanaan campaign, iklan berbayar, dan analisis data untuk mengejar target pemasaran.' },
+    { title: 'Praktik melalui Real Campaign Project', desc: 'Terapkan pembelajaran dengan merancang dan menjalankan campaign untuk kebutuhan bisnis nyata.' },
+    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek campaign, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.' },
+    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan digital marketing.' },
   ],
   careers: ['Digital Marketing Specialist', 'Performance Marketing', 'Marketing Executive', 'Content Strategist'],
   audience: [

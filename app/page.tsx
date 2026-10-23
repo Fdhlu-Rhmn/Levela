@@ -140,7 +140,7 @@ export default function Home() {
             <ol>
               {steps.map((s, i) => (
                 <li key={s.title} className="reveal flex gap-6 border-b border-line py-7 first:pt-0">
-                  <span className="pt-2 text-[11px]">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="pt-2 w-6 shrink-0 text-[11px]">{String(i + 1).padStart(2, '0')}</span>
                   <div>
                     <h3 className="text-[22px] tracking-[-0.02em]">{s.title}</h3>
                     <p className="mt-2.5 max-w-sm text-sm leading-relaxed">{s.desc}</p>

@@ -28,7 +28,7 @@
   body {
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     overflow-x: clip; /* decorative rings may extend past the viewport */
     text-shadow: 0 1px 1px rgba(120, 35, 0, 0.12);
   }

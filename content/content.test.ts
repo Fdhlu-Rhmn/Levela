@@ -107,3 +107,14 @@ test('Social Media is coming soon with a teaser page', () => {
   expect(sm.teaser?.topics.length).toBeGreaterThanOrEqual(3)
   expect(sm.teaser?.notifyText).toContain('Social Media Fast Track')
 })
+
+test('overview points and stats carry a description', () => {
+  for (const p of programs.filter((p) => p.lp)) {
+    for (const o of p.lp!.overview) expect(o.desc.length).toBeGreaterThan(30)
+    for (const s of p.lp!.stats) expect(s.desc?.length).toBeGreaterThan(20)
+  }
+  expect(programs[0].lp!.overview[0]).toEqual({
+    title: 'Relevan untuk Staf Entry hingga Mid Level',
+    desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja sales dan Business Development.',
+  })
+})

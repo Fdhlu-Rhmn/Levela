@@ -88,18 +88,22 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
               <h2 className={h2}>Belajar seperti di dunia kerja.</h2>
               <ul className="mt-8">
                 {lp.overview.map((o, i) => (
-                  <li key={o} className="flex gap-5 border-b border-line py-3.5 text-sm">
-                    <span className="text-[11px]">{num(i)}</span>
-                    {o}
+                  <li key={o.title} className="flex gap-5 border-b border-line py-4">
+                    <span className="pt-1 w-6 shrink-0 text-[11px]">{num(i)}</span>
+                    <div>
+                      <h3 className="font-heading text-lg leading-snug tracking-[-0.02em]">{o.title}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed">{o.desc}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
-            <dl className="reveal grid grid-cols-2 content-start gap-x-6 gap-y-8">
+            <dl className="reveal grid content-start gap-4 sm:grid-cols-2">
               {lp.stats.map((s) => (
-                <div key={s.label} className="border-t border-line pt-4">
-                  <dd className="font-heading text-[clamp(2rem,3.6vw,2.8rem)] tracking-[-0.05em]">{s.value}</dd>
-                  <dt className="mt-1 text-sm">{s.label}</dt>
+                <div key={s.label} className="glass p-5">
+                  <dd className="font-heading text-[clamp(2rem,3.6vw,2.8rem)] leading-none tracking-[-0.05em]">{s.value}</dd>
+                  <dt className="mt-2 text-sm font-semibold">{s.label}</dt>
+                  {s.desc && <dd className="mt-2 text-[13px] leading-relaxed">{s.desc}</dd>}
                 </div>
               ))}
             </dl>

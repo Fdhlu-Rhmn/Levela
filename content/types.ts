@@ -36,8 +36,8 @@ export type Talent = {
 export type ProgramLp = {
   heroSubtitle: string
   skills: { title: string; desc: string }[]
-  overview: string[]
-  stats: { value: string; label: string }[]
+  overview: { title: string; desc: string }[]
+  stats: { value: string; label: string; desc?: string }[]
   careers: string[]
   audience: { title: string; desc: string }[]
   situations: string[]
