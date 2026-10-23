@@ -24,6 +24,20 @@ const values = [
   },
 ]
 
+const journey = [
+  { from: 'Paham teori, jarang praktik', to: 'Terbiasa mengerjakan kasus nyata' },
+  { from: 'CV tanpa bukti hasil kerja', to: 'Portofolio proyek yang bisa ditunjukkan' },
+  { from: 'Belajar sendiri tanpa arah', to: 'Kurikulum terstruktur dan mentor praktisi' },
+  { from: 'Sulit ditemukan perusahaan', to: 'Profil dan portofolio di Talentiv Jobs' },
+]
+
+const partnerSteps = [
+  { title: 'Belajar & praktik', desc: 'Live class dan proyek bersama mentor.' },
+  { title: 'Portofolio & sertifikat', desc: 'Hasil kerja terdokumentasi dan terukur.' },
+  { title: 'Profil Talentiv Jobs', desc: 'Kompetensimu tampil dalam satu profil.' },
+  { title: 'Dilihat mitra hiring', desc: 'Perusahaan menilai lebih dari sekadar CV.' },
+]
+
 // TODO: konfirmasi klaim angka sebelum live (lihat docs/audit)
 const stats = [
   { value: 'Ratusan', label: 'Mitra hiring dalam jaringan Talentiv Jobs yang dapat melihat profil dan portofolio alumni.' },
@@ -60,14 +74,37 @@ export default function Tentang() {
         </div>
       </section>
 
-      <Section eyebrow="01 / CERITA KAMI" title="Menjembatani pendidikan dan kebutuhan dunia kerja.">
-        <div className="grid gap-6 leading-relaxed md:grid-cols-2">
-          <p>
-            Banyak lulusan dan profesional muda memiliki semangat untuk berkembang, tetapi belum memiliki pengalaman praktik dan portofolio yang dicari perusahaan. Levela Academy hadir untuk menutup jarak tersebut.
-          </p>
-          <p>
-            Program kami berangkat dari tantangan kerja sehari-hari: memahami bisnis dan pasar, membangun pipeline, bernegosiasi, hingga menjaga hubungan dengan pelanggan. Setiap materi dipelajari, dipraktikkan, lalu didokumentasikan sebagai hasil kerja.
-          </p>
+      <Section eyebrow="01 / CERITA KAMI" aside="Why Levela.">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
+          <div className="reveal">
+            <h2 className="text-[clamp(2.1rem,4.4vw,3.4rem)] leading-[1.1] tracking-[-0.045em]">
+              Menjembatani pendidikan dan kebutuhan dunia kerja<span className="text-sun">.</span>
+            </h2>
+            <p className="mt-7 border-l-2 border-sun pl-5 font-heading text-xl leading-snug tracking-[-0.01em] sm:text-2xl">
+              Banyak lulusan dan profesional muda punya semangat untuk berkembang, tetapi belum memiliki pengalaman praktik dan portofolio yang dicari perusahaan.
+            </p>
+            <p className="mt-6 max-w-xl leading-relaxed">
+              Levela Academy hadir untuk menutup jarak tersebut. Program kami berangkat dari tantangan kerja sehari-hari: memahami bisnis dan pasar, membangun pipeline, bernegosiasi, hingga menjaga hubungan dengan pelanggan. Setiap materi dipelajari, dipraktikkan, lalu didokumentasikan sebagai hasil kerja.
+            </p>
+          </div>
+          <div className="glass reveal overflow-hidden">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-b border-line px-6 py-4 text-[11px] font-semibold tracking-[0.16em] uppercase">
+              <span>Sebelum</span>
+              <span aria-hidden="true" />
+              <span>Bersama Levela</span>
+            </div>
+            <ul>
+              {journey.map((j) => (
+                <li key={j.from} className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-b border-line px-6 py-5 last:border-0">
+                  <span className="text-sm leading-snug">{j.from}</span>
+                  <span aria-hidden="true" className="ring-line grid size-8 place-items-center text-sm">
+                    →
+                  </span>
+                  <span className="font-heading text-base leading-snug tracking-[-0.01em]">{j.to}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Section>
 
@@ -83,14 +120,26 @@ export default function Tentang() {
       </Section>
 
       <Section eyebrow="03 / LEVELA × TALENTIV JOBS" title="Belajar terarah. Peluang lebih luas.">
-        <div className="glass p-7 sm:p-10">
-          <p className="max-w-2xl leading-relaxed">
-            Melalui kemitraan dengan Talentiv Jobs, profil profesional, sertifikat, dan portofolio alumni dapat ditampilkan kepada jaringan mitra hiring. Perusahaan dapat menilai kompetensimu secara lebih utuh, tidak hanya dari CV.
-          </p>
-          <p className="mt-4 max-w-2xl text-xs leading-relaxed">
-            Levela tidak menjamin penempatan kerja. Keputusan rekrutmen sepenuhnya mengikuti proses seleksi masing-masing perusahaan.
-          </p>
-        </div>
+        <p className="max-w-2xl leading-relaxed">
+          Melalui kemitraan dengan Talentiv Jobs, profil profesional, sertifikat, dan portofolio alumni dapat ditampilkan kepada jaringan mitra hiring. Perusahaan dapat menilai kompetensimu secara lebih utuh, tidak hanya dari CV.
+        </p>
+        <ol className="mobile-carousel mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {partnerSteps.map((s, i) => (
+            <li key={s.title} className="glass reveal relative flex flex-col p-6">
+              <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="mt-5 text-lg leading-snug tracking-[-0.02em]">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed">{s.desc}</p>
+              {i < partnerSteps.length - 1 && (
+                <span aria-hidden="true" className="absolute top-1/2 -right-3.5 z-10 hidden size-7 -translate-y-1/2 place-items-center rounded-full bg-cream text-sm text-ink lg:grid">
+                  →
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+        <p className="mt-6 max-w-2xl text-xs leading-relaxed">
+          Levela tidak menjamin penempatan kerja. Keputusan rekrutmen sepenuhnya mengikuti proses seleksi masing-masing perusahaan.
+        </p>
       </Section>
 
       <Section
