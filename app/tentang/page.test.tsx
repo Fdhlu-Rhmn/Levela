@@ -8,12 +8,12 @@ test('about page shows the partnership without subsidiary wording', () => {
   expect(container.textContent).not.toMatch(/bagian dari|anak perusahaan/i)
 })
 
-test('mentor grid never leaves a single card on the last desktop row', async () => {
-  const { mentorCols } = await import('./page')
-  for (let n = 2; n <= 20; n++) {
-    const cols = Number(mentorCols(n).match(/grid-cols-(\d)/)![1])
-    expect(n % cols === 1 && n > cols).toBe(false)
-  }
-  expect(mentorCols(9)).toBe('lg:grid-cols-3')
-  expect(mentorCols(8)).toBe('lg:grid-cols-4')
+
+test('mentors sit in a carousel with previous and next controls', async () => {
+  const { allMentors } = await import('@/content/programs')
+  render(<Tentang />)
+  const region = screen.getByRole('region', { name: 'Daftar mentor' })
+  expect(region.querySelectorAll('li').length).toBeGreaterThanOrEqual(allMentors().length)
+  expect(screen.getByRole('button', { name: 'Mentor sebelumnya' })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Mentor berikutnya' })).toBeInTheDocument()
 })

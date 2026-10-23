@@ -5,6 +5,7 @@ import { asset } from '@/lib/asset'
 import { ConsultButton } from '@/components/ConsultButton'
 import { consultText } from '@/components/Header'
 import { Section } from '@/components/Section'
+import { MentorCarousel } from '@/components/MentorCarousel'
 
 export const metadata: Metadata = { title: 'Tentang Kami' }
 
@@ -46,10 +47,6 @@ const stats = [
   { value: String(programs.length), label: 'jalur program', desc: 'Business Development, Digital Marketing, dan Social Media yang segera hadir.' },
   { value: '20', label: 'peserta per batch', desc: 'paling banyak, agar setiap peserta mendapat perhatian dan umpan balik yang personal.' },
 ]
-
-// Pick a desktop column count that leaves no card alone on the last row as mentors are added.
-export const mentorCols = (n: number) =>
-  n % 4 !== 1 || n <= 4 ? 'lg:grid-cols-4' : n % 3 !== 1 ? 'lg:grid-cols-3' : 'lg:grid-cols-5'
 
 export default function Tentang() {
   const mentors = allMentors()
@@ -170,25 +167,9 @@ export default function Tentang() {
             Mentor Levela adalah praktisi di bidang bisnis, pemasaran, dan pengembangan kemitraan. Mereka membagikan cara kerja yang mereka gunakan dan memberi umpan balik langsung pada proyekmu.
           </p>
         </div>
-        <ul className={`mobile-carousel mt-12 grid gap-5 sm:grid-cols-2 ${mentorCols(mentors.length)}`}>
-          {mentors.map((m) => (
-            <li key={m.name} className="glass lift reveal flex flex-col overflow-hidden">
-              {m.photo && <img src={asset(m.photo)} alt={`Foto ${m.name}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />}
-              <div className="flex flex-1 flex-col p-5">
-                <p className="font-heading text-lg tracking-[-0.02em]">{m.name}</p>
-                <p className="mt-1 text-[13px] font-semibold">{m.role}</p>
-                {m.experience && <p className="mt-3 text-[13px] leading-relaxed">{m.experience}</p>}
-                <ul className="mt-auto flex flex-wrap gap-1.5 border-t border-line pt-3">
-                  {m.programs.map((p) => (
-                    <li key={p} className="rounded-full border border-cream/35 bg-cream/15 px-2.5 py-1 text-[11px] font-medium">
-                      {p.replace(' Fast Track', '')}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-12">
+          <MentorCarousel mentors={mentors} />
+        </div>
       </Section>
 
       {/* Numbers: one panel, large numerals split by hairlines */}
