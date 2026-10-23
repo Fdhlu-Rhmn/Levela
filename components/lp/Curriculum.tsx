@@ -80,7 +80,7 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
           <p className="max-w-xl text-base leading-relaxed">{active.intro}</p>
           <p className="justify-self-start rounded-full border border-line px-4 py-1.5 text-sm lg:justify-self-end">{active.meta}</p>
         </div>
-        <ol className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mobile-carousel mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tab === 0
             ? lp.phase1.sessions.map((s, i) => (
                 <Card key={s.code} index={i} meta={`${shortDate(s.date)} · ${lp.phase1.time}`} title={s.title} desc={s.desc} tags={s.tags} />

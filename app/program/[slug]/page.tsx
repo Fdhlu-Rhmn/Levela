@@ -69,7 +69,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
 
       {/* Skills */}
       <Section eyebrow="02 / Skill & output" aside="What you will build." title="Skill utama yang kamu bangun.">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mobile-carousel grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {lp.skills.map((s, i) => (
             <article key={s.title} className="glass lift reveal flex flex-col p-6">
               <p className="font-heading text-4xl tracking-[-0.05em] text-sun">{num(i)}</p>
@@ -95,7 +95,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
             </dl>
           </div>
           {/* 6-column grid: first row 3 cards, second row 2 wider cards */}
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+          <ul className="mobile-carousel mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {lp.overview.map((o, i) => (
               <li key={o.title} className={`glass lift reveal flex flex-col overflow-hidden ${i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}`}>
                 <img src={asset(o.image)} alt={o.title} loading="lazy" className="h-48 w-full object-cover sm:h-52" />
@@ -166,7 +166,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
 
       {/* Projects */}
       <Section eyebrow="08 / Real project" aside="Portfolio first." title="Portofolio dari proyek bisnis nyata.">
-        <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mobile-carousel grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {lp.projects.map((pr, i) => (
             <li key={pr.title} className="glass reveal flex flex-col p-5">
               <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{num(i)}</span>
@@ -184,7 +184,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
 
       {/* Mentors */}
       <Section eyebrow="09 / Mentor" aside="Learn from practitioners." title="Belajar langsung dari praktisi.">
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mobile-carousel grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {lp.mentors.map((m) => (
             <li key={m.name} className="glass lift reveal flex flex-col overflow-hidden">
               {m.photo && <img src={asset(m.photo)} alt={`Foto ${m.name}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />}
@@ -200,9 +200,9 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
 
       {/* Verified talent */}
       <Section id="talent" eyebrow="10 / Talent verified" aside="Levela × Talentiv Jobs" title="Lulus dengan bekal yang dicari mitra hiring." intro="Begini profil lulusan tampil di Talentiv Jobs: skill, project, dan tools yang bisa dilihat mitra hiring.">
-        <div className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-2 lg:mx-0 lg:grid lg:grid-cols-2 lg:overflow-visible lg:px-0">
+        <div className="mobile-carousel grid gap-5 lg:grid-cols-2">
           {talents.map((t) => (
-            <div key={t.id} className="w-[86%] shrink-0 snap-start sm:w-[70%] lg:w-auto">
+            <div key={t.id}>
               <TalentCard talent={t} />
             </div>
           ))}
@@ -242,17 +242,20 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
 
       {packages.length > 0 && (
         <Section id="paket" eyebrow="12 / Paket" aside="Choose your track." title="Pilih paket programmu.">
-          <div className="grid gap-5 md:grid-cols-2">
+          {/* Phone: swipeable carousel with a peek of the next card. md+: two columns. */}
+          <div className="mobile-carousel grid gap-5 md:grid-cols-2">
             {packages.map((pkg, i) => (
-              <PricingCard
-                key={pkg.name}
-                pkg={pkg}
-                whatsappText={p.whatsappText}
-                programTitle={p.title}
-                highlight={i === packages.length - 1 && packages.length > 1}
-              />
+              <div key={pkg.name} className="pt-3 md:pt-0">
+                <PricingCard
+                  pkg={pkg}
+                  whatsappText={p.whatsappText}
+                  programTitle={p.title}
+                  highlight={i === packages.length - 1 && packages.length > 1}
+                />
+              </div>
             ))}
           </div>
+          {packages.length > 1 && <p className="mt-3 text-center text-xs md:hidden">Geser untuk melihat paket lain →</p>}
         </Section>
       )}
 

@@ -75,6 +75,25 @@
   }
 }
 
+/* Phones: turn a grid into a swipeable row with a peek of the next card.
+   Doubled class beats Tailwind's single-class display utilities (e.g. .grid). */
+@media (width < 40rem) {
+  .mobile-carousel.mobile-carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    margin-inline: -1rem;
+    padding: 0.25rem 1rem 0.75rem;
+    scrollbar-width: none;
+  }
+  .mobile-carousel.mobile-carousel > * {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}
+
 /* Thin orbit rings used in the hero, The Levela Way and the Talentiv Jobs network. */
 @utility ring-line {
   border: 1px solid var(--color-line);
