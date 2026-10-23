@@ -44,3 +44,9 @@ test('talentBadge hides verification for samples', () => {
   expect(talentBadge({ ...talents[0], sample: true })).toBe('Profil lulusan')
   expect(talentBadge({ ...talents[0], sample: false })).toBe('Verified by Talentiv')
 })
+
+test('filterPrograms collapses repeated spaces in the query', () => {
+  expect(filterPrograms(programs, { query: 'meta   ads', category: 'all', status: 'all' }).map((p) => p.slug)).toEqual([
+    'digital-marketing',
+  ])
+})

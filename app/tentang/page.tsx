@@ -34,7 +34,7 @@ export default function Tentang() {
     <main>
       <section className="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-8 sm:pt-16">
         <p className="text-xs font-bold tracking-[0.2em]">TENTANG LEVELA</p>
-        <h1 className="mt-5 max-w-3xl text-5xl leading-[1] font-extrabold tracking-[-0.04em] sm:text-7xl">
+        <h1 className="mt-5 max-w-3xl text-5xl leading-[1.02] tracking-[-0.06em] sm:text-7xl">
           Tempat memulai langkah profesionalmu.
         </h1>
         <div className="glass mt-10 overflow-hidden p-2">
@@ -62,7 +62,7 @@ export default function Tentang() {
         <ul className="grid gap-4 md:grid-cols-3">
           {values.map((v) => (
             <li key={v.title} className="glass p-6">
-              <h3 className="text-2xl font-extrabold">{v.title}</h3>
+              <h3 className="text-2xl">{v.title}</h3>
               <p className="mt-2 text-sm">{v.desc}</p>
             </li>
           ))}
@@ -82,7 +82,7 @@ export default function Tentang() {
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {mentors.map((m) => (
             <li key={m.name} className="glass p-6">
-              <p className="font-heading text-lg font-extrabold">{m.name}</p>
+              <p className="font-heading text-lg">{m.name}</p>
               <p className="mt-1 text-sm">{m.role}</p>
             </li>
           ))}
@@ -93,7 +93,7 @@ export default function Tentang() {
         <ul className="grid gap-4 sm:grid-cols-3">
           {stats.map((s) => (
             <li key={s.label} className="glass p-6">
-              <p className="font-heading text-4xl font-extrabold">{s.value}</p>
+              <p className="font-heading text-4xl">{s.value}</p>
               <p className="mt-2 text-sm">{s.label}</p>
             </li>
           ))}

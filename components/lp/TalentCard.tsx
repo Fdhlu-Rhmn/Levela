@@ -25,21 +25,21 @@ export function TalentCard({ talent: t }: { talent: Talent }) {
         <div className="flex items-center gap-3">
           <img src={asset(t.photo)} alt={`Foto ${t.name}`} loading="lazy" className="size-14 rounded-2xl object-cover" />
           <div>
-            <h3 className="text-lg leading-tight font-extrabold">{t.name}</h3>
+            <h3 className="text-lg leading-tight">{t.name}</h3>
             <p className="text-sm">{t.role}</p>
           </div>
         </div>
         {t.salaryFrom && (
           <div className="text-right">
             <p className="text-xs">Gaji mulai dari</p>
-            <p className="font-heading text-lg font-extrabold">{formatRupiah(t.salaryFrom)}</p>
+            <p className="font-heading text-lg">{formatRupiah(t.salaryFrom)}</p>
           </div>
         )}
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
         <span
-          className={`rounded-full px-3 py-1 text-xs font-extrabold ${
+          className={`rounded-full px-3 py-1 text-xs font-semibold ${
             t.sample ? 'border border-cream/40' : 'bg-white text-ink'
           }`}
         >

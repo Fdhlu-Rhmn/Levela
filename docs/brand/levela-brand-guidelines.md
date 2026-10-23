@@ -36,9 +36,11 @@ Logo Levela adalah wordmark **↗levela** dengan teks kecil **ACADEMY** di bawah
 
 | Token | HEX | Peran |
 |---|---|---|
-| `--color-bg-from` | `#b13507` | Gradien latar, ujung kiri |
-| `--color-bg-via` | `#c2410c` | Gradien latar, tengah |
-| `--color-bg-to` | `#c6470b` | Gradien latar, ujung kanan |
+| `--color-bg-from` | `#bf3508` | Gradien latar, ujung kiri |
+| `--color-bg-via` | `#e95308` | Gradien latar, tengah |
+| `--color-bg-to` | `#f58b1e` | Gradien latar, ujung kanan |
+| `--color-sun` | `#ffd66d` | Titik kuning di akhir judul, label early bird |
+| `--color-label` | `#fff1d7` | Label krem miring yang melayang |
 | `--color-orange` | `#ee5b0b` | Aksen; jangan dipakai sebagai latar teks kecil |
 | `--color-cream` | `#fff7e9` | Teks utama di atas gradien dan kaca |
 | `--color-ink` | `#311a10` | Teks di atas putih/cream; tombol; badge "Segera Hadir" |
@@ -47,39 +49,38 @@ Logo Levela adalah wordmark **↗levela** dengan teks kecil **ACADEMY** di bawah
 | `--color-soon-text` | `#ffd9b3` | Teks badge "Segera Hadir" |
 | `--color-soon-dot` | `#ffb066` | Titik status "Segera Hadir" |
 
-**Gradien latar:** `linear-gradient(110deg, #b13507 0%, #c2410c 45%, #c6470b 100%)`.
+**Gradien latar (konsep cerah):** `linear-gradient(110deg, #bf3508 0%, #e95308 43%, #f58b1e 100%)` ditambah cahaya hangat lembut di kanan atas.
 
-> Catatan: gradien situs statis lama (`#bf3508 → #e95308 → #f58b1e`) diperdalam. Teks cream di atas `#f58b1e` hanya mencapai kontras 2.30:1, jauh di bawah standar keterbacaan. Gradien baru tetap oranye hangat, dan semua teks lolos WCAG AA.
-
-### Pasangan kontras (WCAG AA = 4.5:1 untuk teks biasa)
+### Pasangan kontras (WCAG AA = 4.5:1 teks biasa, 3:1 teks besar)
 
 | Teks | Latar | Rasio | Status |
 |---|---|---|---|
-| cream `#fff7e9` | `#b13507` | 5.84 | Lolos AA |
-| cream `#fff7e9` | `#c2410c` | 4.87 | Lolos AA |
-| cream `#fff7e9` | `#c6470b` | 4.58 | Lolos AA |
-| cream `#fff7e9` | kaca di atas `#c6470b` | 6.66 | Lolos AA |
-| ink `#311a10` | putih `#ffffff` | 16.33 | Lolos AAA |
-| ink `#311a10` | cream `#fff7e9` | 15.35 | Lolos AAA |
+| cream `#fff7e9` | `#bf3508` | 5.29 | Lolos AA |
+| cream `#fff7e9` | `#e95308` | 3.46 | Lolos AA teks besar saja |
+| cream `#fff7e9` | `#f58b1e` | 2.30 | Di bawah AA — hanya untuk dekorasi dan judul sangat besar |
+| ink `#311a10` | putih / cream | 16.33 / 15.35 | Lolos AAA |
+| ink `#311a10` | label `#fff1d7` | 14+ | Lolos AAA |
 | `#ffd9b3` | ink `#311a10` | 12.31 | Lolos AAA |
 
 **Aturan:**
-- Teks selalu **penuh**, tanpa transparansi. Bangun hierarki lewat ukuran dan ketebalan, bukan dengan membuat teks pudar. Test `app/contrast.test.ts` menolak kelas `text-cream/NN` dan `opacity-NN`.
-- Jangan menaruh teks cream di atas `--color-orange` atau oranye yang lebih terang.
+- Konsep cerah adalah pilihan brand. Area oranye terang punya kontras rendah, jadi letakkan teks kecil yang penting (harga, jadwal, syarat) di panel kaca atau di sisi kiri gradien yang lebih gelap.
+- Teks selalu **penuh**, tanpa transparansi. Hierarki dibangun lewat ukuran dan ruang, bukan teks pudar. Test `app/contrast.test.ts` menolak kelas `text-cream/NN` dan `opacity-NN`.
+- Teks di tombol dan label krem selalu ink, tanpa bayangan teks.
 
 ## 4. Tipografi
 
 | Peran | Font | Bobot | Ukuran (HP → desktop) | Tinggi baris |
 |---|---|---|---|---|
-| Display (H1) | Manrope | 800 | 40–48px → 64–72px | 1.0 |
-| H2 | Manrope | 800 | 30px → 48px | 1.15 |
-| H3 | Manrope | 800 | 18–20px → 20–24px | 1.25 |
+| Display (H1) | Manrope | 500, tracking −6% | 50px → 86px | 1.02 |
+| H2 | Manrope | 500, tracking −4.5% | 34px → 54px | 1.1 |
+| H3 | Manrope | 500, tracking −2% | 20px → 26px | 1.15 |
 | Body | DM Sans | 400 | 16px → 16–18px | 1.55 |
 | Small / meta | DM Sans | 400–500 | 14px | 1.5 |
 | Eyebrow | DM Sans | 700, kapital, tracking 0.2em | 12px | 1.4 |
 
 - Token: `--font-heading` (Manrope) dan `--font-body` (DM Sans).
-- Judul memakai tracking negatif (−1 sampai −4%). Body tidak.
+- Judul memakai bobot 500 dengan tracking rapat. Inilah yang memberi kesan editorial dan profesional. Hindari judul ExtraBold.
+- Judul utama boleh diakhiri titik kuning `--color-sun`.
 - Teks body di HP minimal 15–16px.
 - Pola eyebrow: `01 / LABEL`, contohnya `02 / THE LEVELA WAY`.
 
@@ -95,15 +96,21 @@ Logo Levela adalah wordmark **↗levela** dengan teks kecil **ACADEMY** di bawah
 Kaca adalah ciri visual utama Levela: panel buram yang membuat konten terbaca di atas gradien.
 
 **Anatomi (`.glass`):**
-- latar `rgb(49 26 16 / var(--glass-tint))` dengan `--glass-tint: 0.3` (tint gelap hangat, bukan putih),
+- latar gradien krem tipis `rgba(255,247,233,.16) → rgba(255,247,233,var(--glass-tint))`, dengan `--glass-tint: 0.1`,
 - `backdrop-filter: blur(18px)`,
-- border `1px solid rgba(255,247,233,.28)`,
-- radius 22px,
-- bayangan `0 10px 36px rgba(60,20,0,.16)` + highlight `inset 0 1px 0 rgba(255,255,255,.25)`,
-- fallback tanpa blur: latar `rgba(90,35,10,.55)`.
+- border `1px solid rgba(255,247,233,.34)`,
+- radius `--radius-glass: 18px`,
+- bayangan oranye lembut `0 18px 40px rgba(139,40,0,.14)` + highlight `inset 0 1px 0 rgba(255,255,255,.35)`,
+- efek `.lift`: naik 4px saat hover.
 
-**Lakukan:** pakai kaca untuk kartu, bar pencarian, footer, panel CTA, dan bingkai foto.
-**Jangan:** menumpuk kaca di atas kaca lebih dari satu lapis, memakai tint putih (menurunkan kontras), atau memakai blur di bawah 12px.
+**Bahasa visual editorial (dari situs awal Levela):**
+- garis tipis `--color-line` di atas setiap bagian, dengan eyebrow `01 / LABEL` di kiri dan catatan pendek di kanan,
+- cincin orbit tipis (`.ring-line`), foto berbentuk lengkung, label krem yang dimiringkan −5°,
+- komposisi asimetris: kartu di tengah diturunkan sedikit, kartu talent dimiringkan ±0.6°,
+- marquee nama mitra, dan animasi muncul halus saat scroll (dimatikan untuk *reduced motion*).
+
+**Lakukan:** pakai kaca untuk kartu, bar pencarian, harga, dan profil talent.
+**Jangan:** membungkus seluruh bagian dengan kotak kaca, atau menumpuk kaca lebih dari satu lapis. Biarkan garis dan ruang kosong yang membagi halaman.
 
 ## 7. Tombol, badge, kartu
 

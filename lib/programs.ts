@@ -3,7 +3,7 @@ import type { Category, Package, Program, ProgramStatus, Talent } from '@/conten
 export type ProgramFilter = { query: string; category: Category | 'all'; status: ProgramStatus | 'all' }
 
 export function filterPrograms(list: Program[], f: ProgramFilter): Program[] {
-  const q = f.query.trim().toLowerCase()
+  const q = f.query.trim().replace(/\s+/g, ' ').toLowerCase()
   return list.filter(
     (p) =>
       (f.category === 'all' || p.category === f.category) &&

@@ -10,7 +10,7 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
         <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
           <span>
             <span className="block text-xs font-bold tracking-[0.16em]">FASE 1 · LIVE CLASS</span>
-            <span className="font-heading text-xl font-extrabold">{lp.phase1.title}</span>
+            <span className="font-heading text-xl">{lp.phase1.title}</span>
           </span>
           <span aria-hidden="true" className="text-xl transition-transform group-open:rotate-45">
             +
@@ -29,7 +29,7 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
       </details>
       <div className="glass p-5 sm:p-6">
         <p className="text-xs font-bold tracking-[0.16em]">FASE 2 · MENTORING</p>
-        <h3 className="font-heading text-xl font-extrabold">{lp.phase2.title}</h3>
+        <h3 className="font-heading text-xl">{lp.phase2.title}</h3>
         <ol className="mt-4 grid gap-2 text-sm">
           {lp.phase2.modules.map((m, i) => (
             <li key={m} className="flex gap-3 rounded-xl border border-cream/20 p-3">

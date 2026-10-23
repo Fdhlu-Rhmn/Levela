@@ -9,19 +9,23 @@ type Props = {
   children: React.ReactNode
 }
 
-const base =
-  'inline-flex min-h-11 items-center justify-center gap-3 rounded-xl px-5 text-sm font-bold transition-colors duration-200'
-const variants = {
-  primary: 'bg-white text-ink hover:bg-cream',
-  ghost: 'border border-cream/50 text-cream hover:bg-cream/10',
+export const buttonBase =
+  'inline-flex min-h-12 items-center justify-between gap-8 rounded-md px-5 text-sm font-semibold transition-[transform,background-color] duration-200 hover:-translate-y-0.5'
+export const buttonVariants = {
+  primary: 'bg-cream text-ink shadow-[0_12px_30px_rgba(139,40,0,.18)] hover:bg-white [text-shadow:none]',
+  ghost: 'border border-line text-cream hover:bg-cream/10',
 }
 
 export function Button({ href, variant = 'primary', external, arrow, className = '', children }: Props) {
-  const cls = `${base} ${variants[variant]} ${className}`
+  const cls = `${buttonBase} ${buttonVariants[variant]} ${className}`
   const content = (
     <>
-      {children}
-      {arrow && <span aria-hidden="true">↗</span>}
+      <span>{children}</span>
+      {arrow && (
+        <span aria-hidden="true" className="text-xl leading-none">
+          ↗
+        </span>
+      )}
     </>
   )
   if (external)

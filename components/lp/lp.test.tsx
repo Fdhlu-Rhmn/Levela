@@ -56,3 +56,15 @@ test('promo shown at build time switches to normal price once it has ended in th
   expect(screen.queryByText('Rp2.600.000')).toBeNull()
   vi.useRealTimers()
 })
+
+test('program with an lp but no packages still builds a page without a paket section', async () => {
+  const { programs } = await import('@/content/programs')
+  const bd = programs[0]
+  const original = bd.packages
+  bd.packages = undefined
+  const { default: Page } = await import('@/app/program/[slug]/page')
+  const { container } = render(await Page({ params: Promise.resolve({ slug: bd.slug }) }))
+  expect(container.querySelector('#paket')).toBeNull()
+  expect(screen.queryByRole('link', { name: /Daftar Sekarang/ })).toBeNull()
+  bd.packages = original
+})
