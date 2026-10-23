@@ -3,6 +3,10 @@
 @theme {
   --color-cream: #fff7e9;
   --color-ink: #311a10;
+  --color-bg-from: #b13507;
+  --color-bg-via: #c2410c;
+  --color-bg-to: #c6470b;
+  --glass-tint: 0.3;
   --color-orange: #ee5b0b;
   --color-line: rgba(255, 246, 227, 0.32);
   --color-ok: #1f9d55;
@@ -34,12 +38,12 @@
 }
 
 @utility bg-levela {
-  background: linear-gradient(110deg, #bf3508 0%, #e95308 43%, #f58b1e 100%);
+  background: linear-gradient(110deg, var(--color-bg-from) 0%, var(--color-bg-via) 45%, var(--color-bg-to) 100%);
   background-attachment: fixed;
 }
 
 @utility glass {
-  background: rgba(255, 247, 233, 0.13);
+  background: rgb(49 26 16 / var(--glass-tint));
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 247, 233, 0.28);

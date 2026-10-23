@@ -23,11 +23,11 @@ export default function Home() {
     <main>
       <section className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pt-10 pb-14 sm:px-8 sm:pt-16 lg:grid-cols-[1.1fr_.9fr]">
         <div>
-          <p className="text-xs font-bold tracking-[0.2em] text-cream/85">SEKOLAH BISNIS &amp; KREATIF</p>
+          <p className="text-xs font-bold tracking-[0.2em]">SEKOLAH BISNIS &amp; KREATIF</p>
           <h1 className="mt-5 text-5xl leading-[0.98] font-extrabold tracking-[-0.04em] sm:text-7xl">
             Bangun karier profesionalmu.
           </h1>
-          <p className="mt-6 max-w-md text-base text-cream/90 sm:text-lg">
+          <p className="mt-6 max-w-md text-base sm:text-lg">
             Kembangkan keahlian bisnis dan kreatif. Terhubung dengan <strong>ratusan mitra hiring</strong> melalui Talentiv Jobs.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -66,8 +66,8 @@ export default function Home() {
             Awal yang tepat untuk <strong>langkah profesionalmu.</strong>
           </p>
           {['Belajar terarah', 'Bangun portofolio', 'Jelajahi peluang karier'].map((t, i) => (
-            <p key={t} className="text-sm text-cream/90">
-              <span className="mr-2 font-bold text-cream/70">{String(i + 1).padStart(2, '0')}</span>
+            <p key={t} className="text-sm">
+              <span className="mr-2 font-bold">{String(i + 1).padStart(2, '0')}</span>
               {t}
             </p>
           ))}
@@ -86,10 +86,10 @@ export default function Home() {
         <ol className="grid gap-4 sm:grid-cols-2">
           {steps.map((s, i) => (
             <li key={s.title} className="glass flex gap-5 p-6">
-              <span className="font-heading text-2xl font-extrabold text-cream/70">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-heading text-2xl font-extrabold">{String(i + 1).padStart(2, '0')}</span>
               <div>
                 <h3 className="text-xl font-extrabold">{s.title}</h3>
-                <p className="mt-2 text-sm text-cream/85">{s.desc}</p>
+                <p className="mt-2 text-sm">{s.desc}</p>
               </div>
             </li>
           ))}
@@ -108,21 +108,21 @@ export default function Home() {
           <div className="glass grid gap-6 p-7 sm:p-10 md:grid-cols-[1.3fr_1fr] md:items-center">
             <div>
               <h2 className="text-3xl font-extrabold sm:text-5xl">Keahlian bertumbuh. Peluang terbuka.</h2>
-              <p className="mt-4 max-w-xl text-cream/90">
+              <p className="mt-4 max-w-xl">
                 Perjalananmu berlanjut setelah belajar. Levela terhubung dengan Talentiv Jobs untuk membantumu menjelajahi peluang dari ratusan mitra hiring.
               </p>
-              <p className="mt-4 text-xs text-cream/70">Penerimaan kerja mengikuti proses seleksi masing-masing perusahaan.</p>
+              <p className="mt-4 text-xs">Penerimaan kerja mengikuti proses seleksi masing-masing perusahaan.</p>
             </div>
             <div className="rounded-[18px] border border-cream/25 bg-cream/10 p-6">
               <p className="font-heading text-5xl font-extrabold">Ratusan</p>
-              <p className="mt-2 text-cream/90">mitra hiring dalam jaringan Talentiv Jobs</p>
+              <p className="mt-2">mitra hiring dalam jaringan Talentiv Jobs</p>
             </div>
           </div>
         </Section>
       </section>
 
       <Section eyebrow="05 / MEET LEVELA" title="Tempat memulai langkah profesionalmu.">
-        <p className="max-w-2xl text-cream/90">
+        <p className="max-w-2xl">
           Levela Academy adalah sekolah bisnis dan kreatif untuk kamu yang ingin membangun karier profesional. Kami percaya ilmu, integritas, dan kualitas kerja membuka jalan untuk tumbuh.
         </p>
         <Button href="/tentang/" variant="ghost" arrow className="mt-6">
@@ -137,7 +137,7 @@ export default function Home() {
       <Section>
         <div className="glass flex flex-col gap-6 p-7 sm:p-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-bold tracking-[0.2em] text-cream/80">YOUR NEXT CHAPTER STARTS HERE.</p>
+            <p className="text-xs font-bold tracking-[0.2em]">YOUR NEXT CHAPTER STARTS HERE.</p>
             <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Langkah kecil hari ini. Karier besar di depan.</h2>
           </div>
           <ConsultButton text={consultText} variant="primary" />

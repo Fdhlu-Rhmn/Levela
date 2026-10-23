@@ -5,7 +5,7 @@ import { asset } from '@/lib/asset'
 function Chips({ label, items }: { label: string; items: string[] }) {
   return (
     <div>
-      <p className="mb-2 text-xs font-bold tracking-[0.14em] text-cream/75 uppercase">{label}</p>
+      <p className="mb-2 text-xs font-bold tracking-[0.14em] uppercase">{label}</p>
       <ul className="flex flex-wrap gap-1.5">
         {items.map((i) => (
           <li key={i} className="rounded-lg border border-cream/25 bg-cream/10 px-2.5 py-1 text-[13px]">
@@ -26,12 +26,12 @@ export function TalentCard({ talent: t }: { talent: Talent }) {
           <img src={asset(t.photo)} alt={`Foto ${t.name}`} loading="lazy" className="size-14 rounded-2xl object-cover" />
           <div>
             <h3 className="text-lg leading-tight font-extrabold">{t.name}</h3>
-            <p className="text-sm text-cream/85">{t.role}</p>
+            <p className="text-sm">{t.role}</p>
           </div>
         </div>
         {t.salaryFrom && (
           <div className="text-right">
-            <p className="text-xs text-cream/75">Gaji mulai dari</p>
+            <p className="text-xs">Gaji mulai dari</p>
             <p className="font-heading text-lg font-extrabold">{formatRupiah(t.salaryFrom)}</p>
           </div>
         )}
@@ -45,22 +45,22 @@ export function TalentCard({ talent: t }: { talent: Talent }) {
         >
           {badge}
         </span>
-        {t.sample && <span className="text-xs text-cream/70">Contoh profil</span>}
+        {t.sample && <span className="text-xs">Contoh profil</span>}
       </div>
 
       <dl className="grid gap-4 border-t border-line pt-4 text-sm">
         <div>
-          <dt className="text-xs font-bold tracking-[0.14em] text-cream/75 uppercase">Education</dt>
+          <dt className="text-xs font-bold tracking-[0.14em] uppercase">Education</dt>
           <dd className="mt-1">
             <b>{t.education.org}</b> · {t.education.program} ({t.education.date})
-            <p className="mt-1 text-cream/85">{t.education.summary}</p>
+            <p className="mt-1">{t.education.summary}</p>
           </dd>
         </div>
         <div>
-          <dt className="text-xs font-bold tracking-[0.14em] text-cream/75 uppercase">Professional Experience</dt>
+          <dt className="text-xs font-bold tracking-[0.14em] uppercase">Professional Experience</dt>
           <dd className="mt-1">
             <b>{t.experience.org}</b> · {t.experience.role} ({t.experience.date})
-            <p className="mt-1 text-cream/85">{t.experience.summary}</p>
+            <p className="mt-1">{t.experience.summary}</p>
           </dd>
         </div>
       </dl>

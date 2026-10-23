@@ -26,6 +26,13 @@ test('Header menu button toggles navigation', async () => {
   expect(button).toHaveAccessibleName('Tutup navigasi')
 })
 
+test('desktop consult link is hidden by a wrapper, not by conflicting display classes', () => {
+  render(<Header />)
+  const link = screen.getByRole('link', { name: 'Konsultasi Program ↗' })
+  expect(link.className.split(' ')).not.toContain('hidden')
+  expect(link.closest('.hidden')).not.toBeNull()
+})
+
 test('Footer keeps the tagline and year without subsidiary wording', () => {
   const { container } = render(<Footer />)
   expect(screen.getByText('Sekolah bisnis dan kreatif untuk membangun karier profesionalmu.')).toBeInTheDocument()

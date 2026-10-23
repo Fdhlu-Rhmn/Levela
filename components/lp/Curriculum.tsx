@@ -9,31 +9,31 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
       <details open className="glass group p-5 sm:p-6">
         <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
           <span>
-            <span className="block text-xs font-bold tracking-[0.16em] text-cream/75">FASE 1 · LIVE CLASS</span>
+            <span className="block text-xs font-bold tracking-[0.16em]">FASE 1 · LIVE CLASS</span>
             <span className="font-heading text-xl font-extrabold">{lp.phase1.title}</span>
           </span>
           <span aria-hidden="true" className="text-xl transition-transform group-open:rotate-45">
             +
           </span>
         </summary>
-        <p className="mt-2 text-sm text-cream/80">{lp.phase1.time}</p>
+        <p className="mt-2 text-sm">{lp.phase1.time}</p>
         <ol className="mt-4 divide-y divide-line">
           {lp.phase1.sessions.map((s) => (
             <li key={s.code} className="grid grid-cols-[3rem_4.5rem_1fr] gap-2 py-2.5 text-sm">
               <span className="font-bold">{s.code}</span>
-              <span className="text-cream/80">{shortDate(s.date)}</span>
+              <span>{shortDate(s.date)}</span>
               <span>{s.title}</span>
             </li>
           ))}
         </ol>
       </details>
       <div className="glass p-5 sm:p-6">
-        <p className="text-xs font-bold tracking-[0.16em] text-cream/75">FASE 2 · MENTORING</p>
+        <p className="text-xs font-bold tracking-[0.16em]">FASE 2 · MENTORING</p>
         <h3 className="font-heading text-xl font-extrabold">{lp.phase2.title}</h3>
         <ol className="mt-4 grid gap-2 text-sm">
           {lp.phase2.modules.map((m, i) => (
             <li key={m} className="flex gap-3 rounded-xl border border-cream/20 p-3">
-              <span className="font-bold text-cream/75">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-bold">{String(i + 1).padStart(2, '0')}</span>
               {m}
             </li>
           ))}

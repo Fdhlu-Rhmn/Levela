@@ -33,7 +33,7 @@ export default function Tentang() {
   return (
     <main>
       <section className="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-8 sm:pt-16">
-        <p className="text-xs font-bold tracking-[0.2em] text-cream/85">TENTANG LEVELA</p>
+        <p className="text-xs font-bold tracking-[0.2em]">TENTANG LEVELA</p>
         <h1 className="mt-5 max-w-3xl text-5xl leading-[1] font-extrabold tracking-[-0.04em] sm:text-7xl">
           Tempat memulai langkah profesionalmu.
         </h1>
@@ -48,7 +48,7 @@ export default function Tentang() {
       </section>
 
       <Section eyebrow="01 / CERITA KAMI" title="Dari rasa ingin tahu ke karier yang jelas arahnya.">
-        <div className="grid gap-6 text-cream/90 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <p>
             Levela Academy adalah sekolah bisnis dan kreatif untuk fresh graduate, profesional di awal karier, dan kamu yang ingin kariernya bergerak lagi.
           </p>
@@ -63,7 +63,7 @@ export default function Tentang() {
           {values.map((v) => (
             <li key={v.title} className="glass p-6">
               <h3 className="text-2xl font-extrabold">{v.title}</h3>
-              <p className="mt-2 text-sm text-cream/85">{v.desc}</p>
+              <p className="mt-2 text-sm">{v.desc}</p>
             </li>
           ))}
         </ul>
@@ -71,10 +71,10 @@ export default function Tentang() {
 
       <Section eyebrow="03 / LEVELA × TALENTIV JOBS" title="Belajar terarah. Peluang lebih luas.">
         <div className="glass p-7 sm:p-10">
-          <p className="max-w-2xl text-cream/90">
+          <p className="max-w-2xl">
             Levela bermitra dengan Talentiv Jobs. Profil, sertifikat, dan portofolio alumni tampil di Talentiv Jobs, sehingga lebih mudah ditemukan oleh ratusan mitra hiring.
           </p>
-          <p className="mt-4 text-xs text-cream/70">Penerimaan kerja mengikuti proses seleksi masing-masing perusahaan.</p>
+          <p className="mt-4 text-xs">Penerimaan kerja mengikuti proses seleksi masing-masing perusahaan.</p>
         </div>
       </Section>
 
@@ -83,7 +83,7 @@ export default function Tentang() {
           {mentors.map((m) => (
             <li key={m.name} className="glass p-6">
               <p className="font-heading text-lg font-extrabold">{m.name}</p>
-              <p className="mt-1 text-sm text-cream/85">{m.role}</p>
+              <p className="mt-1 text-sm">{m.role}</p>
             </li>
           ))}
         </ul>
@@ -94,7 +94,7 @@ export default function Tentang() {
           {stats.map((s) => (
             <li key={s.label} className="glass p-6">
               <p className="font-heading text-4xl font-extrabold">{s.value}</p>
-              <p className="mt-2 text-sm text-cream/85">{s.label}</p>
+              <p className="mt-2 text-sm">{s.label}</p>
             </li>
           ))}
         </ul>
@@ -106,13 +106,13 @@ export default function Tentang() {
             <dl className="grid gap-3 text-sm">
               {contacts.map((c) => (
                 <div key={c.label}>
-                  <dt className="text-cream/70">{c.label}</dt>
+                  <dt>{c.label}</dt>
                   <dd className="font-semibold">{c.value}</dd>
                 </div>
               ))}
             </dl>
           ) : (
-            <p className="max-w-md text-cream/90">Cara tercepat menghubungi kami adalah lewat WhatsApp.</p>
+            <p className="max-w-md">Cara tercepat menghubungi kami adalah lewat WhatsApp.</p>
           )}
           <ConsultButton text={consultText} variant="primary" />
         </div>

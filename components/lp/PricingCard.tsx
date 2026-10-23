@@ -19,9 +19,9 @@ export function PricingCard({ pkg, whatsappText, now = new Date(), highlight }: 
           <p className="text-lg font-bold">Harga diinformasikan saat konsultasi</p>
         ) : promo ? (
           <>
-            <p className="text-sm text-cream/70 line-through">{formatRupiah(pkg.normalPrice)}</p>
+            <p className="text-sm line-through">{formatRupiah(pkg.normalPrice)}</p>
             <p className="font-heading text-4xl font-extrabold">{formatRupiah(pkg.promoPrice!)}</p>
-            <p className="mt-1 text-sm text-cream/85">Early bird hingga {longDate(pkg.promoUntil!)}</p>
+            <p className="mt-1 text-sm">Early bird hingga {longDate(pkg.promoUntil!)}</p>
           </>
         ) : (
           <p className="font-heading text-4xl font-extrabold">{formatRupiah(pkg.normalPrice)}</p>

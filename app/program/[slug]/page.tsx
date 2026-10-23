@@ -37,7 +37,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
       <Hero program={p} />
 
       <section aria-label="Mitra hiring" className="border-y border-line">
-        <ul className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-x-10 gap-y-3 px-4 py-6 text-sm font-semibold text-cream/80 sm:px-8">
+        <ul className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-x-10 gap-y-3 px-4 py-6 text-sm font-semibold sm:px-8">
           {partners.map((pt) => (
             <li key={pt.id}>{pt.name}</li>
           ))}
@@ -48,9 +48,9 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {lp.skills.map((s, i) => (
             <article key={s.title} className={card}>
-              <p className="text-sm font-bold text-cream/70">{String(i + 1).padStart(2, '0')}</p>
+              <p className="text-sm font-bold">{String(i + 1).padStart(2, '0')}</p>
               <h3 className="mt-6 text-lg leading-snug font-extrabold">{s.title}</h3>
-              <p className="mt-2 text-sm text-cream/85">{s.desc}</p>
+              <p className="mt-2 text-sm">{s.desc}</p>
             </article>
           ))}
         </div>
@@ -70,12 +70,12 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
               {lp.stats.map((s) => (
                 <div key={s.label} className={card}>
                   <p className="font-heading text-3xl font-extrabold">{s.value}</p>
-                  <p className="mt-1 text-sm text-cream/85">{s.label}</p>
+                  <p className="mt-1 text-sm">{s.label}</p>
                 </div>
               ))}
             </div>
             <div className={card}>
-              <p className="text-xs font-bold tracking-[0.16em] text-cream/75">POTENSI KARIER</p>
+              <p className="text-xs font-bold tracking-[0.16em]">POTENSI KARIER</p>
               <p className="mt-2 text-sm">{lp.careers.join(' · ')}</p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
           {lp.audience.map((a) => (
             <article key={a.title} className={card}>
               <h3 className="text-xl font-extrabold">{a.title}</h3>
-              <p className="mt-2 text-sm text-cream/85">{a.desc}</p>
+              <p className="mt-2 text-sm">{a.desc}</p>
             </article>
           ))}
         </div>
@@ -111,7 +111,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {lp.projects.map((pr, i) => (
             <li key={pr} className={card}>
-              <p className="text-sm font-bold text-cream/70">{String(i + 1).padStart(2, '0')}</p>
+              <p className="text-sm font-bold">{String(i + 1).padStart(2, '0')}</p>
               <p className="mt-6 font-semibold">{pr}</p>
             </li>
           ))}
@@ -126,7 +126,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
                 {m.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
               </span>
               <p className="mt-4 font-heading text-lg font-extrabold">{m.name}</p>
-              <p className="mt-1 text-sm text-cream/85">{m.role}</p>
+              <p className="mt-1 text-sm">{m.role}</p>
             </li>
           ))}
         </ul>
@@ -146,7 +146,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
       </Section>
 
       <Section eyebrow="09 / SERTIFIKASI" title={lp.certificate}>
-        <p className="max-w-2xl text-cream/90">Sertifikat diberikan sesuai ketentuan program, lengkap dengan profil dan portofolio di Talentiv Jobs.</p>
+        <p className="max-w-2xl">Sertifikat diberikan sesuai ketentuan program, lengkap dengan profil dan portofolio di Talentiv Jobs.</p>
       </Section>
 
       <Section eyebrow="10 / KENAPA PROGRAM INI" title={`Kenapa ${p.title}?`}>
@@ -178,7 +178,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
         <div className="glass flex flex-col gap-6 p-7 sm:p-10 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-3xl font-extrabold sm:text-4xl">Ceritakan tantanganmu.</h2>
-            <p className="mt-3 max-w-lg text-cream/90">Belum yakin program ini cocok? Tim Levela bantu kamu memilih langkah yang tepat.</p>
+            <p className="mt-3 max-w-lg">Belum yakin program ini cocok? Tim Levela bantu kamu memilih langkah yang tepat.</p>
           </div>
           <ConsultButton text={p.whatsappText} variant="primary" />
         </div>

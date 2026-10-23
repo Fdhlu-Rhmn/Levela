@@ -18,10 +18,10 @@ export function ProgramCard({ program: p }: { program: Program }) {
         <StatusBadge status={p.status} className="absolute top-3 left-3" />
       </div>
       <div className="flex flex-1 flex-col gap-1.5 p-5">
-        <p className="text-[11px] font-bold tracking-[0.18em] text-cream/80">{eyebrow[p.category]}</p>
+        <p className="text-[11px] font-bold tracking-[0.18em]">{eyebrow[p.category]}</p>
         <h3 className="text-xl leading-snug font-extrabold">{p.title}</h3>
-        <p className="text-sm text-cream/90">{meta || p.summary}</p>
-        {p.batchStart && <p className="text-sm text-cream/90">Batch mulai {p.batchStart}</p>}
+        <p className="text-sm">{meta || p.summary}</p>
+        {p.batchStart && <p className="text-sm">Batch mulai {p.batchStart}</p>}
         <div className="mt-auto flex gap-2 pt-4">
           {available ? (
             <>

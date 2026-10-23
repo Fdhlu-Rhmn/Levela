@@ -63,7 +63,7 @@ export function ProgramSearch({ programs }: { programs: Program[] }) {
         </div>
       </div>
 
-      <p aria-live="polite" className="mt-5 mb-3 text-sm text-cream/85">
+      <p aria-live="polite" className="mt-5 mb-3 text-sm">
         {results.length} program ditemukan
       </p>
 

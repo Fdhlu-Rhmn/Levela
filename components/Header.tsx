@@ -21,12 +21,14 @@ export function Header() {
       <Logo />
       <nav aria-label="Navigasi utama" className="hidden gap-8 text-sm lg:flex">
         {navLinks.map((l) => (
-          <Link key={l.href} href={l.href} className="opacity-85 transition-opacity hover:opacity-100">
+          <Link key={l.href} href={l.href} className="underline-offset-4 hover:underline">
             {l.label}
           </Link>
         ))}
       </nav>
-      <ConsultButton text={consultText} className="hidden lg:inline-flex" />
+      <div className="hidden lg:block">
+        <ConsultButton text={consultText} />
+      </div>
       <button
         type="button"
         aria-expanded={open}

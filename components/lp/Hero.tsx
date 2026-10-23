@@ -10,14 +10,14 @@ export function Hero({ program: p }: { program: Program }) {
       <div>
         <StatusBadge status={p.status} />
         <h1 className="mt-5 text-4xl leading-[1.02] font-extrabold tracking-tight sm:text-6xl">{p.title}</h1>
-        <p className="mt-5 max-w-xl text-base text-cream/90 sm:text-lg">{p.lp!.heroSubtitle}</p>
+        <p className="mt-5 max-w-xl text-base sm:text-lg">{p.lp!.heroSubtitle}</p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Button href="#paket" arrow>
             Daftar Sekarang
           </Button>
           <ConsultButton text={p.whatsappText} />
         </div>
-        <p className="mt-6 text-sm text-cream/80">
+        <p className="mt-6 text-sm">
           {[p.duration, p.format, p.level].filter(Boolean).join(' · ')}
           {p.batchStart && ` · Batch mulai ${p.batchStart}`}
         </p>

@@ -11,7 +11,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
               +
             </span>
           </summary>
-          <p className="pb-4 text-sm leading-relaxed text-cream/90 sm:text-base">{f.a}</p>
+          <p className="pb-4 text-sm leading-relaxed sm:text-base">{f.a}</p>
         </details>
       ))}
     </div>
