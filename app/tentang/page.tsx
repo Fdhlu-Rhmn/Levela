@@ -161,7 +161,7 @@ export default function Tentang() {
       <Section eyebrow="04 / Mentor" aside="Learn from practitioners.">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-16">
           <h2 className={`reveal ${h2}`}>
-            Belajar dari mereka yang mengerjakannya setiap hari<span className="text-sun">.</span>
+            Dibimbing praktisi berpengalaman dari industri<span className="text-sun">.</span>
           </h2>
           <div className="reveal">
             <p className="leading-relaxed">
