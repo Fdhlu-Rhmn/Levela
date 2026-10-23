@@ -141,7 +141,7 @@ export type Program = { slug: string; title: string; category: Category; status:
     - Social Media: `['konten', 'instagram', 'tiktok', 'caption']`
 
     BD's `title` and `summary` must not contain the substring `ads`. Note that "leads" contains it.
-  - **Image paths**: `/images/program-<slug>.webp`. Talent photos: `/images/talent-<id>.webp`.
+  - **Image paths**: card images are `/images/program-<slug>.webp`. LP hero images are `/images/lp-<slug>.webp`. Talent ids are `bd-1`, `bd-2`, `dm-1`, `dm-2`, with photos at `/images/talent-<id>.webp`. These names must match the table in `docs/brand/character-prompts.md`.
 
 - [ ] **Step 4: Run it.** Run `npm test`. Expected: PASS.
 
@@ -332,7 +332,7 @@ export type Program = { slug: string; title: string; category: Category; status:
   - Run it on `legacy/assets/hero.png` to produce `public/images/hero.webp`. Expected: a file under 250 KB.
   - For every other image path referenced in `content/` and pages, generate a neutral placeholder WebP: an orange gradient with the label text rendered by sharp's SVG input, so the build has no broken images.
 
-- [ ] **Step 2: Write `docs/brand/character-prompts.md`.** It contains one base-style paragraph matching `hero.png`: young Southeast Asian professionals, plain orange studio background, soft studio light, smart-casual cream or dark clothing, confident expression, realistic editorial photo. Then one prompt per image path from Step 1, each with aspect ratio, target pixel size, file name, and a background note.
+- [ ] **Step 2: Character prompts already exist** in `docs/brand/character-prompts.md`, written during planning. Placeholders are generated for every file name in its table, at the listed size, with the label text equal to the file name. The owner produces the real photos and replaces the placeholders with `scripts/to-webp.mjs`.
 
 - [ ] **Step 3: Verify.** Run `npm run build`, then `node scripts/check-images.mjs`. This small script collects every `src="/images/…"` in `out/**/*.html` and prints any path missing under `out/`. Expected: it prints `0 missing` and exits with code 0. Create the script in this step.
 
