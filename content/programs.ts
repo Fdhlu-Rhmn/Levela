@@ -1,4 +1,4 @@
-import type { Program, ProgramLp, Talent } from './types'
+import type { Mentor, Program, ProgramLp, Talent } from './types'
 import { talents } from './talents'
 
 const waText = (title: string) => `Halo kak, saya ingin bertanya mengenai program ${title}.`
@@ -295,3 +295,15 @@ export const getProgram = (slug: string): Program | undefined => programs.find((
 
 export const getTalents = (ids: string[]): Talent[] =>
   ids.map((id) => talents.find((t) => t.id === id)).filter((t): t is Talent => !!t)
+
+// Every mentor across all programs, once, with the programs they teach (About page).
+export const allMentors = (): (Mentor & { programs: string[] })[] => {
+  const byName = new Map<string, Mentor & { programs: string[] }>()
+  for (const p of programs)
+    for (const m of p.lp?.mentors ?? []) {
+      const found = byName.get(m.name)
+      if (found) found.programs.push(p.title)
+      else byName.set(m.name, { ...m, programs: [p.title] })
+    }
+  return [...byName.values()]
+}

@@ -149,3 +149,15 @@ test('DM curriculum: 8 owner-supplied sessions with dates and mentors', () => {
   expect(s[1].tags).toEqual(['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'])
   expect(lp.stats[0]).toEqual({ value: '8', label: 'Sesi live class' })
 })
+
+test('allMentors lists every mentor once with the programs they teach', async () => {
+  const { allMentors } = await import('./programs')
+  const list = allMentors()
+  const names = list.map((m) => m.name)
+  expect(new Set(names).size).toBe(names.length)
+  expect(names).toContain('Tri Ali Herviansyah')
+  expect(names).toContain('Usamah')
+  expect(list.find((m) => m.name === 'Tri Ali Herviansyah')!.programs).toEqual(['Business Development Fast Track'])
+  expect(list.find((m) => m.name === 'Sahrul')!.programs).toEqual(['Digital Marketing Fast Track'])
+  for (const m of list) expect(m.photo).toMatch(/^\/images\/mentor-.+\.webp$/)
+})

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { programs } from '@/content/programs'
+import { allMentors, programs } from '@/content/programs'
 import { site } from '@/content/site'
 import { asset } from '@/lib/asset'
 import { ConsultButton } from '@/components/ConsultButton'
@@ -8,7 +8,9 @@ import { Section } from '@/components/Section'
 
 export const metadata: Metadata = { title: 'Tentang Kami' }
 
-// CONTOH: teks halaman ini contoh. Ganti dengan cerita, tim, dan angka asli Levela.
+const h2 = 'text-[clamp(2.1rem,4.4vw,3.4rem)] leading-[1.1] tracking-[-0.045em]'
+const num = (i: number) => String(i + 1).padStart(2, '0')
+
 const values = [
   {
     title: 'Ilmu yang relevan',
@@ -40,13 +42,17 @@ const partnerSteps = [
 
 // TODO: konfirmasi klaim angka sebelum live (lihat docs/audit)
 const stats = [
-  { value: 'Ratusan', label: 'Mitra hiring dalam jaringan Talentiv Jobs yang dapat melihat profil dan portofolio alumni.' },
-  { value: String(programs.length), label: 'Jalur program: Business Development, Digital Marketing, dan Social Media yang segera hadir.' },
-  { value: '20', label: 'Peserta maksimal per batch, agar setiap peserta mendapat perhatian dan umpan balik yang personal.' },
+  { value: 'Ratusan', label: 'mitra hiring', desc: 'dalam jaringan Talentiv Jobs yang dapat melihat profil dan portofolio alumni.' },
+  { value: String(programs.length), label: 'jalur program', desc: 'Business Development, Digital Marketing, dan Social Media yang segera hadir.' },
+  { value: '20', label: 'peserta per batch', desc: 'paling banyak, agar setiap peserta mendapat perhatian dan umpan balik yang personal.' },
 ]
 
+// Pick a desktop column count that leaves no card alone on the last row as mentors are added.
+export const mentorCols = (n: number) =>
+  n % 4 !== 1 || n <= 4 ? 'lg:grid-cols-4' : n % 3 !== 1 ? 'lg:grid-cols-3' : 'lg:grid-cols-5'
+
 export default function Tentang() {
-  const mentors = programs.find((p) => p.lp)?.lp?.mentors ?? []
+  const mentors = allMentors()
   const contacts = [
     { label: 'Email', value: site.email },
     { label: 'Instagram', value: site.instagram },
@@ -74,10 +80,10 @@ export default function Tentang() {
         </div>
       </section>
 
-      <Section eyebrow="01 / CERITA KAMI" aside="Why Levela.">
+      <Section eyebrow="01 / Cerita kami" aside="Why Levela.">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
           <div className="reveal">
-            <h2 className="text-[clamp(2.1rem,4.4vw,3.4rem)] leading-[1.1] tracking-[-0.045em]">
+            <h2 className={h2}>
               Menjembatani pendidikan dan kebutuhan dunia kerja<span className="text-sun">.</span>
             </h2>
             <p className="mt-7 border-l-2 border-sun pl-5 font-heading text-xl leading-snug tracking-[-0.01em] sm:text-2xl">
@@ -108,25 +114,37 @@ export default function Tentang() {
         </div>
       </Section>
 
-      <Section eyebrow="02 / NILAI KAMI" title="Prinsip yang kami pegang.">
-        <ul className="grid gap-4 md:grid-cols-3">
-          {values.map((v) => (
-            <li key={v.title} className="glass p-6">
-              <h3 className="text-2xl">{v.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed">{v.desc}</p>
-            </li>
-          ))}
-        </ul>
+      {/* Values: editorial columns divided by hairlines instead of identical boxes */}
+      <Section eyebrow="02 / Nilai kami" aside="What we stand for.">
+        <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          <h2 className={`reveal ${h2}`}>
+            Tiga hal yang tidak kami kompromikan<span className="text-sun">.</span>
+          </h2>
+          <ol className="grid border-t border-line md:grid-cols-3">
+            {values.map((v, i) => (
+              <li key={v.title} className="reveal border-b border-line py-7 md:border-b-0 md:border-l md:px-6 md:first:border-l-0 md:first:pl-0">
+                <span className="font-heading text-4xl tracking-[-0.05em] text-sun">{num(i)}</span>
+                <h3 className="mt-5 text-xl tracking-[-0.02em]">{v.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed">{v.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Section>
 
-      <Section eyebrow="03 / LEVELA × TALENTIV JOBS" title="Belajar terarah. Peluang lebih luas.">
-        <p className="max-w-2xl leading-relaxed">
-          Melalui kemitraan dengan Talentiv Jobs, profil profesional, sertifikat, dan portofolio alumni dapat ditampilkan kepada jaringan mitra hiring. Perusahaan dapat menilai kompetensimu secara lebih utuh, tidak hanya dari CV.
-        </p>
-        <ol className="mobile-carousel mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <Section eyebrow="03 / Levela × Talentiv Jobs" aside="From classroom to hiring.">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+          <h2 className={`reveal ${h2}`}>
+            Kompetensimu terlihat, bukan hanya tertulis di CV<span className="text-sun">.</span>
+          </h2>
+          <p className="reveal max-w-md leading-relaxed">
+            Melalui kemitraan dengan Talentiv Jobs, profil profesional, sertifikat, dan portofolio alumni dapat ditampilkan kepada jaringan mitra hiring.
+          </p>
+        </div>
+        <ol className="mobile-carousel mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {partnerSteps.map((s, i) => (
             <li key={s.title} className="glass reveal relative flex flex-col p-6">
-              <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{num(i)}</span>
               <h3 className="mt-5 text-lg leading-snug tracking-[-0.02em]">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed">{s.desc}</p>
               {i < partnerSteps.length - 1 && (
@@ -142,51 +160,74 @@ export default function Tentang() {
         </p>
       </Section>
 
-      <Section
-        eyebrow="04 / MENTOR"
-        title="Didampingi praktisi industri."
-        intro="Mentor Levela adalah praktisi di bidang bisnis, pemasaran, dan pengembangan kemitraan. Mereka membagikan cara kerja yang mereka gunakan, memberi umpan balik pada proyek, dan membantumu memahami standar kerja profesional."
-      >
-        <ul className="mobile-carousel grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Mentors: every mentor across programs, with photo and experience; grows as data grows */}
+      <Section eyebrow="04 / Mentor" aside={`${mentors.length} praktisi`}>
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+          <h2 className={`reveal ${h2}`}>
+            Belajar dari mereka yang mengerjakannya setiap hari<span className="text-sun">.</span>
+          </h2>
+          <p className="reveal max-w-md leading-relaxed">
+            Mentor Levela adalah praktisi di bidang bisnis, pemasaran, dan pengembangan kemitraan. Mereka membagikan cara kerja yang mereka gunakan dan memberi umpan balik langsung pada proyekmu.
+          </p>
+        </div>
+        <ul className={`mobile-carousel mt-12 grid gap-5 sm:grid-cols-2 ${mentorCols(mentors.length)}`}>
           {mentors.map((m) => (
-            <li key={m.name} className="glass p-6">
-              <p className="font-heading text-lg">{m.name}</p>
-              <p className="mt-1 text-sm font-semibold">{m.role}</p>
-              {m.experience && <p className="mt-3 border-t border-line pt-3 text-[13px] leading-relaxed">{m.experience}</p>}
+            <li key={m.name} className="glass lift reveal flex flex-col overflow-hidden">
+              {m.photo && <img src={asset(m.photo)} alt={`Foto ${m.name}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />}
+              <div className="flex flex-1 flex-col p-5">
+                <p className="font-heading text-lg tracking-[-0.02em]">{m.name}</p>
+                <p className="mt-1 text-[13px] font-semibold">{m.role}</p>
+                {m.experience && <p className="mt-3 text-[13px] leading-relaxed">{m.experience}</p>}
+                <ul className="mt-auto flex flex-wrap gap-1.5 border-t border-line pt-3">
+                  {m.programs.map((p) => (
+                    <li key={p} className="rounded-full border border-cream/35 bg-cream/15 px-2.5 py-1 text-[11px] font-medium">
+                      {p.replace(' Fast Track', '')}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section eyebrow="05 / DALAM ANGKA" title="Dirancang agar tetap personal.">
-        <ul className="grid gap-4 sm:grid-cols-3">
+      {/* Numbers: one panel, large numerals split by hairlines */}
+      <Section eyebrow="05 / Dalam angka" aside="Small classes, real feedback.">
+        <h2 className={`reveal ${h2}`}>
+          Kelas kecil, umpan balik nyata<span className="text-sun">.</span>
+        </h2>
+        <dl className="glass reveal mt-12 grid md:grid-cols-3">
           {stats.map((s) => (
-            <li key={s.label} className="glass p-6">
-              <p className="font-heading text-4xl">{s.value}</p>
-              <p className="mt-3 text-sm leading-relaxed">{s.label}</p>
-            </li>
+            <div key={s.label} className="border-b border-line p-7 last:border-0 md:border-b-0 md:border-l md:first:border-l-0">
+              <dt className="sr-only">{s.label}</dt>
+              <dd className="font-heading text-[clamp(2.8rem,5vw,4rem)] leading-none tracking-[-0.06em]">{s.value}</dd>
+              <dd className="mt-3 text-xs font-semibold tracking-[0.16em] uppercase">{s.label}</dd>
+              <dd className="mt-2 text-sm leading-relaxed">{s.desc}</dd>
+            </div>
           ))}
-        </ul>
+        </dl>
       </Section>
 
-      <Section
-        eyebrow="06 / KONTAK"
-        title="Diskusikan langkah kariermu."
-        intro="Ingin tahu program mana yang paling sesuai dengan tujuan dan pengalamanmu? Tim Levela siap membantu memberikan gambaran program, jadwal, dan paket yang tersedia."
-      >
-        <div className="glass flex flex-col gap-6 p-7 sm:p-10 md:flex-row md:items-end md:justify-between">
-          {contacts.length > 0 ? (
-            <dl className="grid gap-3 text-sm">
-              {contacts.map((c) => (
-                <div key={c.label}>
-                  <dt>{c.label}</dt>
-                  <dd className="font-semibold">{c.value}</dd>
-                </div>
-              ))}
-            </dl>
-          ) : (
-            <p className="max-w-md leading-relaxed">Konsultasi dilakukan melalui WhatsApp bersama tim Levela.</p>
-          )}
+      <Section eyebrow="06 / Kontak" aside="Let’s talk.">
+        <div className="glass reveal flex flex-col gap-8 p-7 sm:p-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-xl">
+            <h2 className={h2}>
+              Satu percakapan bisa memperjelas arah kariermu<span className="text-sun">.</span>
+            </h2>
+            <p className="mt-5 leading-relaxed">
+              Ceritakan tujuan dan pengalamanmu. Tim Levela akan membantu memberikan gambaran program, jadwal, dan paket yang paling sesuai.
+            </p>
+            {contacts.length > 0 && (
+              <dl className="mt-6 grid gap-3 text-sm sm:grid-cols-2">
+                {contacts.map((c) => (
+                  <div key={c.label}>
+                    <dt>{c.label}</dt>
+                    <dd className="font-semibold">{c.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </div>
           <ConsultButton text={consultText} variant="primary" />
         </div>
       </Section>
