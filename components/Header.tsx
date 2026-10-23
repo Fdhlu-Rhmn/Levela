@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Logo } from './Logo'
 import { ConsultButton } from './ConsultButton'
+import { site } from '@/content/site'
 
 export const navLinks = [
   { href: '/program/', label: 'Program' },
@@ -12,7 +13,8 @@ export const navLinks = [
   { href: '/tentang/', label: 'Tentang Kami' },
 ]
 
-export const consultText = 'Halo kak, saya ingin konsultasi program Levela.'
+// Lives in content/site.ts: constants exported from a 'use client' module break when used by server components.
+const consultText = site.consultText
 
 export function Header() {
   const [open, setOpen] = useState(false)

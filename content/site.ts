@@ -7,4 +7,5 @@ export const site = {
   linkedin: '', // TODO
   address: '', // TODO
   coEduBase: 'https://edu.talentiv.id',
+  consultText: 'Halo kak, saya ingin konsultasi program Levela.',
 } as const

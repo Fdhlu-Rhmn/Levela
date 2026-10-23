@@ -4,7 +4,7 @@ import { PartnerMarquee } from '@/components/PartnerMarquee'
 import { homeFaq } from '@/content/faq'
 import { Button } from '@/components/Button'
 import { ConsultButton } from '@/components/ConsultButton'
-import { consultText } from '@/components/Header'
+import { site } from '@/content/site'
 import { Faq } from '@/components/Faq'
 import { ProgramCard } from '@/components/ProgramCard'
 import { Section } from '@/components/Section'
@@ -54,7 +54,7 @@ export default function Home() {
               <Button href="/program/" arrow>
                 Temukan Programmu
               </Button>
-              <ConsultButton text={consultText} />
+              <ConsultButton text={site.consultText} />
             </div>
             <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-line pt-5">
               {stats.map((s) => (
@@ -222,11 +222,11 @@ export default function Home() {
           </h2>
           <div className="mt-8 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <p className="max-w-sm text-sm leading-relaxed">Mulai dari rasa ingin tahu. Temukan arah belajarmu bersama Levela.</p>
-            <ConsultButton text={consultText} variant="primary" />
+            <ConsultButton text={site.consultText} variant="primary" />
           </div>
         </div>
       </section>
-      <ConsultButton text={consultText} floating />
+      <ConsultButton text={site.consultText} floating />
     </main>
   )
 }

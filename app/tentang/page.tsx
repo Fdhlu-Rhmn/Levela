@@ -3,7 +3,6 @@ import { allMentors, programs } from '@/content/programs'
 import { site } from '@/content/site'
 import { asset } from '@/lib/asset'
 import { ConsultButton } from '@/components/ConsultButton'
-import { consultText } from '@/components/Header'
 import { Section } from '@/components/Section'
 import { MentorCarousel } from '@/components/MentorCarousel'
 
@@ -222,10 +221,10 @@ export default function Tentang() {
               </dl>
             )}
           </div>
-          <ConsultButton text={consultText} variant="primary" />
+          <ConsultButton text={site.consultText} variant="primary" />
         </div>
       </Section>
-      <ConsultButton text={consultText} floating />
+      <ConsultButton text={site.consultText} floating />
     </main>
   )
 }

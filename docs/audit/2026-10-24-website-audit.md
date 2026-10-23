@@ -14,7 +14,7 @@ Fondasi sehat: 0 kerentanan `npm audit`, 0 secret, konten SSR, 1 H1/halaman, sem
 
 | ID | Prioritas | Status | Ringkas | Lokasi | Rekomendasi |
 |---|---|---|---|---|---|
-| F01 | Critical | **Terbukti, belum diperbaiki** | Tombol Konsultasi di Homepage (6 link) & Tentang (4 link) mengirim teks error ke WA: `consultText` diekspor dari modul `'use client'` lalu diimpor server component | `components/Header.tsx:15`, `app/page.tsx`, `app/tentang/page.tsx` | Pindah konstanta ke `content/site.ts`; cek pasca-build: `grep 'wa.me/?text=function' out` harus 0 |
+| F01 | Critical | **Selesai 2026-10-24** (`consultText` ke `content/site.ts`) | Tombol Konsultasi di Homepage (6 link) & Tentang (4 link) mengirim teks error ke WA: `consultText` diekspor dari modul `'use client'` lalu diimpor server component | `components/Header.tsx:15`, `app/page.tsx`, `app/tentang/page.tsx` | Pindah konstanta ke `content/site.ts`; cek pasca-build: `grep 'wa.me/?text=function' out` harus 0 |
 | F02 | High | **Selesai 2026-10-24** (push) | Repo hanya lokal | — | — |
 | F03 | High | Terbukti | Konten LP BD (overview, Fase 2, project) sama persis dengan talentiv.id/bizdev → duplicate content | `content/programs.ts` | Tulis ulang, atau canonical lintas domain |
 | F04 | High | Sebagian | Placeholder tampil: "Mitra Hiring A–D", "[Nama Brand]", gambar placeholder, WA number kosong. (Teks TODO di kartu mentor **sudah dihapus**, dijaga test) | `content/partners.ts`, `content/talents.ts`, `content/site.ts`, `public/images/` | Isi data asli; cek build produksi gagal bila ada placeholder |
@@ -25,7 +25,7 @@ Fondasi sehat: 0 kerentanan `npm audit`, 0 secret, konten SSR, 1 H1/halaman, sem
 | F09 | Medium | Terbukti (repo) | Tanpa CSP, X-Content-Type-Options, Referrer-Policy, frame-ancestors, HSTS, redirect HTTPS, kompresi | `public/.htaccess` | Tambah header; cek bawaan Hostinger |
 | F10 | Medium | Terbukti | Kontras cream di `#f58b1e` 2.30:1, `#e95308` 3.46:1 (< AA) — konsep cerah pilihan pemilik | `app/globals.css` | Teks kecil penting tetap di panel kaca |
 | F11 | Medium | Potensi | ±110 elemen `backdrop-filter` per LP, pill marquee ber-blur beranimasi, `background-attachment: fixed` | `globals.css`, `PartnerMarquee.tsx` | Hapus blur di marquee, kurangi di HP, ukur di perangkat |
-| F12 | Medium | Terbukti | Tanpa lint/CI/test hasil build (F01 lolos dari 55 test) | `package.json` | Perluas `scripts/check-images.mjs` jadi cek pasca-build |
+| F12 | Medium | **Sebagian selesai**: `scripts/check-build.mjs` jalan otomatis setelah build (gambar, link WA, link internal); lint/CI belum | Tanpa lint/CI/test hasil build (F01 lolos dari 55 test) | `package.json` | Perluas `scripts/check-images.mjs` jadi cek pasca-build |
 | F13 | Medium | Perlu verifikasi | Klaim: "Ratusan mitra hiring", mentor BD (dari Talentiv), "Maks. 20 peserta", nama/penerbit sertifikat, angka gaji di kartu contoh; mentor DM baru nama panggilan | `content/programs.ts` | Konfirmasi atau hapus |
 | F14 | Medium | Terbukti | Daftar → WA, karena `checkoutUrl` CO Edu kosong | `content/programs.ts` | Isi ID produk, uji checkout |
 | F15 | Low | Sebagian | Heading lompat h1→h3 di `/program` (ProgramCard h3) | `components/ProgramCard.tsx` | Samakan level |
@@ -42,7 +42,7 @@ Fondasi sehat: 0 kerentanan `npm audit`, 0 secret, konten SSR, 1 H1/halaman, sem
 
 ## Rencana
 
-- **P0**: ~~push (F02)~~ → perbaiki **F01** + cek pasca-build (F12).
+- **P0**: ~~push (F02)~~ · ~~F01 + cek pasca-build (F12)~~ — selesai.
 - **P1** (sebelum live): data asli (F04, F13, F14) · keputusan duplicate content (F03) · SEO dasar (F06–F08, butuh domain) · `.htaccess` (F05, F09).
 - **P2**: performa (F11, lalu Lighthouse di perangkat nyata) · a11y (F10, F15, F18, F19) · hapus `Glass.tsx` (F20) · update `next` (F22).
 - **P3**: JSON-LD (F23), analitik (F24), `noreferrer` (F21).
@@ -75,4 +75,4 @@ Lighthouse/CWV tidak diukur (tool tidak terpasang). Server Hostinger & domain be
 - Halaman Tentang didesain ulang: before/after panel, alur Talentiv Jobs, nilai editorial, mentor carousel (semua mentor otomatis via `allMentors()`), copy lebih profesional.
 - Riwayat git ditulis ulang tanpa `Co-Authored-By: Claude`; jangan tambahkan trailer itu lagi.
 - Brand guidelines (Design System artifact): https://claude.ai/artifact/R46WD5irpKK6yxxsDNMCFT
-- **Masih terbuka:** P0 F01 (link WhatsApp rusak di Homepage & Tentang) + cek pasca-build; data & foto di `docs/brand/asset-needs.md`.
+- **Berikutnya:** P1 (data asli, duplicate content F03, SEO dasar, `.htaccess`); data & foto di `docs/brand/asset-needs.md`.

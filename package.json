@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/check-images.mjs",
+    "postbuild": "node scripts/check-build.mjs",
     "test": "vitest run"
   },
   "dependencies": {

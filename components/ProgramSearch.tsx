@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import type { Category, Program, ProgramStatus } from '@/content/types'
 import { filterPrograms } from '@/lib/programs'
-import { consultText } from './Header'
+import { site } from '@/content/site'
 import { ConsultButton } from './ConsultButton'
 import { ProgramCard } from './ProgramCard'
 
@@ -75,9 +75,9 @@ export function ProgramSearch({ programs }: { programs: Program[] }) {
 
       <div className="glass mt-5 flex flex-col items-stretch gap-3 p-5 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
         <p>Belum ketemu program yang cocok? Ceritakan kebutuhanmu.</p>
-        <ConsultButton text={consultText} variant="primary" />
+        <ConsultButton text={site.consultText} variant="primary" />
       </div>
-      <ConsultButton text={consultText} floating />
+      <ConsultButton text={site.consultText} floating />
     </>
   )
 }
