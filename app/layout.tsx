@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, Manrope } from 'next/font/google'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 import './globals.css'
 
 const manrope = Manrope({ subsets: ['latin'], weight: ['600', '700', '800'], variable: '--font-manrope' })
@@ -14,7 +16,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id" className={`${manrope.variable} ${dmSans.variable}`}>
-      <body className="bg-levela text-cream min-h-screen">{children}</body>
+      <body className="bg-levela text-cream min-h-screen">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
