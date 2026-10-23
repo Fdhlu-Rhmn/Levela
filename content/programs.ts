@@ -55,7 +55,7 @@ const bdLp: ProgramLp = {
     title: 'Sales & Business Development Strategy',
     intro:
       'Pahami bisnis dan target pelanggan, bangun pipeline, lalu latih cara menyampaikan penawaran, bernegosiasi, dan mengarahkan percakapan menuju closing.',
-    time: 'Pukul 19.30 WIB',
+    time: '19.30 WIB',
     sessions: [
       { code: 'S1', date: '2026-11-10', title: 'Onboarding Program', desc: 'Memahami learning journey, tujuan program, kontrak belajar, serta mendapatkan insight dan motivasi untuk memulai perjalanan sebagai Business Development.', tags: ['Learning Journey', 'Kontrak Belajar', 'Insight Business Development'] },
       { code: 'S2', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', desc: 'Memahami anatomi model bisnis, revenue stream, dan framework keuangan untuk mengidentifikasi peluang bisnis.', tags: ['Business Acumen', 'Revenue Stream', 'Business Diagnostic'] },
@@ -190,7 +190,7 @@ const dmLp: ProgramLp = {
     title: 'Digital Marketing Strategy',
     intro:
       'Pahami audiens dan kanal digital, rancang campaign, lalu jalankan dan optimasi iklan berdasarkan data.',
-    time: 'Pukul 19.30 WIB',
+    time: '19.30 WIB',
     sessions: [
       { code: 'S1', date: '2026-12-01', title: 'Onboarding Program', desc: 'Memahami learning journey, tujuan program, kontrak belajar, serta gambaran peran digital marketing di perusahaan.', tags: ['Learning Journey', 'Kontrak Belajar', 'Insight Digital Marketing'] },
       { code: 'S2', date: '2026-12-02', title: 'Digital Marketing Fundamentals', desc: 'Memahami funnel pemasaran, peran setiap kanal digital, dan metrik dasar untuk mengukur keberhasilan campaign.', tags: ['Marketing Funnel', 'Digital Channel', 'Marketing Metrics'] },

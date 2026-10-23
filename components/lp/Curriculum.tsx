@@ -1,7 +1,12 @@
+'use client'
+
+import { useState } from 'react'
 import type { ProgramLp } from '@/content/types'
 
 const shortDate = (d: string) =>
   new Date(`${d}T00:00:00+07:00`).toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'Asia/Jakarta' })
+
+const num = (i: number) => String(i + 1).padStart(2, '0')
 
 function Tags({ items }: { items?: string[] }) {
   if (!items?.length) return null
@@ -16,57 +21,71 @@ function Tags({ items }: { items?: string[] }) {
   )
 }
 
-function PhaseHeader({ label, title, intro, meta }: { label: string; title: string; intro: string; meta?: string }) {
+type CardProps = { index: number; meta?: string; title: string; desc?: string; tags?: string[] }
+
+function Card({ index, meta, title, desc, tags }: CardProps) {
   return (
-    <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr] lg:items-end">
-      <div>
-        <p className="text-[11px] font-semibold tracking-[0.16em]">{label}</p>
-        <h3 className="mt-2 text-2xl tracking-[-0.03em] sm:text-3xl">{title}</h3>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed">{intro}</p>
+    <li className="glass lift flex flex-col p-6">
+      <div className="flex items-start justify-between gap-3">
+        <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{num(index)}</span>
+        {meta && <span className="pt-2 text-right text-xs font-medium">{meta}</span>}
       </div>
-      {meta && <p className="justify-self-start rounded-full border border-line px-4 py-1.5 text-sm lg:justify-self-end">{meta}</p>}
-    </div>
+      <h4 className="mt-4 font-heading text-lg leading-snug tracking-[-0.02em]">{title}</h4>
+      {desc && <p className="mt-2 text-sm leading-relaxed">{desc}</p>}
+      <Tags items={tags} />
+    </li>
   )
 }
 
-const card = 'glass lift flex flex-col p-5'
-
 export function Curriculum({ lp }: { lp: ProgramLp }) {
+  const [tab, setTab] = useState(0)
+  const phases = [
+    { label: 'Fase 1', title: lp.phase1.title, intro: lp.phase1.intro, meta: `${lp.phase1.sessions.length} sesi · Live class ${lp.phase1.time}` },
+    { label: 'Fase 2', title: lp.phase2.title, intro: lp.phase2.intro, meta: `${lp.phase2.modules.length} modul · Project + 1on1 mentor` },
+  ]
+  const active = phases[tab]
+
   return (
-    <div className="grid gap-14">
-      <div>
-        <PhaseHeader
-          label="FASE 1 · LIVE CLASS"
-          title={lp.phase1.title}
-          intro={lp.phase1.intro}
-          meta={`${lp.phase1.sessions.length} sesi · ${lp.phase1.time}`}
-        />
-        <ol className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {lp.phase1.sessions.map((s) => (
-            <li key={s.code} className={card}>
-              <div className="flex items-center justify-between gap-3 text-xs">
-                <span className="rounded-md bg-cream px-2.5 py-1 font-semibold text-ink [text-shadow:none]">{s.code}</span>
-                <span>{shortDate(s.date)}</span>
-              </div>
-              <h4 className="mt-4 font-heading text-lg leading-snug tracking-[-0.02em]">{s.title}</h4>
-              {s.desc && <p className="mt-2 text-sm leading-relaxed">{s.desc}</p>}
-              <Tags items={s.tags} />
-            </li>
-          ))}
-        </ol>
+    <div>
+      <div
+        role="tablist"
+        aria-label="Fase kurikulum"
+        className="glass inline-grid w-full grid-cols-2 gap-1 rounded-2xl! p-1.5 sm:w-auto"
+        onKeyDown={(e) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') setTab((t) => (t === 0 ? 1 : 0))
+        }}
+      >
+        {phases.map((ph, i) => (
+          <button
+            key={ph.label}
+            type="button"
+            role="tab"
+            id={`fase-tab-${i}`}
+            aria-selected={tab === i}
+            aria-controls="fase-panel"
+            tabIndex={tab === i ? 0 : -1}
+            onClick={() => setTab(i)}
+            className={`min-h-12 rounded-xl px-5 text-left text-sm transition-colors sm:min-w-64 ${
+              tab === i ? 'bg-cream text-ink [text-shadow:none]' : 'hover:bg-cream/10'
+            }`}
+          >
+            <span className="block text-[11px] font-semibold tracking-[0.14em] uppercase">{ph.label}</span>
+            <span className="block font-semibold">{ph.title}</span>
+          </button>
+        ))}
       </div>
 
-      <div>
-        <PhaseHeader label="FASE 2 · MENTORING" title={lp.phase2.title} intro={lp.phase2.intro} meta="Project + 1on1 mentor" />
+      <div role="tabpanel" id="fase-panel" aria-labelledby={`fase-tab-${tab}`} className="mt-8">
+        <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+          <p className="max-w-xl text-base leading-relaxed">{active.intro}</p>
+          <p className="justify-self-start rounded-full border border-line px-4 py-1.5 text-sm lg:justify-self-end">{active.meta}</p>
+        </div>
         <ol className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {lp.phase2.modules.map((m, i) => (
-            <li key={m.title} className={card}>
-              <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{String(i + 1).padStart(2, '0')}</span>
-              <h4 className="mt-4 font-heading text-lg leading-snug tracking-[-0.02em]">{m.title}</h4>
-              <p className="mt-2 text-sm leading-relaxed">{m.desc}</p>
-              <Tags items={m.tags} />
-            </li>
-          ))}
+          {tab === 0
+            ? lp.phase1.sessions.map((s, i) => (
+                <Card key={s.code} index={i} meta={`${shortDate(s.date)} · ${lp.phase1.time}`} title={s.title} desc={s.desc} tags={s.tags} />
+              ))
+            : lp.phase2.modules.map((m, i) => <Card key={m.title} index={i} title={m.title} desc={m.desc} tags={m.tags} />)}
         </ol>
       </div>
     </div>
