@@ -43,9 +43,9 @@ const partnerSteps = [
 
 // TODO: konfirmasi klaim angka sebelum live (lihat docs/audit)
 const stats = [
-  { value: 'Ratusan', label: 'mitra hiring', desc: 'dalam jaringan Talentiv Jobs yang dapat melihat profil dan portofolio alumni.' },
-  { value: String(programs.length), label: 'jalur program', desc: 'Business Development, Digital Marketing, dan Social Media yang segera hadir.' },
-  { value: '20', label: 'peserta per batch', desc: 'paling banyak, agar setiap peserta mendapat perhatian dan umpan balik yang personal.' },
+  { value: 'Ratusan', label: 'Mitra hiring', desc: 'Perusahaan dalam jaringan Talentiv Jobs yang dapat meninjau profil dan portofolio alumni Levela.' },
+  { value: String(programs.length), label: 'Jalur program', desc: 'Business Development dan Digital Marketing, dengan Social Media yang segera dibuka.' },
+  { value: '20', label: 'Peserta per batch', desc: 'Kapasitas maksimal setiap kelas, sehingga mentor dapat memberikan umpan balik secara personal.' },
 ]
 
 export default function Tentang() {
@@ -186,9 +186,9 @@ export default function Tentang() {
       </Section>
 
       {/* Numbers: one panel, large numerals split by hairlines */}
-      <Section eyebrow="05 / Dalam angka" aside="Small classes, real feedback.">
+      <Section eyebrow="05 / Dalam angka" aside="Levela at a glance.">
         <h2 className={`reveal ${h2}`}>
-          Kelas kecil, umpan balik nyata<span className="text-sun">.</span>
+          Kualitas pembelajaran yang terukur<span className="text-sun">.</span>
         </h2>
         <dl className="glass reveal mt-12 grid md:grid-cols-3">
           {stats.map((s) => (
