@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #fff7e9;
+  --color-ink: #311a10;
+  --color-orange: #ee5b0b;
+  --color-line: rgba(255, 246, 227, 0.32);
+  --color-ok: #1f9d55;
+  --color-soon-text: #ffd9b3;
+  --color-soon-dot: #ffb066;
+  --font-heading: var(--font-manrope), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --radius-glass: 22px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+  }
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+  }
+}
+
+@utility bg-levela {
+  background: linear-gradient(110deg, #bf3508 0%, #e95308 43%, #f58b1e 100%);
+  background-attachment: fixed;
+}
+
+@utility glass {
+  background: rgba(255, 247, 233, 0.13);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 247, 233, 0.28);
+  border-radius: var(--radius-glass);
+  box-shadow: 0 10px 36px rgba(60, 20, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .glass {
+    background: rgba(90, 35, 10, 0.55);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
