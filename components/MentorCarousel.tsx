@@ -1,38 +1,61 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import type { Mentor } from '@/content/types'
 import { asset } from '@/lib/asset'
 
 type Item = Mentor & { programs: string[] }
 
 const control =
-  'grid size-11 place-items-center rounded-full border border-line text-lg transition-colors hover:bg-cream hover:text-ink [text-shadow:none]'
+  'grid size-11 place-items-center rounded-full border border-line text-lg transition-colors hover:bg-cream hover:text-ink disabled:cursor-not-allowed disabled:border-dashed disabled:hover:bg-transparent disabled:hover:text-cream [text-shadow:none]'
+const pad = (n: number) => String(n).padStart(2, '0')
 
 // Horizontal scroll-snap row; the buttons scroll by one card so it works with mouse and keyboard too.
 export function MentorCarousel({ mentors }: { mentors: Item[] }) {
   const track = useRef<HTMLUListElement>(null)
-  const scroll = (dir: 1 | -1) => {
-    const el = track.current
-    const card = el?.querySelector('li')
-    if (el && card) el.scrollBy({ left: dir * (card.getBoundingClientRect().width + 20), behavior: 'smooth' })
+  const [current, setCurrent] = useState(0)
+
+  const cardWidth = () => {
+    const card = track.current?.querySelector('li')
+    return card ? card.getBoundingClientRect().width + 20 : 1
   }
+  const scroll = (dir: 1 | -1) => track.current?.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' })
+  const onScroll = () => {
+    const el = track.current
+    if (el) setCurrent(Math.min(mentors.length - 1, Math.round(el.scrollLeft / cardWidth())))
+  }
+  const progress = ((current + 1) / mentors.length) * 100
 
   return (
     <div>
-      <div className="mb-5 flex justify-end gap-2">
-        <button type="button" aria-label="Mentor sebelumnya" onClick={() => scroll(-1)} className={control}>
-          ←
-        </button>
-        <button type="button" aria-label="Mentor berikutnya" onClick={() => scroll(1)} className={control}>
-          →
-        </button>
+      <div className="mb-6 flex items-center gap-5 border-y border-line py-4">
+        <p className="font-heading text-sm tabular-nums tracking-[0.04em]" aria-live="polite">
+          <span className="text-sun">{pad(current + 1)}</span> / {pad(mentors.length)}
+        </p>
+        <div aria-hidden="true" className="h-px flex-1 bg-line">
+          <div className="h-px bg-cream transition-[width] duration-300" style={{ width: `${progress}%` }} />
+        </div>
+        <div className="flex gap-2">
+          <button type="button" aria-label="Mentor sebelumnya" onClick={() => scroll(-1)} disabled={current === 0} className={control}>
+            ←
+          </button>
+          <button
+            type="button"
+            aria-label="Mentor berikutnya"
+            onClick={() => scroll(1)}
+            disabled={current === mentors.length - 1}
+            className={control}
+          >
+            →
+          </button>
+        </div>
       </div>
       <ul
         ref={track}
         role="region"
         aria-label="Daftar mentor"
         tabIndex={0}
+        onScroll={onScroll}
         className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-5 overflow-x-auto px-4 pb-3 [scrollbar-width:none] sm:mx-0 sm:scroll-px-0 sm:px-0"
       >
         {mentors.map((m) => (

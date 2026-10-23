@@ -158,16 +158,29 @@ export default function Tentang() {
       </Section>
 
       {/* Mentors: every mentor across programs, with photo and experience; grows as data grows */}
-      <Section eyebrow="04 / Mentor" aside={`${mentors.length} praktisi`}>
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+      <Section eyebrow="04 / Mentor" aside="Learn from practitioners.">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-16">
           <h2 className={`reveal ${h2}`}>
             Belajar dari mereka yang mengerjakannya setiap hari<span className="text-sun">.</span>
           </h2>
-          <p className="reveal max-w-md leading-relaxed">
-            Mentor Levela adalah praktisi di bidang bisnis, pemasaran, dan pengembangan kemitraan. Mereka membagikan cara kerja yang mereka gunakan dan memberi umpan balik langsung pada proyekmu.
-          </p>
+          <div className="reveal">
+            <p className="leading-relaxed">
+              Mentor Levela adalah praktisi di bidang bisnis, pemasaran, dan pengembangan kemitraan. Mereka membagikan cara kerja yang mereka gunakan dan memberi umpan balik langsung pada proyekmu.
+            </p>
+            <dl className="mt-7 grid grid-cols-2 border-t border-line">
+              {[
+                { value: mentors.length, label: 'Praktisi industri' },
+                { value: new Set(mentors.flatMap((m) => m.programs)).size, label: 'Program yang didampingi' },
+              ].map((s, i) => (
+                <div key={s.label} className={`pt-5 ${i ? 'border-l border-line pl-6' : 'pr-6'}`}>
+                  <dd className="font-heading text-5xl leading-none tracking-[-0.06em] tabular-nums">{String(s.value).padStart(2, '0')}</dd>
+                  <dt className="mt-2 text-xs font-semibold tracking-[0.14em] uppercase">{s.label}</dt>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
-        <div className="mt-12">
+        <div className="mt-14">
           <MentorCarousel mentors={mentors} />
         </div>
       </Section>
