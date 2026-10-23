@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getProgram, getTalents, programs } from '@/content/programs'
 import { partners } from '@/content/partners'
+import { PartnerMarquee } from '@/components/PartnerMarquee'
 import { asset } from '@/lib/asset'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button'
@@ -45,15 +46,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
     <main className="pb-20 sm:pb-0">
       <Hero program={p} />
 
-      <div aria-label="Mitra hiring" className="mt-8 overflow-hidden border-y border-line bg-[#ffb43b]/10 py-5">
-        <ul className="marquee flex w-max gap-14 pr-14 text-sm font-semibold tracking-[0.08em] uppercase">
-          {[...partners, ...partners, ...partners, ...partners].map((pt, i) => (
-            <li key={i} aria-hidden={i >= partners.length} className="whitespace-nowrap">
-              {pt.name}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <PartnerMarquee />
 
       {/* Relatable situations */}
       <Section eyebrow="01 / Kenal situasi ini?" aside="Kamu tidak sendirian.">

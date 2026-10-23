@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { programs, getTalents } from '@/content/programs'
-import { partners } from '@/content/partners'
+import { PartnerMarquee } from '@/components/PartnerMarquee'
 import { homeFaq } from '@/content/faq'
 import { Button } from '@/components/Button'
 import { ConsultButton } from '@/components/ConsultButton'
@@ -171,15 +171,7 @@ export default function Home() {
           </div>
         </Section>
 
-        <div aria-label="Mitra hiring" className="overflow-hidden border-y border-line py-5">
-          <ul className="marquee flex w-max gap-14 pr-14 text-sm font-semibold tracking-[0.08em] uppercase">
-            {[...partners, ...partners, ...partners, ...partners].map((pt, i) => (
-              <li key={i} aria-hidden={i >= partners.length} className="whitespace-nowrap">
-                {pt.name}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <PartnerMarquee />
 
         <Section id="talent" eyebrow="04 / Talent verified" aside="Portofolio yang bicara." title="Lulus dengan bekal yang dicari industri.">
           <div className="grid gap-5 lg:grid-cols-2">

@@ -99,6 +99,9 @@
 .marquee {
   animation: marquee 40s linear infinite;
 }
+.marquee-reverse {
+  animation-direction: reverse;
+}
 @keyframes marquee {
   to {
     transform: translateX(-50%);

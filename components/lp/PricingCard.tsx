@@ -38,7 +38,9 @@ export function PricingCard({ pkg, whatsappText, programTitle, now, highlight }:
             <p className="text-sm line-through">{formatRupiah(pkg.normalPrice)}</p>
             <p className="font-heading text-[2.75rem] leading-tight tracking-[-0.05em]">{formatRupiah(pkg.promoPrice!)}</p>
             <p className="mt-2 inline-block rounded-full bg-sun px-3 py-1 text-xs font-semibold text-ink [text-shadow:none]">
-              Early bird hingga {longDate(pkg.promoUntil!)}
+              {pkg.promoUntil
+                ? `Early bird hingga ${longDate(pkg.promoUntil)}`
+                : `Hemat ${formatRupiah(pkg.normalPrice - pkg.promoPrice!)}`}
             </p>
           </>
         ) : (

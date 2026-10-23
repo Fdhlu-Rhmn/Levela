@@ -50,3 +50,7 @@ test('filterPrograms collapses repeated spaces in the query', () => {
     'digital-marketing',
   ])
 })
+
+test('a promo price without an end date is always active', () => {
+  expect(isPromoActive({ name: 'x', features: [], normalPrice: 499000, promoPrice: 349000 }, new Date('2030-01-01'))).toBe(true)
+})

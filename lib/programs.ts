@@ -17,7 +17,8 @@ export function packageCta(pkg: Package): { kind: 'checkout'; href: string } | {
 }
 
 export function isPromoActive(pkg: Package, now: Date): boolean {
-  if (!pkg.promoPrice || !pkg.promoUntil) return false
+  if (!pkg.promoPrice) return false
+  if (!pkg.promoUntil) return true // standing discount, no end date
   return now <= new Date(`${pkg.promoUntil}T23:59:59+07:00`)
 }
 

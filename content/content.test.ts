@@ -38,7 +38,7 @@ test('all talents are samples for now', () => {
 test('BD phase 1 has 11 sessions starting with onboarding', () => {
   const s = bySlug('business-development').lp!.phase1.sessions
   expect(s.length).toBe(11)
-  expect(s[0]).toEqual({ code: 'S1', date: '2026-11-10', title: 'Onboarding Program' })
+  expect(s[0]).toMatchObject({ code: 'S1', date: '2026-11-10', title: 'Onboarding Program' })
 })
 
 test('checkout urls point to CO Edu', () => {
@@ -62,4 +62,16 @@ test('landing pages carry visual proof slots and explained tools', () => {
       expect(m.experience?.length).toBeGreaterThan(10)
     }
   }
+})
+
+test('Levela prices: Fast Track 349K (was 499K), Fast Track Plus 1.9 jt (was 2.9 jt)', () => {
+  for (const p of programs.filter((p) => p.packages)) {
+    const [ft, plus] = p.packages!
+    expect([ft.normalPrice, ft.promoPrice, ft.promoUntil]).toEqual([499000, 349000, undefined])
+    expect([plus.normalPrice, plus.promoPrice, plus.promoUntil]).toEqual([2900000, 1900000, undefined])
+  }
+})
+
+test('every curriculum session explains what is covered', () => {
+  for (const p of programs.filter((p) => p.lp)) for (const s of p.lp!.phase1.sessions) expect(s.desc?.length).toBeGreaterThan(30)
 })
