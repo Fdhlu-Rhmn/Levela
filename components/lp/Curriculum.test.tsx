@@ -36,3 +36,11 @@ test('switching to phase 2 shows the mentoring modules', async () => {
   expect(within(panel).getByRole('heading', { name: 'Project Brief & Business Context' })).toBeInTheDocument()
   expect(within(panel).queryByRole('heading', { name: 'Business Acumen & Revenue Diagnostic' })).toBeNull()
 })
+
+test('a session card shows its mentor when known', () => {
+  const dm = programs.find((p) => p.slug === 'digital-marketing')!.lp!
+  render(<Curriculum lp={dm} />)
+  const first = screen.getByRole('heading', { name: 'Business Acumen & Revenue Diagnostic' }).closest('li')!
+  expect(first.textContent).toMatch(/Mentor: Aziz/)
+  expect(first.textContent).toMatch(/11 Nov · 19\.30 WIB/)
+})

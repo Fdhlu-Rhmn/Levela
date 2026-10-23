@@ -21,9 +21,9 @@ function Tags({ items }: { items?: string[] }) {
   )
 }
 
-type CardProps = { index: number; meta?: string; title: string; desc?: string; tags?: string[] }
+type CardProps = { index: number; meta?: string; mentor?: string; title: string; desc?: string; tags?: string[] }
 
-function Card({ index, meta, title, desc, tags }: CardProps) {
+function Card({ index, meta, mentor, title, desc, tags }: CardProps) {
   return (
     <li className="glass lift flex flex-col p-6">
       <div className="flex items-start justify-between gap-3">
@@ -31,6 +31,7 @@ function Card({ index, meta, title, desc, tags }: CardProps) {
         {meta && <span className="pt-2 text-right text-xs font-medium">{meta}</span>}
       </div>
       <h4 className="mt-4 font-heading text-lg leading-snug tracking-[-0.02em]">{title}</h4>
+      {mentor && <p className="mt-1.5 text-[13px] font-semibold">Mentor: {mentor}</p>}
       {desc && <p className="mt-2 text-sm leading-relaxed">{desc}</p>}
       <Tags items={tags} />
     </li>
@@ -109,6 +110,7 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
                     key={s.code}
                     index={index}
                     meta={s.date ? `${shortDate(s.date)} · ${lp.phase1.time}` : 'Tanggal perlu dikonfirmasi'}
+                    mentor={s.mentor}
                     title={s.title}
                     desc={s.desc}
                     tags={s.tags}

@@ -184,7 +184,7 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
 
       {/* Mentors */}
       <Section eyebrow="09 / Mentor" aside="Learn from practitioners." title="Belajar langsung dari praktisi.">
-        <ul className="mobile-carousel grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className={`mobile-carousel grid gap-5 sm:grid-cols-2 ${lp.mentors.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}>
           {lp.mentors.map((m) => (
             <li key={m.name} className="glass lift reveal flex flex-col overflow-hidden">
               {m.photo && <img src={asset(m.photo)} alt={`Foto ${m.name}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />}

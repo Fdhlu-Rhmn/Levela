@@ -10,7 +10,7 @@ export type Package = {
   features: string[]
 }
 
-export type Session = { code: string; date?: string; title: string; module?: string; desc?: string; tags?: string[] }
+export type Session = { code: string; date?: string; mentor?: string; title: string; module?: string; desc?: string; tags?: string[] }
 export type Module = { title: string; desc: string; tags: string[] }
 export type Project = { title: string; desc: string }
 export type Mentor = { name: string; role: string; photo?: string; experience?: string }

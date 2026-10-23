@@ -10,7 +10,7 @@ test('shows all programs initially', () => {
 
 test('typing filters by keyword', async () => {
   render(<ProgramSearch programs={programs} />)
-  await userEvent.type(screen.getByRole('searchbox', { name: 'Cari program' }), 'ads')
+  await userEvent.type(screen.getByRole('searchbox', { name: 'Cari program' }), 'retention')
   expect(screen.getByText('1 program ditemukan')).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: 'Digital Marketing Fast Track' })).toBeInTheDocument()
 })

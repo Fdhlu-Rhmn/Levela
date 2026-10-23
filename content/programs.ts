@@ -97,7 +97,7 @@ const bdLp: ProgramLp = {
       name: 'Tri Ali Herviansyah',
       role: 'B2B Growth & Performance Marketing',
       photo: '/images/mentor-tri-ali-herviansyah.webp',
-      experience: 'Praktisi B2B growth dan performance marketing. TODO: lengkapi riwayat kerja.',
+      experience: 'Praktisi B2B growth dan performance marketing.', // TODO: lengkapi riwayat kerja
     },
     {
       name: 'Ardan Aziz Rahman',
@@ -149,86 +149,76 @@ const features = (program: string, mentoring: number) => [
   '1on1 consultation & mentoring project',
 ]
 
-// CONTOH: seluruh isi Digital Marketing disalin dari BD dan disesuaikan. Ganti dengan isi asli.
+// Digital Marketing LP disesuaikan dengan kurikulum dari pemilik (24 Okt 2026):
+// topik bisnis & sales untuk pemasar. Jadwal dan mentor dari tabel pemilik.
+const M1 = 'Market Intelligence'
+const M2 = 'Lead Generation & Commercial Operations'
+const M3 = 'Deal Making & Strategic Partnerships'
+
 const dmLp: ProgramLp = {
   ...bdLp,
   stats: bdLp.stats.map((st) => (st.label === 'Sesi live class' ? { ...st, value: '8' } : st)),
-  heroSubtitle: '30 hari intensif belajar strategi digital marketing: riset audiens, campaign, dan iklan berbayar.',
+  heroSubtitle: '30 hari intensif memahami bisnis dan pasar, membangun pipeline, sampai closing dan menjaga loyalitas pelanggan.',
   skills: [
-    { title: 'Audience & Market Research', desc: 'Kenali siapa audiensmu dan apa yang mereka butuhkan.' },
-    { title: 'Campaign Planning', desc: 'Rancang campaign dengan tujuan, pesan, dan channel yang jelas.' },
-    { title: 'Paid Traffic', desc: 'Jalankan Meta Ads dan Google Ads dengan budget yang terukur.' },
-    { title: 'Performance Analytics', desc: 'Baca data dan optimasi hasil campaign.' },
+    { title: 'Business & Market Insight', desc: 'Baca model bisnis, sumber pendapatan, dan potensi pasar sebelum menyusun strategi.' },
+    { title: 'Lead Generation & Pipeline', desc: 'Cari prospek yang tepat dan kelola pipeline sampai siap closing.' },
+    { title: 'Negotiation & Closing', desc: 'Hadapi keberatan, bernegosiasi, dan tutup kesepakatan.' },
+    { title: 'Pitching & Customer Retention', desc: 'Presentasikan solusi dengan meyakinkan dan jaga pelanggan tetap loyal.' },
   ],
   overview: [
-    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja digital marketing.', image: '/images/overview-level.webp' },
-    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset audiens, perencanaan campaign, iklan berbayar, dan analisis data untuk mengejar target pemasaran.', image: '/images/class-live.webp' },
-    { title: 'Praktik melalui Real Campaign Project', desc: 'Terapkan pembelajaran dengan merancang dan menjalankan campaign untuk kebutuhan bisnis nyata.', image: '/images/class-presentation.webp' },
-    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek campaign, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.', image: '/images/class-mentoring.webp' },
-    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan digital marketing.', image: '/images/overview-profile.webp' },
+    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja marketing dan penjualan.', image: '/images/overview-level.webp' },
+    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset pasar, business model, lead generation, negosiasi, closing, dan retensi pelanggan untuk mengejar target bisnis.', image: '/images/class-live.webp' },
+    { title: 'Praktik melalui Real Business Project', desc: 'Terapkan pembelajaran dalam proyek bisnis dan dapatkan pengalaman menyusun solusi untuk kebutuhan nyata.', image: '/images/class-presentation.webp' },
+    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek bisnis, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.', image: '/images/class-mentoring.webp' },
+    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuanmu.', image: '/images/overview-profile.webp' },
   ],
-  careers: ['Digital Marketing Specialist', 'Performance Marketing', 'Marketing Executive', 'Content Strategist'],
+  careers: ['Marketing Executive', 'Business Development Executive', 'Sales Executive', 'Account Executive', 'Partnership Executive'],
   audience: [
-    { title: 'Fresh graduate', desc: 'Baru lulus dan ingin masuk ke dunia digital marketing dengan portofolio nyata.' },
-    { title: 'Junior & entry level', desc: 'Sudah di marketing dan ingin menguasai iklan berbayar dan data.' },
-    { title: 'Karier stuck', desc: 'Ingin pindah ke digital marketing lewat skill yang dicari perusahaan.' },
+    { title: 'Fresh graduate', desc: 'Baru lulus dan ingin memahami cara bisnis tumbuh, dari riset pasar sampai closing.' },
+    { title: 'Junior & entry level', desc: 'Sudah di marketing atau sales dan ingin menghubungkan pekerjaanmu dengan target penjualan.' },
+    { title: 'Karier stuck', desc: 'Ingin naik level lewat skill bisnis dan penjualan yang dicari perusahaan.' },
   ],
   situations: [
-    'Lowongan digital marketing selalu minta pengalaman iklan, padahal kamu belum pernah pegang budget.',
-    'Sudah rutin posting konten, tapi belum tahu cara membaca hasilnya dan memperbaikinya.',
-    'Ingin pindah ke digital marketing, tapi materi gratis terasa acak dan tidak terarah.',
+    'Sudah membuat banyak konten dan campaign, tapi sulit menunjukkan dampaknya ke penjualan.',
+    'Sering diminta mencari prospek, tapi belum punya cara kerja yang terstruktur dari lead sampai closing.',
+    'Ingin naik ke peran yang lebih strategis, tapi belum percaya diri membaca model bisnis dan pasar.',
   ],
   tools: [
-    { name: 'Meta Ads', use: 'Membuat dan mengoptimasi campaign iklan Facebook dan Instagram.' },
-    { name: 'Google Ads', use: 'Menjalankan iklan pencarian untuk audiens yang siap membeli.' },
-    { name: 'Google Analytics', use: 'Membaca perilaku pengunjung website dan sumber konversi.' },
-    { name: 'Facebook', use: 'Mengelola halaman bisnis dan komunitas, serta menjadi sumber audiens untuk iklan Meta.' },
-    { name: 'TikTok Ads', use: 'Menjangkau audiens muda lewat iklan video singkat.' },
-    { name: 'ChatGPT', use: 'Membuat variasi copywriting dan ide konten untuk A/B testing.' },
-    { name: 'Claude', use: 'Merangkum data performa menjadi laporan yang mudah dipahami.' },
+    { name: 'Microsoft Excel', use: 'Mengolah data riset pasar, menghitung market size, dan menyusun pipeline.' },
+    { name: 'Facebook', use: 'Mencari dan menjangkau prospek lewat grup dan halaman bisnis.' },
+    { name: 'Instagram', use: 'Riset kompetitor dan membangun kredibilitas sebelum menghubungi calon pelanggan.' },
+    { name: 'ChatGPT', use: 'Menyusun draft riset, pesan prospek, dan kerangka pitch deck lebih cepat.' },
+    { name: 'Claude', use: 'Merapikan isi presentasi bisnis dan menyiapkan jawaban untuk sesi tanya jawab.' },
   ],
   certificateImage: '/images/certificate-digital-marketing.webp',
-  // CONTOH: kurikulum DM mengikuti format BD. Ganti deskripsi dan tag dengan materi asli.
   phase1: {
-    title: 'Digital Marketing Strategy',
-    intro:
-      'Pahami audiens dan kanal digital, rancang campaign, lalu jalankan dan optimasi iklan berdasarkan data.',
+    title: 'Market & Commercial Strategy',
+    intro: 'Pahami bisnis dan pasar, bangun pipeline, lalu latih negosiasi, closing, pitching, dan cara menjaga hubungan pelanggan.',
     time: '19.30 WIB',
     sessions: [
-      // Kurikulum dari pemilik (24 Okt 2026). TODO: tanggal sesi belum ada.
-      { code: 'S1', title: 'Business Acumen & Revenue Diagnostic', desc: 'Memahami sumber pendapatan, model bisnis, dan kerangka keuangan untuk mengidentifikasi peluang bisnis.', tags: ['Revenue Business', 'Business Model', 'Financial Framework'] },
-      { code: 'S2', title: 'Market Research & Competitor Analysis', desc: 'Mempelajari metodologi riset pasar, menghitung potensi pasar, menganalisis kompetitor, dan melakukan segmentasi berbasis data.', tags: ['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'] },
-      { code: 'S3', title: 'Business Model Canvas', desc: 'Memahami sembilan elemen Business Model Canvas dan menyusun model bisnis yang mencakup proposisi nilai, pelanggan, mitra, aktivitas, biaya, serta sumber pendapatan.', tags: ['9 Building Blocks', 'Value Proposition', 'Customer Relationship', 'Revenue Streams'] },
-      { code: 'S4', title: 'Lead Generation & Pipeline Management', desc: 'Mempelajari strategi pencarian prospek, kualifikasi dan segmentasi lead, serta pengelolaan sales pipeline untuk mendukung proses penjualan.', tags: ['Inbound & Outbound Prospecting', 'Lead Qualification', 'Sales Pipeline'] },
-      { code: 'S5', title: 'Negotiation Strategy', desc: 'Mengembangkan kemampuan negosiasi bisnis, menangani keberatan dan penolakan, serta menerapkan komunikasi persuasif untuk mencapai kesepakatan.', tags: ['Negotiation Tactics', 'Objection Handling', 'Persuasive Communication'] },
-      { code: 'S6', title: 'Closing Strategy', desc: 'Mengenali sinyal kesiapan membeli, menerapkan teknik closing, dan menyusun strategi tindak lanjut untuk meningkatkan keberhasilan penjualan.', tags: ['Buying Signals', 'Closing Techniques', 'Post-Closing Strategy'] },
-      { code: 'S7', title: 'Pitching, Pitch Deck & Business Presentation', desc: 'Menyusun pitch deck yang persuasif, mengembangkan storytelling bisnis, menjawab pertanyaan dan keberatan, serta memanfaatkan AI dalam presentasi bisnis.', tags: ['Pitch Deck', 'Business Storytelling', 'Handling Q&A', 'AI for Business Presentation'] },
-      { code: 'S8', title: 'Building Relation & Retention with Customers', desc: 'Membangun hubungan jangka panjang dengan pelanggan melalui manajemen relasi, pelayanan aftersales, dan strategi mempertahankan loyalitas pelanggan.', tags: ['Customer Relationship Management', 'Aftersales', 'Customer Loyalty'] },
+      { code: 'S1', date: '2026-11-11', mentor: 'Aziz', module: M1, title: 'Business Acumen & Revenue Diagnostic', desc: 'Memahami sumber pendapatan, model bisnis, dan kerangka keuangan untuk mengidentifikasi peluang bisnis.', tags: ['Revenue Business', 'Business Model', 'Financial Framework'] },
+      { code: 'S2', date: '2026-11-12', mentor: 'Hamid', module: M1, title: 'Market Research & Competitor Analysis', desc: 'Mempelajari metodologi riset pasar, menghitung potensi pasar, menganalisis kompetitor, dan melakukan segmentasi berbasis data.', tags: ['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'] },
+      { code: 'S3', date: '2026-11-13', mentor: 'Herdi', module: M1, title: 'Business Model Canvas', desc: 'Memahami sembilan elemen Business Model Canvas dan menyusun model bisnis yang mencakup proposisi nilai, pelanggan, mitra, aktivitas, biaya, serta sumber pendapatan.', tags: ['9 Building Blocks', 'Value Proposition', 'Customer Relationship', 'Revenue Streams'] },
+      { code: 'S4', date: '2026-11-18', mentor: 'Herdi', module: M2, title: 'Lead Generation & Pipeline Management', desc: 'Mempelajari strategi pencarian prospek, kualifikasi dan segmentasi lead, serta pengelolaan sales pipeline untuk mendukung proses penjualan.', tags: ['Inbound & Outbound Prospecting', 'Lead Qualification', 'Sales Pipeline'] },
+      { code: 'S5', date: '2026-11-19', mentor: 'Usamah', module: M3, title: 'Negotiation Strategy', desc: 'Mengembangkan kemampuan negosiasi bisnis, menangani keberatan dan penolakan, serta menerapkan komunikasi persuasif untuk mencapai kesepakatan.', tags: ['Negotiation Tactics', 'Objection Handling', 'Persuasive Communication'] },
+      { code: 'S6', date: '2026-11-23', mentor: 'Usamah', module: M3, title: 'Closing Strategy', desc: 'Mengenali sinyal kesiapan membeli, menerapkan teknik closing, dan menyusun strategi tindak lanjut untuk meningkatkan keberhasilan penjualan.', tags: ['Buying Signals', 'Closing Techniques', 'Post-Closing Strategy'] },
+      { code: 'S7', date: '2026-11-24', mentor: 'Sahrul', module: M3, title: 'Pitching, Pitch Deck & Business Presentation', desc: 'Menyusun pitch deck yang persuasif, mengembangkan storytelling bisnis, menjawab pertanyaan dan keberatan, serta memanfaatkan AI dalam presentasi bisnis.', tags: ['Pitch Deck', 'Business Storytelling', 'Handling Q&A', 'AI for Business Presentation'] },
+      { code: 'S8', date: '2026-11-25', mentor: 'Sahrul', module: M3, title: 'Building Relation & Retention with Customers', desc: 'Membangun hubungan jangka panjang dengan pelanggan melalui manajemen relasi, pelayanan aftersales, dan strategi mempertahankan loyalitas pelanggan.', tags: ['Customer Relationship Management', 'Aftersales', 'Customer Loyalty'] },
     ],
   },
-  phase2: {
-    title: 'Mentoring Project & 1on1',
-    intro:
-      'Ubah materi menjadi hasil kerja: riset audiens, rencana campaign, dan iklan yang benar-benar dijalankan. Kerjakan bersama mentor, lalu presentasikan hasilnya untuk mendapatkan feedback.',
-    modules: [
-      { title: 'Project Brief & Business Context', desc: 'Pahami brand, produk, target pasar, dan tujuan campaign yang akan kamu kerjakan sebelum memulai proyek.', tags: ['Business Context', 'Campaign Goal', 'Project Output'] },
-      { title: 'Audience & Market Research', desc: 'Analisis audiens dan kompetitor, lalu tentukan segmen dan pesan yang paling relevan untuk campaign.', tags: ['Audience Research', 'Competitor Analysis', 'Positioning'] },
-      { title: 'Campaign Plan', desc: 'Susun rencana campaign lengkap dengan kanal, jadwal konten, budget, dan target metrik.', tags: ['Media Plan', 'Content Calendar', 'KPI'] },
-      { title: 'Running Ads', desc: 'Jalankan iklan di Meta atau Google, pantau performanya, dan lakukan optimasi berdasarkan data.', tags: ['Running Ads', 'Optimization', 'Budget Control'] },
-      { title: 'Project Presentation & Evaluation', desc: 'Presentasikan hasil campaign, jelaskan alasan strategimu, dan perbaiki rekomendasi berdasarkan feedback mentor.', tags: ['Project Presentation', 'Evaluation', 'Marketing Insight'] },
-    ],
-  },
-  projects: [
-    { title: 'Audience Persona', desc: 'Susun profil audiens lengkap dengan kebutuhan, kebiasaan, dan pesan yang tepat untuk mereka.' },
-    { title: 'Campaign Plan', desc: 'Rencana campaign dengan tujuan, kanal, jadwal, budget, dan metrik keberhasilan.' },
-    { title: 'Ad Creative & Copy', desc: 'Materi iklan dan variasi copy yang siap diuji untuk menemukan pesan paling efektif.' },
-    { title: 'Running Meta Ads', desc: 'Campaign Meta Ads yang dijalankan, dipantau, dan dioptimasi berdasarkan data performa.' },
-    { title: 'Performance Report', desc: 'Laporan hasil campaign beserta insight dan rekomendasi langkah berikutnya.' },
+  // Fase 2 dan project sama dengan BD karena topik kurikulumnya sama.
+  // Mentor: hanya nama panggilan dari jadwal. TODO: nama lengkap, foto asli, dan pengalaman.
+  mentors: [
+    { name: 'Aziz', role: 'Business Acumen & Revenue Diagnostic', photo: '/images/mentor-aziz.webp' },
+    { name: 'Hamid', role: 'Market Research & Competitor Analysis', photo: '/images/mentor-hamid.webp' },
+    { name: 'Herdi', role: 'Business Model Canvas · Lead Generation', photo: '/images/mentor-herdi.webp' },
+    { name: 'Usamah', role: 'Negotiation & Closing Strategy', photo: '/images/mentor-usamah.webp' },
+    { name: 'Sahrul', role: 'Pitching & Customer Retention', photo: '/images/mentor-sahrul.webp' },
   ],
   talentIds: ['dm-1', 'dm-2'],
-  certificate: 'Digital Marketing Professional',
+  certificate: 'Digital Marketing Professional', // TODO: konfirmasi nama sertifikat
   faq: bdLp.faq.map((f) =>
-    f.q.includes('pengalaman BD') ? { ...f, q: 'Apakah cocok jika saya belum punya pengalaman marketing?' } : f,
+    f.q.includes('pengalaman BD') ? { ...f, q: 'Apakah cocok jika saya belum punya pengalaman marketing atau sales?' } : f,
   ),
 }
 
@@ -259,14 +249,14 @@ export const programs: Program[] = [
     title: 'Digital Marketing Fast Track',
     category: 'Marketing',
     status: 'available',
-    summary: 'Riset audiens, perencanaan campaign, iklan berbayar, dan evaluasi performa pemasaran.',
-    keywords: ['ads', 'meta ads', 'google ads', 'seo', 'campaign', 'analytics', 'copywriting'],
+    summary: 'Riset pasar, model bisnis, lead generation, negosiasi, closing, dan retensi pelanggan untuk pemasar.',
+    keywords: ['marketing', 'market sizing', 'retention', 'aftersales', 'customer loyalty', 'excel'],
     image: '/images/program-digital-marketing.webp',
     imageAlt: 'Profesional muda bekerja di laptop dengan grafik performa campaign',
     duration: '30 hari',
     level: 'Entry level',
     format: 'Online',
-    batchStart: '1 Des 2026', // CONTOH
+    batchStart: '11 Nov 2026',
     whatsappText: waText('Digital Marketing Fast Track'),
     packages: [
       { name: 'Fast Track', normalPrice: 499000, promoPrice: 349000, features: features('Digital Marketing', 1) },

@@ -15,6 +15,7 @@ node scripts/to-webp.mjs <file-asli> public/images/<nama-file> <lebar>
 | `mentor-ardan-aziz-rahman.webp` | LP, bagian Mentor | 800×1000 | |
 | `mentor-m-khairul-hamid.webp` | LP, bagian Mentor | 800×1000 | |
 | `mentor-prita-permatadinata.webp` | LP, bagian Mentor | 800×1000 | |
+| `mentor-aziz.webp`, `mentor-hamid.webp`, `mentor-herdi.webp`, `mentor-usamah.webp`, `mentor-sahrul.webp` | LP Digital Marketing, bagian Mentor | 800×1000 | Lengkapi juga nama lengkap dan pengalaman di `content/programs.ts` |
 | `certificate-business-development.webp` | LP BD, bagian Sertifikasi | 1414×1000 (A4 landscape) | Contoh sertifikat yang benar-benar dipakai |
 | `certificate-digital-marketing.webp` | LP DM, bagian Sertifikasi | 1414×1000 | |
 | `class-live.webp` | LP, kartu Gambaran Program "Materi untuk Tantangan Kerja" | 1200×750 (16:10) | Dokumentasi live class asli (screenshot Zoom/Meet dengan izin peserta) |

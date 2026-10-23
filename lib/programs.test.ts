@@ -7,10 +7,10 @@ const all = { category: 'all', status: 'all' } as const
 
 describe('filterPrograms', () => {
   test('messy query matches keywords', () => {
-    expect(slugs(filterPrograms(programs, { ...all, query: '  ADS ' }))).toEqual(['digital-marketing'])
+    expect(slugs(filterPrograms(programs, { ...all, query: '  RETENTION ' }))).toEqual(['digital-marketing'])
   })
-  test('matches indonesian keyword', () => {
-    expect(slugs(filterPrograms(programs, { ...all, query: 'negosiasi' }))).toEqual(['business-development'])
+  test('matches a keyword unique to one program', () => {
+    expect(slugs(filterPrograms(programs, { ...all, query: 'pitching' }))).toEqual(['business-development'])
   })
   test('category filter with empty query', () => {
     expect(slugs(filterPrograms(programs, { query: '', category: 'Creative', status: 'all' }))).toEqual(['social-media'])
@@ -46,7 +46,7 @@ test('talentBadge hides verification for samples', () => {
 })
 
 test('filterPrograms collapses repeated spaces in the query', () => {
-  expect(filterPrograms(programs, { query: 'meta   ads', category: 'all', status: 'all' }).map((p) => p.slug)).toEqual([
+  expect(filterPrograms(programs, { query: 'customer   loyalty', category: 'all', status: 'all' }).map((p) => p.slug)).toEqual([
     'digital-marketing',
   ])
 })

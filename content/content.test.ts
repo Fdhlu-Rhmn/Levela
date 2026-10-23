@@ -68,7 +68,7 @@ test('landing pages carry visual proof slots and explained tools', () => {
     for (const t of lp.tools) expect(t.use.length).toBeGreaterThan(10)
     for (const m of lp.mentors) {
       expect(m.photo).toMatch(/^\/images\/mentor-.+\.webp$/)
-      expect(m.experience?.length).toBeGreaterThan(10)
+      expect(m.experience ?? '').not.toMatch(/TODO/) // TODOs belong in code comments, never on the page
     }
   }
 })
@@ -134,7 +134,7 @@ test('overview points are image cards with a description; stats stay short', () 
   })
 })
 
-test('DM curriculum: 8 owner-supplied sessions without dates yet', () => {
+test('DM curriculum: 8 owner-supplied sessions with dates, mentors and modules', () => {
   const lp = bySlug('digital-marketing').lp!
   const s = lp.phase1.sessions
   expect(s.map((x) => x.title)).toEqual([
@@ -147,7 +147,11 @@ test('DM curriculum: 8 owner-supplied sessions without dates yet', () => {
     'Pitching, Pitch Deck & Business Presentation',
     'Building Relation & Retention with Customers',
   ])
-  expect(s.every((x) => x.date === undefined)).toBe(true)
+  expect(s.map((x) => x.date)).toEqual(['2026-11-11', '2026-11-12', '2026-11-13', '2026-11-18', '2026-11-19', '2026-11-23', '2026-11-24', '2026-11-25'])
+  expect(s.map((x) => x.mentor)).toEqual(['Aziz', 'Hamid', 'Herdi', 'Herdi', 'Usamah', 'Usamah', 'Sahrul', 'Sahrul'])
+  expect(s.map((x) => x.module)).toEqual([...Array(3).fill('Market Intelligence'), 'Lead Generation & Commercial Operations', ...Array(4).fill('Deal Making & Strategic Partnerships')])
+  expect(lp.mentors.map((m) => m.name)).toEqual(['Aziz', 'Hamid', 'Herdi', 'Usamah', 'Sahrul'])
+  expect(bySlug('digital-marketing').batchStart).toBe('11 Nov 2026')
   expect(s[1].tags).toEqual(['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'])
   expect(lp.stats[0]).toEqual({ value: '8', label: 'Sesi live class' })
 })
