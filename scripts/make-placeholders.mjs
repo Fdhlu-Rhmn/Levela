@@ -14,6 +14,16 @@ const images = [
   ['talent-dm-1.webp', 600, 600],
   ['talent-dm-2.webp', 600, 600],
   ['about-group.webp', 1600, 900],
+  // Real assets needed — see docs/brand/asset-needs.md
+  ['mentor-tri-ali-herviansyah.webp', 800, 1000],
+  ['mentor-ardan-aziz-rahman.webp', 800, 1000],
+  ['mentor-m-khairul-hamid.webp', 800, 1000],
+  ['mentor-prita-permatadinata.webp', 800, 1000],
+  ['certificate-business-development.webp', 1414, 1000],
+  ['certificate-digital-marketing.webp', 1414, 1000],
+  ['class-live.webp', 1200, 900],
+  ['class-mentoring.webp', 1200, 900],
+  ['class-presentation.webp', 1200, 900],
 ]
 
 mkdirSync('public/images', { recursive: true })

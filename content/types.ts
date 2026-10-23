@@ -11,7 +11,9 @@ export type Package = {
 }
 
 export type Session = { code: string; date: string; title: string }
-export type Mentor = { name: string; role: string; photo?: string }
+export type Mentor = { name: string; role: string; photo?: string; experience?: string }
+export type Tool = { name: string; use: string }
+export type GalleryItem = { src: string; alt: string; caption: string }
 export type FaqItem = { q: string; a: string }
 export type Partner = { id: string; name: string; logo?: string; roles: string[] }
 
@@ -36,13 +38,16 @@ export type ProgramLp = {
   stats: { value: string; label: string }[]
   careers: string[]
   audience: { title: string; desc: string }[]
-  tools: string[]
+  situations: string[]
+  tools: Tool[]
   phase1: { title: string; time: string; sessions: Session[] }
   phase2: { title: string; modules: string[] }
   projects: string[]
   mentors: Mentor[]
   talentIds: string[]
   certificate: string
+  certificateImage: string
+  gallery: GalleryItem[]
   reasons: string[]
   faq: FaqItem[]
 }

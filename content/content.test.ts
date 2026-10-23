@@ -49,3 +49,17 @@ test('checkout urls point to CO Edu', () => {
 test('whatsapp text names the program', () => {
   for (const p of programs) expect(p.whatsappText).toContain(p.title)
 })
+
+test('landing pages carry visual proof slots and explained tools', () => {
+  for (const p of programs.filter((p) => p.lp)) {
+    const lp = p.lp!
+    expect(lp.certificateImage).toMatch(/^\/images\/certificate-.+\.webp$/)
+    expect(lp.gallery.length).toBeGreaterThanOrEqual(3)
+    expect(lp.situations.length).toBeGreaterThanOrEqual(3)
+    for (const t of lp.tools) expect(t.use.length).toBeGreaterThan(10)
+    for (const m of lp.mentors) {
+      expect(m.photo).toMatch(/^\/images\/mentor-.+\.webp$/)
+      expect(m.experience?.length).toBeGreaterThan(10)
+    }
+  }
+})

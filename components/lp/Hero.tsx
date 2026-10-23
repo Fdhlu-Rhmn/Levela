@@ -30,6 +30,16 @@ export function Hero({ program: p }: { program: Program }) {
             )}
             <ConsultButton text={p.whatsappText} variant={hasPackages ? 'ghost' : 'primary'} />
           </div>
+          {facts.length > 0 && (
+            <dl className="mt-10 grid max-w-lg grid-cols-2 gap-x-6 gap-y-5 border-t border-line pt-5 sm:grid-cols-4">
+              {facts.map((f) => (
+                <div key={f.label}>
+                  <dt className="text-[11px] tracking-[0.12em] uppercase">{f.label}</dt>
+                  <dd className="mt-1 font-heading text-lg tracking-[-0.02em]">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
         <div className="relative">
           <ArchPhoto
@@ -38,16 +48,6 @@ export function Hero({ program: p }: { program: Program }) {
             label="Praktik nyata, portofolio nyata."
             note="LEARN. CREATE. GROW."
           />
-          {facts.length > 0 && (
-            <dl className="glass mt-4 grid grid-cols-2 gap-3 p-4 text-xs sm:absolute sm:top-10 sm:-right-4 sm:mt-0 sm:w-48 sm:grid-cols-1">
-              {facts.map((f) => (
-                <div key={f.label}>
-                  <dt className="tracking-[0.12em] uppercase">{f.label}</dt>
-                  <dd className="font-heading text-base">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
         </div>
       </div>
     </section>

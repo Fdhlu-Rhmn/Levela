@@ -75,7 +75,7 @@ export default function Home() {
             />
             <Link
               href="/#karier"
-              className="absolute top-20 right-0 flex items-center gap-2 rounded-md border border-line bg-[#dc4c10]/70 px-3.5 py-3 text-xs backdrop-blur-md transition-transform hover:-translate-y-0.5 sm:-right-3"
+              className="absolute right-0 bottom-6 z-10 flex items-center gap-2 rounded-md border border-line bg-[#dc4c10]/70 px-3.5 py-3 text-xs backdrop-blur-md transition-transform hover:-translate-y-0.5 sm:-right-3"
             >
               <i aria-hidden="true" className="size-2 rounded-full bg-[#7dffb0] shadow-[0_0_0_4px_rgba(125,255,176,.2)]" />
               Connected to <b className="font-semibold">talentiv jobs</b> ↗
@@ -111,9 +111,9 @@ export default function Home() {
 
       {/* Programs */}
       <Section id="program" eyebrow="01 / Pilih arahmu" aside="Three paths. Your future." title="Temukan bidangmu. Mulai langkahmu." intro="Setiap perjalanan punya titik awal. Pilih keahlian yang ingin kamu bangun.">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((p, i) => (
-            <div key={p.slug} className={`reveal ${i === 1 ? 'lg:mt-12' : ''}`}>
+            <div key={p.slug} className="reveal h-full">
               <ProgramCard program={p} />
             </div>
           ))}
@@ -182,9 +182,9 @@ export default function Home() {
         </div>
 
         <Section id="talent" eyebrow="04 / Talent verified" aside="Portofolio yang bicara." title="Lulus dengan bekal yang dicari industri.">
-          <div className="grid gap-5 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-5 lg:grid-cols-2">
             {highlights.map((t, i) => (
-              <div key={t.id} className={`reveal ${i === 1 ? 'lg:mt-16 lg:rotate-[0.6deg]' : 'lg:-rotate-[0.6deg]'}`}>
+              <div key={t.id} className="reveal">
                 <TalentCard talent={t} />
               </div>
             ))}

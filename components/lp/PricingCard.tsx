@@ -3,25 +3,29 @@
 import { useEffect, useState } from 'react'
 import type { Package } from '@/content/types'
 import { formatRupiah, isPromoActive, packageCta } from '@/lib/programs'
+import { whatsappUrl } from '@/lib/whatsapp'
 import { Button } from '../Button'
 import { ConsultButton } from '../ConsultButton'
 
 const longDate = (d: string) =>
   new Date(`${d}T00:00:00+07:00`).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Jakarta' })
 
-type Props = { pkg: Package; whatsappText: string; now?: Date; highlight?: boolean }
+type Props = { pkg: Package; whatsappText: string; programTitle: string; now?: Date; highlight?: boolean }
 
-export function PricingCard({ pkg, whatsappText, now, highlight }: Props) {
+export function PricingCard({ pkg, whatsappText, programTitle, now, highlight }: Props) {
   // The static HTML is rendered at build time; re-check the promo in the visitor's browser
   // so an expired early-bird price never stays up until the next rebuild.
   const [current, setCurrent] = useState(() => now ?? new Date())
   useEffect(() => setCurrent(new Date()), [])
   const promo = isPromoActive(pkg, current)
   const cta = packageCta(pkg)
+  // Until the CO Edu checkout link is filled in, Daftar opens WhatsApp with a registration message.
+  const daftarHref =
+    cta.kind === 'checkout' ? cta.href : whatsappUrl(`Halo kak, saya ingin mendaftar ${programTitle} paket ${pkg.name}.`)
   return (
     <article className={`glass lift relative flex flex-col gap-6 p-7 ${highlight ? 'ring-1 ring-cream' : ''}`}>
       {highlight && (
-        <span className="absolute -top-3 right-6 rotate-[3deg] rounded-md bg-label px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-ink [text-shadow:none]">
+        <span className="absolute -top-3 right-6 rounded-md bg-label px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-ink [text-shadow:none]">
           PALING LENGKAP
         </span>
       )}
@@ -50,12 +54,10 @@ export function PricingCard({ pkg, whatsappText, now, highlight }: Props) {
         ))}
       </ul>
       <div className="mt-auto flex flex-col gap-2">
-        {cta.kind === 'checkout' && (
-          <Button href={cta.href} external arrow className="flex-1">
-            Daftar
-          </Button>
-        )}
-        <ConsultButton text={whatsappText} variant={cta.kind === 'checkout' ? 'ghost' : 'primary'} className="flex-1" />
+        <Button href={daftarHref} external arrow>
+          Daftar Sekarang
+        </Button>
+        <ConsultButton text={whatsappText} />
       </div>
     </article>
   )

@@ -23,9 +23,6 @@ export function Footer() {
         </nav>
         <small className="text-xs">© {new Date().getFullYear()} Levela Academy.</small>
       </div>
-      <p aria-hidden="true" className="mt-10 select-none font-heading text-[clamp(4rem,17vw,13rem)] leading-[0.8] tracking-[-0.07em] text-[#f3833f] [text-shadow:none]">
-        levela↗
-      </p>
     </footer>
   )
 }

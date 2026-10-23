@@ -11,7 +11,7 @@ type Props = {
 // Editorial section: thin top rule with an eyebrow on the left and a short note on the right.
 export function Section({ id, eyebrow, aside, title, intro, className = '', children }: Props) {
   return (
-    <section id={id} className={`mx-auto w-full max-w-6xl px-4 py-16 sm:px-8 sm:py-24 ${className}`}>
+    <section id={id} className={`mx-auto w-full max-w-6xl px-4 py-14 sm:px-8 sm:py-20 ${className}`}>
       {(eyebrow || aside) && (
         <div className="flex items-start justify-between gap-6 border-t border-line pt-4 text-[11px] font-semibold tracking-[0.16em] uppercase">
           <span>{eyebrow}</span>

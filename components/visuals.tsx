@@ -58,7 +58,7 @@ export function ArchPhoto({ src, alt, label, note }: { src: string; alt: string;
         fetchPriority="high"
         className="relative size-full rounded-[45%_45%_3%_3%] object-cover object-[center_30%] [mask-image:linear-gradient(to_bottom,black_85%,transparent)]"
       />
-      <div className="absolute bottom-24 -left-2 flex rotate-[-5deg] items-center gap-3 rounded-md bg-label px-5 py-4 text-ink shadow-[0_15px_30px_rgba(139,40,0,.18)] [text-shadow:none] sm:-left-10">
+      <div className="absolute bottom-24 -left-2 flex items-center gap-3 rounded-md bg-label px-5 py-4 text-ink shadow-[0_15px_30px_rgba(139,40,0,.18)] [text-shadow:none] sm:-left-10">
         <span aria-hidden="true" className="text-lg">
           ↗
         </span>

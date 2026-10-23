@@ -16,11 +16,19 @@ test('real talent shows verification badge', () => {
   expect(screen.getByText('Verified by Talentiv')).toBeInTheDocument()
 })
 
-test('package without checkout or price falls back to consult', () => {
-  render(<PricingCard pkg={{ name: 'Fast Track', features: ['a'] }} whatsappText="Halo" />)
-  expect(screen.getByRole('link', { name: 'Konsultasi Program ↗' })).toBeInTheDocument()
-  expect(screen.queryByRole('link', { name: /Daftar/ })).toBeNull()
+test('package without checkout still shows Daftar Sekarang, routed to a WhatsApp registration message', () => {
+  render(<PricingCard pkg={{ name: 'Fast Track', features: ['a'] }} whatsappText="Halo" programTitle="Business Development Fast Track" />)
+  const daftar = screen.getByRole('link', { name: /Daftar Sekarang/ })
+  expect(daftar.getAttribute('href')).toContain('wa.me')
+  expect(decodeURIComponent(daftar.getAttribute('href')!)).toContain('mendaftar Business Development Fast Track paket Fast Track')
+  expect(screen.getByRole('link', { name: /Konsultasi Program/ })).toBeInTheDocument()
   expect(screen.getByText('Harga diinformasikan saat konsultasi')).toBeInTheDocument()
+})
+
+test('package with checkout sends Daftar Sekarang to CO Edu', () => {
+  const href = 'https://edu.talentiv.id/checkout/?add-to-cart=1'
+  render(<PricingCard pkg={{ name: 'Fast Track', features: [], checkoutUrl: href }} whatsappText="Halo" programTitle="X" />)
+  expect(screen.getByRole('link', { name: /Daftar Sekarang/ })).toHaveAttribute('href', href)
 })
 
 test('expired promo shows only the normal price', () => {
@@ -30,6 +38,7 @@ test('expired promo shows only the normal price', () => {
     <PricingCard
       pkg={{ name: 'Fast Track', normalPrice: 3500000, promoPrice: 2600000, promoUntil: '2026-11-02', features: [] }}
       whatsappText="Halo"
+      programTitle="X"
       now={new Date('2026-11-03T12:00:00+07:00')}
     />,
   )
@@ -49,6 +58,7 @@ test('promo shown at build time switches to normal price once it has ended in th
     <PricingCard
       pkg={{ name: 'Fast Track', normalPrice: 3500000, promoPrice: 2600000, promoUntil: '2026-11-02', features: [] }}
       whatsappText="Halo"
+      programTitle="X"
       now={new Date('2026-10-23T10:00:00+07:00')}
     />,
   )

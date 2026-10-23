@@ -37,7 +37,18 @@ const bdLp: ProgramLp = {
     { title: 'Junior & entry level', desc: 'Sudah di BD atau sales dan ingin cara kerja yang lebih terarah dan terukur.' },
     { title: 'Karier stuck', desc: 'Ingin pindah jalur atau naik level lewat skill yang dicari perusahaan.' },
   ],
-  tools: ['Meta Ads', 'Google Ads', 'Facebook', 'Instagram', 'ChatGPT', 'Claude'],
+  situations: [
+    'Sudah kirim banyak lamaran sales atau BD, tapi belum punya portofolio untuk ditunjukkan saat interview.',
+    'Sudah bekerja di sales, tapi target terasa berat karena belum punya cara kerja yang terstruktur.',
+    'Ingin pindah ke business development, tapi bingung harus mulai dari skill apa.',
+  ],
+  tools: [
+    { name: 'Meta Ads', use: 'Menjalankan iklan Facebook dan Instagram untuk mendatangkan prospek baru.' },
+    { name: 'Google Ads', use: 'Menjangkau calon klien yang sedang mencari solusi lewat pencarian Google.' },
+    { name: 'Instagram & Facebook', use: 'Riset kompetitor dan online canvassing langsung ke calon klien.' },
+    { name: 'ChatGPT', use: 'Menyusun draft riset pasar, pesan prospek, dan kerangka proposal lebih cepat.' },
+    { name: 'Claude', use: 'Merangkum data riset dan merapikan isi pitch deck sebelum presentasi.' },
+  ],
   phase1: {
     title: 'Sales & Business Development Strategy',
     time: 'Pukul 19.30 WIB',
@@ -73,14 +84,42 @@ const bdLp: ProgramLp = {
     'Negotiation & Closing Simulation',
   ],
   // TODO: konfirmasi mentor yang mengajar di Levela
+  // Pengalaman diambil dari halaman Talentiv (Okt 2026). TODO: foto asli di public/images/mentor-*.webp
   mentors: [
-    { name: 'Tri Ali Herviansyah', role: 'B2B Growth & Performance Marketing' },
-    { name: 'Ardan Aziz Rahman', role: 'Business Strategy & Business Development' },
-    { name: 'M Khairul Hamid', role: 'Market Research & Data Analytics' },
-    { name: 'Prita Permatadinata', role: 'Strategic Partnership & Business Performance' },
+    {
+      name: 'Tri Ali Herviansyah',
+      role: 'B2B Growth & Performance Marketing',
+      photo: '/images/mentor-tri-ali-herviansyah.webp',
+      experience: 'Praktisi B2B growth dan performance marketing. TODO: lengkapi riwayat kerja.',
+    },
+    {
+      name: 'Ardan Aziz Rahman',
+      role: 'Business Strategy & Business Development',
+      photo: '/images/mentor-ardan-aziz-rahman.webp',
+      experience: 'CEO & Founder Talentiv Academy.',
+    },
+    {
+      name: 'M Khairul Hamid',
+      role: 'Market Research & Data Analytics',
+      photo: '/images/mentor-m-khairul-hamid.webp',
+      experience: 'Ex-Director of Business Intelligence dan Senior Software Engineer di perusahaan SaaS global.',
+    },
+    {
+      name: 'Prita Permatadinata',
+      role: 'Strategic Partnership & Business Performance',
+      photo: '/images/mentor-prita-permatadinata.webp',
+      experience: '6+ tahun di bidang business performance dan marketing.',
+    },
   ],
   talentIds: ['bd-1', 'bd-2'],
   certificate: 'Business Development Professional', // TODO: konfirmasi nama sertifikat
+  // TODO: ganti placeholder dengan contoh sertifikat asli dan foto kegiatan kelas asli
+  certificateImage: '/images/certificate-business-development.webp',
+  gallery: [
+    { src: '/images/class-live.webp', alt: 'Live class bersama mentor', caption: 'Live class bersama mentor' },
+    { src: '/images/class-mentoring.webp', alt: 'Sesi mentoring project', caption: 'Mentoring project 1on1' },
+    { src: '/images/class-presentation.webp', alt: 'Presentasi hasil project peserta', caption: 'Presentasi hasil project' },
+  ],
   reasons: [
     '30 hari intensif',
     'Live class interaktif dan sesi tanya jawab',
@@ -124,7 +163,20 @@ const dmLp: ProgramLp = {
     { title: 'Junior & entry level', desc: 'Sudah di marketing dan ingin menguasai iklan berbayar dan data.' },
     { title: 'Karier stuck', desc: 'Ingin pindah ke digital marketing lewat skill yang dicari perusahaan.' },
   ],
-  tools: ['Meta Ads', 'Google Ads', 'Google Analytics', 'TikTok Ads', 'ChatGPT', 'Claude'],
+  situations: [
+    'Lowongan digital marketing selalu minta pengalaman iklan, padahal kamu belum pernah pegang budget.',
+    'Sudah rutin posting konten, tapi belum tahu cara membaca hasilnya dan memperbaikinya.',
+    'Ingin pindah ke digital marketing, tapi materi gratis terasa acak dan tidak terarah.',
+  ],
+  tools: [
+    { name: 'Meta Ads', use: 'Membuat dan mengoptimasi campaign iklan Facebook dan Instagram.' },
+    { name: 'Google Ads', use: 'Menjalankan iklan pencarian untuk audiens yang siap membeli.' },
+    { name: 'Google Analytics', use: 'Membaca perilaku pengunjung website dan sumber konversi.' },
+    { name: 'TikTok Ads', use: 'Menjangkau audiens muda lewat iklan video singkat.' },
+    { name: 'ChatGPT', use: 'Membuat variasi copywriting dan ide konten untuk A/B testing.' },
+    { name: 'Claude', use: 'Merangkum data performa menjadi laporan yang mudah dipahami.' },
+  ],
+  certificateImage: '/images/certificate-digital-marketing.webp',
   phase1: {
     title: 'Digital Marketing Strategy',
     time: 'Pukul 19.30 WIB',

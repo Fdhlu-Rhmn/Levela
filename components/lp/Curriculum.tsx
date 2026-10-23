@@ -12,8 +12,8 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
             <span className="block text-xs font-bold tracking-[0.16em]">FASE 1 · LIVE CLASS</span>
             <span className="font-heading text-xl">{lp.phase1.title}</span>
           </span>
-          <span aria-hidden="true" className="text-xl transition-transform group-open:rotate-45">
-            +
+          <span aria-hidden="true" className="ring-line grid size-9 shrink-0 place-items-center text-base transition-transform duration-300 group-open:rotate-180">
+            ↓
           </span>
         </summary>
         <p className="mt-2 text-sm">{lp.phase1.time}</p>
@@ -27,7 +27,7 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
           ))}
         </ol>
       </details>
-      <div className="glass p-5 sm:p-6">
+      <div className="glass flex flex-col p-5 sm:p-6">
         <p className="text-xs font-bold tracking-[0.16em]">FASE 2 · MENTORING</p>
         <h3 className="font-heading text-xl">{lp.phase2.title}</h3>
         <ol className="mt-4 grid gap-2 text-sm">
@@ -38,6 +38,9 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
             </li>
           ))}
         </ol>
+        <p className="mt-auto rounded-xl bg-[#ffb43b]/15 p-4 pt-4 text-[13px] leading-relaxed">
+          Setelah live class, kamu mengerjakan project bersama mentor lewat sesi 1on1 sampai siap dipresentasikan.
+        </p>
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ export function ProgramCard({ program: p }: { program: Program }) {
   const cta = p.packages?.[0] ? packageCta(p.packages[0]) : { kind: 'consult' as const }
   const meta = [p.duration, p.format, p.level].filter(Boolean).join(' · ')
   return (
-    <article className="glass lift group flex flex-col overflow-hidden">
+    <article className="glass lift group flex h-full flex-col overflow-hidden">
       <div className="relative h-48 overflow-hidden">
         <img
           src={asset(p.image)}
