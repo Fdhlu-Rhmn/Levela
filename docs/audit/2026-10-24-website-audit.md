@@ -67,3 +67,12 @@ Lighthouse/CWV tidak diukur (tool tidak terpasang). Server Hostinger & domain be
 - DM: 8 sesi topik bisnis & sales (11–25 Nov), mentor Aziz, Hamid, Herdi, Usamah, Sahrul; Fase 2 & project = BD.
 - Social Media: teaser "Segera Hadir" di `/program/social-media/` (isi contoh).
 - Daftar aset yang dibutuhkan: `docs/brand/asset-needs.md`.
+
+## Update akhir sesi 2026-10-24
+
+- Foto asli terpasang: hero, hero LP BD & DM, kartu BD/DM/Social Media, About group (WebP q88).
+- Kurikulum: BD 9 sesi, DM 8 sesi (tanggal + mentor per sesi), tanpa label modul; tab Fase 1/2.
+- Halaman Tentang didesain ulang: before/after panel, alur Talentiv Jobs, nilai editorial, mentor carousel (semua mentor otomatis via `allMentors()`), copy lebih profesional.
+- Riwayat git ditulis ulang tanpa `Co-Authored-By: Claude`; jangan tambahkan trailer itu lagi.
+- Brand guidelines (Design System artifact): https://claude.ai/artifact/R46WD5irpKK6yxxsDNMCFT
+- **Masih terbuka:** P0 F01 (link WhatsApp rusak di Homepage & Tentang) + cek pasca-build; data & foto di `docs/brand/asset-needs.md`.
