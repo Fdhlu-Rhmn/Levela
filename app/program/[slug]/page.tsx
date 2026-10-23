@@ -14,11 +14,14 @@ import { Curriculum } from '@/components/lp/Curriculum'
 import { TalentCard } from '@/components/lp/TalentCard'
 import { PartnerMatch } from '@/components/lp/PartnerMatch'
 import { PricingCard } from '@/components/lp/PricingCard'
+import { Teaser } from '@/components/lp/Teaser'
 
 type Params = { slug: string }
 
 export function generateStaticParams(): Params[] {
-  return programs.filter((p) => p.status === 'available' && p.lp).map((p) => ({ slug: p.slug }))
+  return programs
+    .filter((p) => (p.status === 'available' && p.lp) || (p.status === 'coming-soon' && p.teaser))
+    .map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
@@ -31,6 +34,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0')
 
 export default async function ProgramLanding({ params }: { params: Promise<Params> }) {
   const p = getProgram((await params).slug)
+  if (p?.status === 'coming-soon' && p.teaser) return <Teaser program={p} />
   if (!p?.lp || p.status !== 'available') notFound()
   const lp = p.lp
   const packages = p.packages ?? []
@@ -169,10 +173,11 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
       <Section eyebrow="08 / Real project" aside="Portfolio first." title="Portofolio dari proyek bisnis nyata.">
         <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {lp.projects.map((pr, i) => (
-            <li key={pr} className="glass reveal flex flex-col p-5">
+            <li key={pr.title} className="glass reveal flex flex-col p-5">
               <span className="font-heading text-3xl tracking-[-0.05em] text-sun">{num(i)}</span>
-              <p className="mt-6 font-heading text-lg leading-snug tracking-[-0.02em]">{pr}</p>
-              <p className="mt-auto pt-5 text-xs">Masuk ke portofoliomu</p>
+              <h3 className="mt-5 text-lg leading-snug tracking-[-0.02em]">{pr.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed">{pr.desc}</p>
+              <p className="mt-auto border-t border-line pt-3 text-xs font-semibold">Masuk ke portofoliomu ↗</p>
             </li>
           ))}
         </ol>

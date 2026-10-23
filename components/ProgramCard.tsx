@@ -49,7 +49,14 @@ export function ProgramCard({ program: p }: { program: Program }) {
               )}
             </>
           ) : (
-            <ConsultButton text={p.whatsappText} />
+            <>
+              {p.teaser && (
+                <Button href={`/program/${p.slug}/`} arrow>
+                  Intip Program
+                </Button>
+              )}
+              <ConsultButton text={p.whatsappText} />
+            </>
           )}
         </div>
       </div>

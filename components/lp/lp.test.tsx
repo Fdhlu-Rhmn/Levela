@@ -47,8 +47,8 @@ test('expired promo shows only the normal price', () => {
   vi.useRealTimers()
 })
 
-test('only available programs with an lp get a page', () => {
-  expect(generateStaticParams()).toEqual([{ slug: 'business-development' }, { slug: 'digital-marketing' }])
+test('available programs with an lp and coming-soon programs with a teaser get a page', () => {
+  expect(generateStaticParams()).toEqual([{ slug: 'business-development' }, { slug: 'digital-marketing' }, { slug: 'social-media' }])
 })
 
 test('promo shown at build time switches to normal price once it has ended in the browser', async () => {

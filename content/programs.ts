@@ -45,45 +45,52 @@ const bdLp: ProgramLp = {
   tools: [
     { name: 'Meta Ads', use: 'Menjalankan iklan Facebook dan Instagram untuk mendatangkan prospek baru.' },
     { name: 'Google Ads', use: 'Menjangkau calon klien yang sedang mencari solusi lewat pencarian Google.' },
-    { name: 'Instagram & Facebook', use: 'Riset kompetitor dan online canvassing langsung ke calon klien.' },
+    { name: 'Facebook', use: 'Mencari calon klien di grup dan halaman bisnis, lalu melakukan online canvassing.' },
+    { name: 'Instagram', use: 'Riset kompetitor dan membangun kredibilitas lewat profil bisnis sebelum menghubungi klien.' },
     { name: 'ChatGPT', use: 'Menyusun draft riset pasar, pesan prospek, dan kerangka proposal lebih cepat.' },
     { name: 'Claude', use: 'Merangkum data riset dan merapikan isi pitch deck sebelum presentasi.' },
   ],
+  // Kurikulum BD disalin dari talentiv.id/bizdev (Okt 2026): deskripsi dan tag per sesi/modul.
   phase1: {
     title: 'Sales & Business Development Strategy',
+    intro:
+      'Pahami bisnis dan target pelanggan, bangun pipeline, lalu latih cara menyampaikan penawaran, bernegosiasi, dan mengarahkan percakapan menuju closing.',
     time: 'Pukul 19.30 WIB',
     sessions: [
-      { code: 'S1', date: '2026-11-10', title: 'Onboarding Program', desc: 'Kenalan dengan mentor dan sesama peserta, memahami alur program, dan menentukan target belajarmu.' },
-      { code: 'S2', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', desc: 'Membaca cara bisnis menghasilkan uang dan menemukan titik yang bisa ditingkatkan dari sisi revenue.' },
-      { code: 'S3', date: '2026-11-12', title: 'Market Research & Competitor Analysis', desc: 'Riset pasar dan kompetitor untuk menemukan peluang serta posisi yang tepat bagi produk.' },
-      { code: 'S4', date: '2026-11-16', title: 'Business Model Canvas', desc: 'Memetakan model bisnis dalam satu kanvas: pelanggan, nilai, channel, hingga sumber pendapatan.' },
-      { code: 'S5', date: '2026-11-17', title: 'Lead Generation & Pipeline Management', desc: 'Mencari calon klien yang tepat dan mengelola pipeline dari kontak pertama sampai siap closing.' },
-      { code: 'S6', date: '2026-11-18', title: 'Pitching, Pitch Deck & Business Presentation', desc: 'Menyusun pitch deck dan berlatih presentasi bisnis yang ringkas, jelas, dan meyakinkan.' },
-      { code: 'S7', date: '2026-11-19', title: 'Negotiation Strategy', desc: 'Strategi negosiasi: menyiapkan penawaran, membaca kebutuhan klien, dan menangani keberatan.' },
-      { code: 'S8', date: '2026-11-23', title: 'Closing Strategy', desc: 'Teknik menutup kesepakatan dan menjaga hubungan dengan klien setelah deal.' },
-      { code: 'S9', date: '2026-11-25', title: 'Digital Marketing: Organic Source & Copywriting', desc: 'Mendatangkan prospek dari kanal organik dan menulis copy yang mendorong calon klien merespons.' },
-      { code: 'S10', date: '2026-11-26', title: 'Digital Marketing: Meta & Google Ads', desc: 'Dasar iklan berbayar di Meta dan Google untuk mendukung target penjualan.' },
-      { code: 'S11', date: '2026-11-30', title: 'Mentoring Project Portfolio & Post Test', desc: 'Review project portofolio bersama mentor dan post test untuk mengukur pemahamanmu.' },
+      { code: 'S1', date: '2026-11-10', title: 'Onboarding Program', desc: 'Memahami learning journey, tujuan program, kontrak belajar, serta mendapatkan insight dan motivasi untuk memulai perjalanan sebagai Business Development.', tags: ['Learning Journey', 'Kontrak Belajar', 'Insight Business Development'] },
+      { code: 'S2', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', desc: 'Memahami anatomi model bisnis, revenue stream, dan framework keuangan untuk mengidentifikasi peluang bisnis.', tags: ['Business Acumen', 'Revenue Stream', 'Business Diagnostic'] },
+      { code: 'S3', date: '2026-11-12', title: 'Market Research & Competitor Analysis', desc: 'Mempelajari metodologi riset pasar, market sizing, analisis kompetitif, dan segmentasi untuk menemukan peluang bisnis.', tags: ['Market Research', 'Market Sizing', 'Competitor Analysis'] },
+      { code: 'S4', date: '2026-11-16', title: 'Business Model Canvas', desc: 'Memahami 9 building blocks dan menyusun Business Model Canvas untuk melihat struktur bisnis secara menyeluruh.', tags: ['Business Model Canvas', 'Value Proposition', 'Revenue Streams'] },
+      { code: 'S5', date: '2026-11-17', title: 'Lead Generation & Pipeline Management', desc: 'Mempelajari inbound dan outbound prospecting, kualifikasi lead, segmentasi lead stage, hingga pengelolaan sales pipeline.', tags: ['Lead Generation', 'Lead Qualification', 'Sales Pipeline'] },
+      { code: 'S6', date: '2026-11-18', title: 'Pitching, Pitch Deck & Business Presentation', desc: 'Menyusun pitch deck persuasif, melakukan business storytelling, serta menangani pertanyaan dan objection.', tags: ['Pitch Deck', 'Business Storytelling', 'Business Presentation'] },
+      // Sumber menulis tag "Persuasive Communication" dua kali; tag kedua diganti "Objection Handling" sesuai deskripsi.
+      { code: 'S7', date: '2026-11-19', title: 'Negotiation Strategy', desc: 'Mempelajari prinsip dan taktik negosiasi, handling objection & rejection, serta komunikasi persuasif.', tags: ['Negotiation', 'Objection Handling', 'Persuasive Communication'] },
+      { code: 'S8', date: '2026-11-23', title: 'Closing Strategy', desc: 'Mengenali buying signals, menerapkan teknik closing, serta memahami post-closing dan retention strategy.', tags: ['Buying Signals', 'Closing', 'Retention Strategy'] },
+      { code: 'S9', date: '2026-11-25', title: 'Digital Marketing: Organic Source & Copywriting', desc: 'Memahami sumber organik dan copywriting untuk mendukung aktivitas marketing dan akuisisi pelanggan.', tags: ['Organic Source', 'Copywriting', 'Lead Acquisition'] },
+      { code: 'S10', date: '2026-11-26', title: 'Digital Marketing: Meta & Google Ads', desc: 'Mempelajari penggunaan Meta Ads dan Google Ads untuk mendukung lead generation dan aktivitas pemasaran.', tags: ['Meta Ads', 'Google Ads', 'Performance Marketing'] },
+      { code: 'S11', date: '2026-11-30', title: 'Mentoring Project Portfolio & Post Test', desc: 'Menerapkan hasil pembelajaran melalui project portfolio, final capstone project, simulasi pitching dan negosiasi, review, feedback, serta evaluasi akhir.', tags: ['Portfolio Project', 'Final Capstone', 'Post Test'] },
     ],
   },
   phase2: {
     title: 'Mentoring Project & 1on1',
+    intro:
+      'Ubah materi yang dipelajari menjadi hasil kerja: riset pasar, profil perusahaan, dan rencana akuisisi pelanggan. Kerjakan proyek dengan arahan mentor, lalu presentasikan strategi serta hasilnya untuk mendapatkan feedback.',
     modules: [
-      'Project Brief',
-      'Market Research & Strategy',
-      'Build Strong Company Profile',
-      'Running Ads & Online Canvassing',
-      'Project Presentation & Evaluation',
+      { title: 'Project Brief & Business Context', desc: 'Pahami konteks bisnis, masalah yang ingin diselesaikan, target pelanggan, dan hasil yang perlu disusun sebelum memulai proyek.', tags: ['Business Context', 'Problem Definition', 'Project Output'] },
+      { title: 'Market Research & Strategy', desc: 'Analisis kebutuhan pelanggan dan kompetitor, lalu susun rekomendasi target pasar serta pendekatan bisnis berdasarkan temuanmu.', tags: ['Market Research', 'Competitor Analysis', 'Customer Research'] },
+      // Sumber menulis tag "Company Profile" dua kali; tag kedua diganti "Value Proposition" sesuai deskripsi.
+      { title: 'Build Strong Company Profile', desc: 'Susun profil perusahaan yang menjelaskan solusi, value proposition, dan bukti kredibilitas untuk mendukung penawaran kepada calon pelanggan.', tags: ['Company Profile', 'Value Proposition', 'Business Storytelling'] },
+      { title: 'Running Ads & Online Canvassing', desc: 'Terapkan pendekatan akuisisi melalui iklan digital dan online canvassing. Susun pesan penawaran serta evaluasi respons yang diperoleh.', tags: ['Target Audience', 'Running Ads', 'Online Canvassing'] },
+      { title: 'Project Presentation & Evaluation', desc: 'Presentasikan hasil proyek, jelaskan alasan di balik strategi, dan gunakan feedback mentor untuk memperbaiki rekomendasi serta hasil kerja.', tags: ['Project Presentation', 'Evaluation', 'Business Insight'] },
     ],
   },
   projects: [
-    'Market Opportunity Research',
-    'Business Model Canvas',
-    'Lead Generation & Sales Pipeline',
-    'Business Pitch Deck & Presentation',
-    'Negotiation & Closing Simulation',
+    { title: 'Market Opportunity Research', desc: 'Petakan kebutuhan pelanggan dan kompetitor untuk menentukan peluang pasar yang layak ditindaklanjuti.' },
+    { title: 'Business Model Canvas (BMC)', desc: 'Hubungkan segmen pelanggan, value proposition, dan sumber pendapatan dalam satu peta bisnis.' },
+    { title: 'Lead Generation & Sales Pipeline', desc: 'Susun prospek dan tahapan peluang agar aktivitas pendekatan serta tindak lanjut lebih terarah.' },
+    { title: 'Business Pitch Deck & Presentation', desc: 'Buat presentasi yang menjelaskan kebutuhan pelanggan, manfaat solusi, dan alasan memilih penawaranmu.' },
+    { title: 'Negotiation & Closing Simulation', desc: 'Latih respons atas keberatan, persiapkan negosiasi, dan tentukan langkah untuk mencapai kesepakatan.' },
   ],
-  // TODO: konfirmasi mentor yang mengajar di Levela
   // Pengalaman diambil dari halaman Talentiv (Okt 2026). TODO: foto asli di public/images/mentor-*.webp
   mentors: [
     {
@@ -172,33 +179,51 @@ const dmLp: ProgramLp = {
     { name: 'Meta Ads', use: 'Membuat dan mengoptimasi campaign iklan Facebook dan Instagram.' },
     { name: 'Google Ads', use: 'Menjalankan iklan pencarian untuk audiens yang siap membeli.' },
     { name: 'Google Analytics', use: 'Membaca perilaku pengunjung website dan sumber konversi.' },
+    { name: 'Facebook', use: 'Mengelola halaman bisnis dan komunitas, serta menjadi sumber audiens untuk iklan Meta.' },
     { name: 'TikTok Ads', use: 'Menjangkau audiens muda lewat iklan video singkat.' },
     { name: 'ChatGPT', use: 'Membuat variasi copywriting dan ide konten untuk A/B testing.' },
     { name: 'Claude', use: 'Merangkum data performa menjadi laporan yang mudah dipahami.' },
   ],
   certificateImage: '/images/certificate-digital-marketing.webp',
+  // CONTOH: kurikulum DM mengikuti format BD. Ganti deskripsi dan tag dengan materi asli.
   phase1: {
     title: 'Digital Marketing Strategy',
+    intro:
+      'Pahami audiens dan kanal digital, rancang campaign, lalu jalankan dan optimasi iklan berdasarkan data.',
     time: 'Pukul 19.30 WIB',
     sessions: [
-      { code: 'S1', date: '2026-12-01', title: 'Onboarding Program', desc: 'Kenalan dengan mentor dan sesama peserta, memahami alur program, dan menentukan target belajarmu.' },
-      { code: 'S2', date: '2026-12-02', title: 'Digital Marketing Fundamentals', desc: 'Memahami peta digital marketing: funnel, kanal, dan peran setiap kanal dalam campaign.' },
-      { code: 'S3', date: '2026-12-03', title: 'Audience Research & Customer Journey', desc: 'Mengenali audiens dan memetakan perjalanan mereka dari kenal brand sampai membeli.' },
-      { code: 'S4', date: '2026-12-07', title: 'Content Strategy & Copywriting', desc: 'Menyusun pilar konten dan menulis copy yang sesuai dengan audiens dan tujuan campaign.' },
-      { code: 'S5', date: '2026-12-08', title: 'SEO Basics', desc: 'Dasar SEO: riset kata kunci dan optimasi konten agar mudah ditemukan di Google.' },
-      { code: 'S6', date: '2026-12-09', title: 'Campaign Planning', desc: 'Merancang campaign lengkap: tujuan, pesan, kanal, budget, dan cara mengukurnya.' },
-      { code: 'S7', date: '2026-12-10', title: 'Meta Ads', desc: 'Membuat, menargetkan, dan mengoptimasi campaign iklan di Facebook dan Instagram.' },
-      { code: 'S8', date: '2026-12-14', title: 'Google Ads', desc: 'Menjalankan iklan pencarian dan memilih kata kunci yang mendatangkan calon pembeli.' },
-      { code: 'S9', date: '2026-12-15', title: 'Analytics & Reporting', desc: 'Membaca data di Google Analytics dan menyusun laporan performa yang mudah dipahami.' },
-      { code: 'S10', date: '2026-12-16', title: 'Optimization & A/B Testing', desc: 'Menguji variasi iklan dan konten untuk menemukan yang paling efektif.' },
-      { code: 'S11', date: '2026-12-21', title: 'Mentoring Project Portfolio & Post Test', desc: 'Review project portofolio bersama mentor dan post test untuk mengukur pemahamanmu.' },
+      { code: 'S1', date: '2026-12-01', title: 'Onboarding Program', desc: 'Memahami learning journey, tujuan program, kontrak belajar, serta gambaran peran digital marketing di perusahaan.', tags: ['Learning Journey', 'Kontrak Belajar', 'Insight Digital Marketing'] },
+      { code: 'S2', date: '2026-12-02', title: 'Digital Marketing Fundamentals', desc: 'Memahami funnel pemasaran, peran setiap kanal digital, dan metrik dasar untuk mengukur keberhasilan campaign.', tags: ['Marketing Funnel', 'Digital Channel', 'Marketing Metrics'] },
+      { code: 'S3', date: '2026-12-03', title: 'Audience Research & Customer Journey', desc: 'Menyusun persona audiens dan memetakan perjalanan pelanggan dari mengenal brand hingga melakukan pembelian.', tags: ['Audience Persona', 'Customer Journey', 'Market Research'] },
+      { code: 'S4', date: '2026-12-07', title: 'Content Strategy & Copywriting', desc: 'Menyusun pilar konten dan menulis copy yang sesuai dengan audiens serta tujuan campaign.', tags: ['Content Pillar', 'Copywriting', 'Content Plan'] },
+      { code: 'S5', date: '2026-12-08', title: 'SEO Basics', desc: 'Mempelajari riset kata kunci dan optimasi konten agar website lebih mudah ditemukan di mesin pencari.', tags: ['Keyword Research', 'On-page SEO', 'Organic Traffic'] },
+      { code: 'S6', date: '2026-12-09', title: 'Campaign Planning', desc: 'Merancang campaign lengkap mulai dari tujuan, pesan utama, kanal, budget, hingga cara mengukur hasil.', tags: ['Campaign Objective', 'Media Plan', 'Budgeting'] },
+      { code: 'S7', date: '2026-12-10', title: 'Meta Ads', desc: 'Membuat struktur campaign, menentukan target audiens, dan mengoptimasi iklan di Facebook serta Instagram.', tags: ['Meta Ads', 'Audience Targeting', 'Ad Optimization'] },
+      { code: 'S8', date: '2026-12-14', title: 'Google Ads', desc: 'Menjalankan iklan pencarian, memilih kata kunci, dan mengatur bidding untuk mendatangkan calon pembeli.', tags: ['Google Ads', 'Search Campaign', 'Bidding Strategy'] },
+      { code: 'S9', date: '2026-12-15', title: 'Analytics & Reporting', desc: 'Membaca data di Google Analytics dan menyusun laporan performa campaign yang mudah dipahami.', tags: ['Google Analytics', 'Conversion Tracking', 'Reporting'] },
+      { code: 'S10', date: '2026-12-16', title: 'Optimization & A/B Testing', desc: 'Menguji variasi materi iklan dan landing page untuk menemukan kombinasi dengan hasil terbaik.', tags: ['A/B Testing', 'Creative Testing', 'Performance Marketing'] },
+      { code: 'S11', date: '2026-12-21', title: 'Mentoring Project Portfolio & Post Test', desc: 'Menerapkan hasil pembelajaran melalui project portfolio, review campaign bersama mentor, feedback, serta evaluasi akhir.', tags: ['Portfolio Project', 'Final Capstone', 'Post Test'] },
     ],
   },
   phase2: {
     title: 'Mentoring Project & 1on1',
-    modules: ['Project Brief', 'Audience & Market Research', 'Campaign Plan', 'Running Ads', 'Project Presentation & Evaluation'],
+    intro:
+      'Ubah materi menjadi hasil kerja: riset audiens, rencana campaign, dan iklan yang benar-benar dijalankan. Kerjakan bersama mentor, lalu presentasikan hasilnya untuk mendapatkan feedback.',
+    modules: [
+      { title: 'Project Brief & Business Context', desc: 'Pahami brand, produk, target pasar, dan tujuan campaign yang akan kamu kerjakan sebelum memulai proyek.', tags: ['Business Context', 'Campaign Goal', 'Project Output'] },
+      { title: 'Audience & Market Research', desc: 'Analisis audiens dan kompetitor, lalu tentukan segmen dan pesan yang paling relevan untuk campaign.', tags: ['Audience Research', 'Competitor Analysis', 'Positioning'] },
+      { title: 'Campaign Plan', desc: 'Susun rencana campaign lengkap dengan kanal, jadwal konten, budget, dan target metrik.', tags: ['Media Plan', 'Content Calendar', 'KPI'] },
+      { title: 'Running Ads', desc: 'Jalankan iklan di Meta atau Google, pantau performanya, dan lakukan optimasi berdasarkan data.', tags: ['Running Ads', 'Optimization', 'Budget Control'] },
+      { title: 'Project Presentation & Evaluation', desc: 'Presentasikan hasil campaign, jelaskan alasan strategimu, dan perbaiki rekomendasi berdasarkan feedback mentor.', tags: ['Project Presentation', 'Evaluation', 'Marketing Insight'] },
+    ],
   },
-  projects: ['Audience Persona', 'Campaign Plan', 'Ad Creative & Copy', 'Running Meta Ads', 'Performance Report'],
+  projects: [
+    { title: 'Audience Persona', desc: 'Susun profil audiens lengkap dengan kebutuhan, kebiasaan, dan pesan yang tepat untuk mereka.' },
+    { title: 'Campaign Plan', desc: 'Rencana campaign dengan tujuan, kanal, jadwal, budget, dan metrik keberhasilan.' },
+    { title: 'Ad Creative & Copy', desc: 'Materi iklan dan variasi copy yang siap diuji untuk menemukan pesan paling efektif.' },
+    { title: 'Running Meta Ads', desc: 'Campaign Meta Ads yang dijalankan, dipantau, dan dioptimasi berdasarkan data performa.' },
+    { title: 'Performance Report', desc: 'Laporan hasil campaign beserta insight dan rekomendasi langkah berikutnya.' },
+  ],
   talentIds: ['dm-1', 'dm-2'],
   certificate: 'Digital Marketing Professional',
   faq: bdLp.faq.map((f) =>
@@ -258,6 +283,20 @@ export const programs: Program[] = [
     image: '/images/program-social-media.webp',
     imageAlt: 'Profesional muda merekam konten dengan smartphone',
     whatsappText: waText('Social Media Fast Track'),
+    // CONTOH: isi teaser sementara sampai program Social Media siap.
+    teaser: {
+      headline: 'Konten yang dibuat dengan strategi, bukan sekadar rutin posting',
+      subtitle: 'Program Social Media Fast Track sedang kami siapkan. Ini gambaran yang akan kamu pelajari.',
+      topics: [
+        { title: 'Strategi akun & pilar konten', desc: 'Menentukan positioning akun dan pilar konten yang konsisten dengan tujuan brand.' },
+        { title: 'Content planning & copywriting', desc: 'Menyusun kalender konten, brief, dan caption yang mengajak audiens berinteraksi.' },
+        { title: 'Produksi konten short video', desc: 'Merancang ide, hook, dan alur video singkat untuk Reels dan TikTok.' },
+        { title: 'Insight & evaluasi konten', desc: 'Membaca insight akun dan memperbaiki konten berdasarkan data.' },
+      ],
+      tools: ['Instagram', 'TikTok', 'Facebook', 'Meta Business Suite', 'Canva', 'CapCut', 'ChatGPT'],
+      perks: ['Kuota batch pertama terbatas', 'Info harga dan jadwal lebih dulu', 'Prioritas konsultasi program'],
+      notifyText: 'Halo kak, kabari saya saat Social Media Fast Track dibuka ya.',
+    },
   },
 ]
 

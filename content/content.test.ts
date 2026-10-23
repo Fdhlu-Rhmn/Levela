@@ -75,3 +75,35 @@ test('Levela prices: Fast Track 349K (was 499K), Fast Track Plus 1.9 jt (was 2.9
 test('every curriculum session explains what is covered', () => {
   for (const p of programs.filter((p) => p.lp)) for (const s of p.lp!.phase1.sessions) expect(s.desc?.length).toBeGreaterThan(30)
 })
+
+test('curriculum sessions, phase 2 modules and projects all carry description and tags like Talentiv', () => {
+  for (const p of programs.filter((p) => p.lp)) {
+    const lp = p.lp!
+    expect(lp.phase1.intro.length).toBeGreaterThan(30)
+    expect(lp.phase2.intro.length).toBeGreaterThan(30)
+    for (const s of lp.phase1.sessions) expect(s.tags?.length).toBe(3)
+    for (const m of lp.phase2.modules) {
+      expect(m.desc.length).toBeGreaterThan(30)
+      expect(m.tags.length).toBe(3)
+      expect(new Set(m.tags).size).toBe(3)
+    }
+    for (const pr of lp.projects) expect(pr.desc.length).toBeGreaterThan(30)
+  }
+})
+
+test('BD session 2 uses the Talentiv description', () => {
+  const s2 = programs[0].lp!.phase1.sessions[1]
+  expect(s2.desc).toBe('Memahami anatomi model bisnis, revenue stream, dan framework keuangan untuk mengidentifikasi peluang bisnis.')
+  expect(s2.tags).toEqual(['Business Acumen', 'Revenue Stream', 'Business Diagnostic'])
+})
+
+test('Facebook is a separate tool on every landing page', () => {
+  for (const p of programs.filter((p) => p.lp)) expect(p.lp!.tools.map((t) => t.name)).toContain('Facebook')
+})
+
+test('Social Media is coming soon with a teaser page', () => {
+  const sm = programs.find((p) => p.slug === 'social-media')!
+  expect(sm.status).toBe('coming-soon')
+  expect(sm.teaser?.topics.length).toBeGreaterThanOrEqual(3)
+  expect(sm.teaser?.notifyText).toContain('Social Media Fast Track')
+})

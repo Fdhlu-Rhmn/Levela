@@ -37,3 +37,9 @@ test('available program without a landing page does not link to a missing page',
   expect(within(card).queryByRole('link', { name: 'Lihat Program' })).toBeNull()
   expect(within(card).getByRole('link', { name: 'Konsultasi Program ↗' })).toBeInTheDocument()
 })
+
+test('coming-soon card with a teaser links to its teaser page', () => {
+  render(<ProgramSearch programs={programs} />)
+  const card = screen.getByRole('heading', { name: 'Social Media Fast Track' }).closest('article')!
+  expect(within(card).getByRole('link', { name: /Intip Program/ }).getAttribute('href')).toMatch(/^\/program\/social-media/)
+})

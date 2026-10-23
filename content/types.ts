@@ -10,7 +10,9 @@ export type Package = {
   features: string[]
 }
 
-export type Session = { code: string; date: string; title: string; desc?: string }
+export type Session = { code: string; date: string; title: string; desc?: string; tags?: string[] }
+export type Module = { title: string; desc: string; tags: string[] }
+export type Project = { title: string; desc: string }
 export type Mentor = { name: string; role: string; photo?: string; experience?: string }
 export type Tool = { name: string; use: string }
 export type GalleryItem = { src: string; alt: string; caption: string }
@@ -40,9 +42,9 @@ export type ProgramLp = {
   audience: { title: string; desc: string }[]
   situations: string[]
   tools: Tool[]
-  phase1: { title: string; time: string; sessions: Session[] }
-  phase2: { title: string; modules: string[] }
-  projects: string[]
+  phase1: { title: string; intro: string; time: string; sessions: Session[] }
+  phase2: { title: string; intro: string; modules: Module[] }
+  projects: Project[]
   mentors: Mentor[]
   talentIds: string[]
   certificate: string
@@ -50,6 +52,15 @@ export type ProgramLp = {
   gallery: GalleryItem[]
   reasons: string[]
   faq: FaqItem[]
+}
+
+export type Teaser = {
+  headline: string
+  subtitle: string
+  topics: { title: string; desc: string }[]
+  tools: string[]
+  perks: string[]
+  notifyText: string
 }
 
 export type Program = {
@@ -68,4 +79,5 @@ export type Program = {
   whatsappText: string
   packages?: Package[]
   lp?: ProgramLp
+  teaser?: Teaser
 }
