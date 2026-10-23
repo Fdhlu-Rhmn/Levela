@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import type { Package } from '@/content/types'
 import { formatRupiah, isPromoActive, packageCta } from '@/lib/programs'
 import { Button } from '../Button'
@@ -8,8 +11,12 @@ const longDate = (d: string) =>
 
 type Props = { pkg: Package; whatsappText: string; now?: Date; highlight?: boolean }
 
-export function PricingCard({ pkg, whatsappText, now = new Date(), highlight }: Props) {
-  const promo = isPromoActive(pkg, now)
+export function PricingCard({ pkg, whatsappText, now, highlight }: Props) {
+  // The static HTML is rendered at build time; re-check the promo in the visitor's browser
+  // so an expired early-bird price never stays up until the next rebuild.
+  const [current, setCurrent] = useState(() => now ?? new Date())
+  useEffect(() => setCurrent(new Date()), [])
+  const promo = isPromoActive(pkg, current)
   const cta = packageCta(pkg)
   return (
     <article className={`glass flex flex-col gap-5 p-6 ${highlight ? 'ring-2 ring-white/70' : ''}`}>

@@ -29,3 +29,11 @@ test('coming-soon card offers consult only', () => {
   expect(within(card).getByRole('link', { name: 'Konsultasi Program ↗' })).toBeInTheDocument()
   expect(within(card).queryByRole('link', { name: 'Lihat Program' })).toBeNull()
 })
+
+test('available program without a landing page does not link to a missing page', () => {
+  const noLp = { ...programs[0], slug: 'baru', title: 'Program Baru', lp: undefined }
+  render(<ProgramSearch programs={[noLp]} />)
+  const card = screen.getByRole('heading', { name: 'Program Baru' }).closest('article')!
+  expect(within(card).queryByRole('link', { name: 'Lihat Program' })).toBeNull()
+  expect(within(card).getByRole('link', { name: 'Konsultasi Program ↗' })).toBeInTheDocument()
+})

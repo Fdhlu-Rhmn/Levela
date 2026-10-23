@@ -24,6 +24,8 @@ test('package without checkout or price falls back to consult', () => {
 })
 
 test('expired promo shows only the normal price', () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(new Date('2026-11-03T12:00:00+07:00'))
   render(
     <PricingCard
       pkg={{ name: 'Fast Track', normalPrice: 3500000, promoPrice: 2600000, promoUntil: '2026-11-02', features: [] }}
@@ -33,8 +35,24 @@ test('expired promo shows only the normal price', () => {
   )
   expect(screen.getByText('Rp3.500.000')).toBeInTheDocument()
   expect(screen.queryByText('Rp2.600.000')).toBeNull()
+  vi.useRealTimers()
 })
 
 test('only available programs with an lp get a page', () => {
   expect(generateStaticParams()).toEqual([{ slug: 'business-development' }, { slug: 'digital-marketing' }])
+})
+
+test('promo shown at build time switches to normal price once it has ended in the browser', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(new Date('2026-11-05T10:00:00+07:00'))
+  render(
+    <PricingCard
+      pkg={{ name: 'Fast Track', normalPrice: 3500000, promoPrice: 2600000, promoUntil: '2026-11-02', features: [] }}
+      whatsappText="Halo"
+      now={new Date('2026-10-23T10:00:00+07:00')}
+    />,
+  )
+  expect(await screen.findByText('Rp3.500.000')).toBeInTheDocument()
+  expect(screen.queryByText('Rp2.600.000')).toBeNull()
+  vi.useRealTimers()
 })

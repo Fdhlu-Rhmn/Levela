@@ -8,7 +8,8 @@ import { StatusBadge } from './StatusBadge'
 const eyebrow: Record<Category, string> = { Business: '01 / BUSINESS', Marketing: '02 / MARKETING', Creative: '03 / CREATIVE' }
 
 export function ProgramCard({ program: p }: { program: Program }) {
-  const available = p.status === 'available'
+  // Only programs with a landing page get "Lihat Program"; others fall back to consult (no 404 links).
+  const available = p.status === 'available' && !!p.lp
   const cta = p.packages?.[0] ? packageCta(p.packages[0]) : { kind: 'consult' as const }
   const meta = [p.duration, p.format, p.level].filter(Boolean).join(' · ')
   return (
