@@ -1,0 +1,98 @@
+import type { Talent } from './types'
+
+// CONTOH: semua profil di bawah adalah contoh. Ganti dengan alumni asli lalu set sample: false
+// supaya badge "Verified by Talentiv" tampil.
+export const talents: Talent[] = [
+  {
+    id: 'bd-1',
+    sample: true,
+    name: 'Raka Pratama',
+    role: 'Business Development Executive',
+    photo: '/images/talent-bd-1.webp',
+    salaryFrom: 5000000,
+    education: {
+      org: 'Levela Academy',
+      program: 'Business Development Fast Track',
+      date: 'Nov 2026',
+      summary: 'Menyelesaikan program intensif riset pasar, lead generation, pitching, negosiasi, dan closing.',
+    },
+    experience: {
+      org: '[Nama Brand]',
+      role: 'Business Development Intern',
+      date: 'Des 2026',
+      summary: 'Membangun pipeline 40 prospek B2B dan menutup 6 kesepakatan kemitraan dalam 2 bulan.',
+    },
+    skills: ['Lead Generation', 'Negotiation', 'Pitching', 'Market Research', 'Pipeline Management'],
+    tools: ['HubSpot CRM', 'LinkedIn Sales Navigator', 'Google Sheets', 'Canva', 'ChatGPT'],
+    partnerIds: ['mitra-a', 'mitra-b'],
+  },
+  {
+    id: 'bd-2',
+    sample: true,
+    name: 'Dimas Saputra',
+    role: 'Account Executive',
+    photo: '/images/talent-bd-2.webp',
+    salaryFrom: 5500000,
+    education: {
+      org: 'Levela Academy',
+      program: 'Business Development Fast Track Plus',
+      date: 'Nov 2026',
+      summary: 'Fokus pada business model canvas, penyusunan proposal, dan simulasi negosiasi dengan mentor.',
+    },
+    experience: {
+      org: '[Nama Brand]',
+      role: 'Sales Development Representative',
+      date: 'Jan 2027',
+      summary: 'Menyusun pitch deck baru yang menaikkan rasio meeting-ke-closing dari 12% menjadi 21%.',
+    },
+    skills: ['Closing Strategy', 'Proposal Writing', 'Business Presentation', 'Account Management'],
+    tools: ['Salesforce', 'Google Slides', 'Notion', 'Claude'],
+    partnerIds: ['mitra-a', 'mitra-b'],
+  },
+  {
+    id: 'dm-1',
+    sample: true,
+    name: 'Fajar Nugroho',
+    role: 'Digital Marketing Strategist',
+    photo: '/images/talent-dm-1.webp',
+    salaryFrom: 4500000,
+    education: {
+      org: 'Levela Academy',
+      program: 'Digital Marketing Fast Track',
+      date: 'Des 2026',
+      summary: 'Menyelesaikan program riset audiens, perencanaan campaign, paid traffic, dan evaluasi performa.',
+    },
+    experience: {
+      org: '[Nama Brand]',
+      role: 'Digital Marketing Intern',
+      date: 'Jan 2027',
+      summary: 'Menjalankan campaign Meta dengan ROAS 6,4x dan revenue Rp38.500.000 dalam 6 minggu.',
+    },
+    skills: ['Campaign Planning', 'Meta Ads', 'Google Ads', 'Copywriting', 'SEO'],
+    tools: ['Meta Ads Manager', 'Google Analytics', 'Google Ads', 'Ahrefs', 'ChatGPT'],
+    partnerIds: ['mitra-c', 'mitra-d'],
+  },
+  {
+    id: 'dm-2',
+    sample: true,
+    name: 'Bayu Wicaksono',
+    role: 'Performance Marketing Specialist',
+    photo: '/images/talent-dm-2.webp',
+    salaryFrom: 5000000,
+    education: {
+      org: 'Levela Academy',
+      program: 'Digital Marketing Fast Track Plus',
+      date: 'Des 2026',
+      summary: 'Fokus pada funnel, A/B testing materi iklan, dan pelaporan performa berbasis data.',
+    },
+    experience: {
+      org: '[Nama Brand]',
+      role: 'Marketing Analyst',
+      date: 'Feb 2027',
+      summary: 'Menurunkan biaya per lead 32% lewat pengujian 18 variasi materi iklan.',
+    },
+    skills: ['Funnel Analysis', 'A/B Testing', 'Data Reporting', 'Google Ads'],
+    tools: ['Google Analytics', 'Looker Studio', 'TikTok Ads', 'Gemini'],
+    partnerIds: ['mitra-c', 'mitra-d'],
+  },
+]
