@@ -80,42 +80,33 @@ export default async function ProgramLanding({ params }: { params: Promise<Param
         </div>
       </Section>
 
-      {/* Overview + gallery proof */}
+      {/* Overview: image cards + short stats */}
       <div className="bg-gradient-to-r from-[#892500]/20 to-[#ffb341]/10">
         <Section eyebrow="03 / Gambaran program" aside="Progress with purpose.">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="reveal">
-              <h2 className={h2}>Belajar seperti di dunia kerja.</h2>
-              <ul className="mt-8">
-                {lp.overview.map((o, i) => (
-                  <li key={o.title} className="flex gap-5 border-b border-line py-4">
-                    <span className="pt-1 w-6 shrink-0 text-[11px]">{num(i)}</span>
-                    <div>
-                      <h3 className="font-heading text-lg leading-snug tracking-[-0.02em]">{o.title}</h3>
-                      <p className="mt-1.5 text-sm leading-relaxed">{o.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <dl className="reveal grid content-start gap-4 sm:grid-cols-2">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
+            <h2 className={`reveal ${h2}`}>Belajar seperti di dunia kerja.</h2>
+            <dl className="reveal grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
               {lp.stats.map((s) => (
-                <div key={s.label} className="glass p-5">
-                  <dd className="font-heading text-[clamp(2rem,3.6vw,2.8rem)] leading-none tracking-[-0.05em]">{s.value}</dd>
-                  <dt className="mt-2 text-sm font-semibold">{s.label}</dt>
-                  {s.desc && <dd className="mt-2 text-[13px] leading-relaxed">{s.desc}</dd>}
+                <div key={s.label} className="border-t border-line pt-4">
+                  <dd className="font-heading text-[clamp(1.9rem,3.2vw,2.6rem)] leading-none tracking-[-0.05em]">{s.value}</dd>
+                  <dt className="mt-2 text-sm">{s.label}</dt>
                 </div>
               ))}
             </dl>
           </div>
-          <div className="mt-14 grid gap-5 sm:grid-cols-3">
-            {lp.gallery.map((g) => (
-              <figure key={g.src} className="glass reveal overflow-hidden">
-                <img src={asset(g.src)} alt={g.alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
-                <figcaption className="px-5 py-4 text-sm">{g.caption}</figcaption>
-              </figure>
+          {/* 6-column grid: first row 3 cards, second row 2 wider cards */}
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+            {lp.overview.map((o, i) => (
+              <li key={o.title} className={`glass lift reveal flex flex-col overflow-hidden ${i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}`}>
+                <img src={asset(o.image)} alt={o.title} loading="lazy" className="h-48 w-full object-cover sm:h-52" />
+                <div className="flex flex-1 flex-col p-6">
+                  <span className="font-heading text-2xl tracking-[-0.05em] text-sun">{num(i)}</span>
+                  <h3 className="mt-3 text-xl leading-snug tracking-[-0.02em]">{o.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed">{o.desc}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </Section>
       </div>
 

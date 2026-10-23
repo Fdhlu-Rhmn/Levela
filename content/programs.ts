@@ -13,18 +13,18 @@ const bdLp: ProgramLp = {
   ],
   // Overview dari talentiv.id/bizdev (Okt 2026); nama sertifikat disesuaikan ke Levela.
   overview: [
-    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja sales dan Business Development.' },
-    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset pasar, prospecting, pitching, negosiasi, dan closing untuk menghadapi kebutuhan pelanggan serta target penjualan.' },
-    { title: 'Praktik melalui Real Business Project', desc: 'Terapkan pembelajaran dalam proyek bisnis bersama mitra dan dapatkan pengalaman menyusun solusi untuk kebutuhan bisnis.' },
-    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek bisnis untuk menerapkan strategi yang dipelajari, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.' },
-    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan sales serta Business Development.' },
+    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja sales dan Business Development.', image: '/images/overview-level.webp' },
+    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset pasar, prospecting, pitching, negosiasi, dan closing untuk menghadapi kebutuhan pelanggan serta target penjualan.', image: '/images/class-live.webp' },
+    { title: 'Praktik melalui Real Business Project', desc: 'Terapkan pembelajaran dalam proyek bisnis bersama mitra dan dapatkan pengalaman menyusun solusi untuk kebutuhan bisnis.', image: '/images/class-presentation.webp' },
+    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek bisnis untuk menerapkan strategi yang dipelajari, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.', image: '/images/class-mentoring.webp' },
+    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan sales serta Business Development.', image: '/images/overview-profile.webp' },
   ],
   // TODO: konfirmasi jumlah live class (sumber Talentiv menyebut 21+, daftar sesi berisi 11)
   stats: [
-    { value: '11', label: 'Sesi live class', desc: 'Kelas interaktif pukul 19.30 WIB, dengan rekaman yang bisa ditonton ulang.' },
-    { value: '30 hari', label: 'Fase intensif', desc: 'Live class terlebih dahulu, lalu dilanjutkan mentoring project 1on1.' },
-    { value: 'Entry', label: 'Level peserta', desc: 'Cocok untuk fresh graduate hingga staf entry dan mid level.' },
-    { value: 'Online', label: 'Metode belajar', desc: 'Belajar dari mana saja, cukup dengan laptop dan koneksi internet.' },
+    { value: '11', label: 'Sesi live class' },
+    { value: '30 hari', label: 'Fase intensif' },
+    { value: 'Entry', label: 'Level peserta' },
+    { value: 'Online', label: 'Metode belajar' },
   ],
   careers: [
     'Business Development Executive',
@@ -121,13 +121,8 @@ const bdLp: ProgramLp = {
   ],
   talentIds: ['bd-1', 'bd-2'],
   certificate: 'Business Development Professional', // TODO: konfirmasi nama sertifikat
-  // TODO: ganti placeholder dengan contoh sertifikat asli dan foto kegiatan kelas asli
+  // TODO: ganti placeholder dengan contoh sertifikat asli
   certificateImage: '/images/certificate-business-development.webp',
-  gallery: [
-    { src: '/images/class-live.webp', alt: 'Live class bersama mentor', caption: 'Live class bersama mentor' },
-    { src: '/images/class-mentoring.webp', alt: 'Sesi mentoring project', caption: 'Mentoring project 1on1' },
-    { src: '/images/class-presentation.webp', alt: 'Presentasi hasil project peserta', caption: 'Presentasi hasil project' },
-  ],
   reasons: [
     '30 hari intensif',
     'Live class interaktif dan sesi tanya jawab',
@@ -166,11 +161,11 @@ const dmLp: ProgramLp = {
     { title: 'Performance Analytics', desc: 'Baca data dan optimasi hasil campaign.' },
   ],
   overview: [
-    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja digital marketing.' },
-    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset audiens, perencanaan campaign, iklan berbayar, dan analisis data untuk mengejar target pemasaran.' },
-    { title: 'Praktik melalui Real Campaign Project', desc: 'Terapkan pembelajaran dengan merancang dan menjalankan campaign untuk kebutuhan bisnis nyata.' },
-    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek campaign, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.' },
-    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan digital marketing.' },
+    { title: 'Relevan untuk Staf Entry hingga Mid Level', desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja digital marketing.', image: '/images/overview-level.webp' },
+    { title: 'Materi untuk Tantangan Kerja Sehari-hari', desc: 'Pelajari riset audiens, perencanaan campaign, iklan berbayar, dan analisis data untuk mengejar target pemasaran.', image: '/images/class-live.webp' },
+    { title: 'Praktik melalui Real Campaign Project', desc: 'Terapkan pembelajaran dengan merancang dan menjalankan campaign untuk kebutuhan bisnis nyata.', image: '/images/class-presentation.webp' },
+    { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek campaign, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.', image: '/images/class-mentoring.webp' },
+    { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan digital marketing.', image: '/images/overview-profile.webp' },
   ],
   careers: ['Digital Marketing Specialist', 'Performance Marketing', 'Marketing Executive', 'Content Strategist'],
   audience: [

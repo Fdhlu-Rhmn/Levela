@@ -17,9 +17,11 @@ node scripts/to-webp.mjs <file-asli> public/images/<nama-file> <lebar>
 | `mentor-prita-permatadinata.webp` | LP, bagian Mentor | 800×1000 | |
 | `certificate-business-development.webp` | LP BD, bagian Sertifikasi | 1414×1000 (A4 landscape) | Contoh sertifikat yang benar-benar dipakai |
 | `certificate-digital-marketing.webp` | LP DM, bagian Sertifikasi | 1414×1000 | |
-| `class-live.webp` | LP, galeri | 1200×900 (4:3) | Dokumentasi live class asli (screenshot Zoom/Meet dengan izin peserta) |
-| `class-mentoring.webp` | LP, galeri | 1200×900 | Dokumentasi sesi mentoring |
-| `class-presentation.webp` | LP, galeri | 1200×900 | Presentasi hasil project peserta |
+| `class-live.webp` | LP, kartu Gambaran Program "Materi untuk Tantangan Kerja" | 1200×750 (16:10) | Dokumentasi live class asli (screenshot Zoom/Meet dengan izin peserta) |
+| `class-presentation.webp` | LP, kartu "Praktik melalui Real Project" | 1200×750 | Presentasi hasil project peserta |
+| `class-mentoring.webp` | LP, kartu "Real Project & Mentoring" | 1200×750 | Dokumentasi sesi mentoring |
+| `overview-level.webp` | LP, kartu "Relevan untuk Staf Entry hingga Mid Level" | 1200×750 | Foto peserta / suasana kelas |
+| `overview-profile.webp` | LP, kartu "Sertifikat & Profil di Talentiv Jobs" | 1200×750 | Screenshot profil alumni di Talentiv Jobs (dengan izin) |
 
 ## Data yang perlu dikonfirmasi
 

@@ -15,7 +15,6 @@ export type Module = { title: string; desc: string; tags: string[] }
 export type Project = { title: string; desc: string }
 export type Mentor = { name: string; role: string; photo?: string; experience?: string }
 export type Tool = { name: string; use: string }
-export type GalleryItem = { src: string; alt: string; caption: string }
 export type FaqItem = { q: string; a: string }
 export type Partner = { id: string; name: string; logo?: string; roles: string[] }
 
@@ -36,8 +35,8 @@ export type Talent = {
 export type ProgramLp = {
   heroSubtitle: string
   skills: { title: string; desc: string }[]
-  overview: { title: string; desc: string }[]
-  stats: { value: string; label: string; desc?: string }[]
+  overview: { title: string; desc: string; image: string }[]
+  stats: { value: string; label: string }[]
   careers: string[]
   audience: { title: string; desc: string }[]
   situations: string[]
@@ -49,7 +48,6 @@ export type ProgramLp = {
   talentIds: string[]
   certificate: string
   certificateImage: string
-  gallery: GalleryItem[]
   reasons: string[]
   faq: FaqItem[]
 }

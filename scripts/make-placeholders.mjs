@@ -24,6 +24,8 @@ const images = [
   ['class-live.webp', 1200, 900],
   ['class-mentoring.webp', 1200, 900],
   ['class-presentation.webp', 1200, 900],
+  ['overview-level.webp', 1200, 750],
+  ['overview-profile.webp', 1200, 750],
 ]
 
 mkdirSync('public/images', { recursive: true })

@@ -54,7 +54,6 @@ test('landing pages carry visual proof slots and explained tools', () => {
   for (const p of programs.filter((p) => p.lp)) {
     const lp = p.lp!
     expect(lp.certificateImage).toMatch(/^\/images\/certificate-.+\.webp$/)
-    expect(lp.gallery.length).toBeGreaterThanOrEqual(3)
     expect(lp.situations.length).toBeGreaterThanOrEqual(3)
     for (const t of lp.tools) expect(t.use.length).toBeGreaterThan(10)
     for (const m of lp.mentors) {
@@ -108,12 +107,13 @@ test('Social Media is coming soon with a teaser page', () => {
   expect(sm.teaser?.notifyText).toContain('Social Media Fast Track')
 })
 
-test('overview points and stats carry a description', () => {
+test('overview points are image cards with a description; stats stay short', () => {
   for (const p of programs.filter((p) => p.lp)) {
     for (const o of p.lp!.overview) expect(o.desc.length).toBeGreaterThan(30)
-    for (const s of p.lp!.stats) expect(s.desc?.length).toBeGreaterThan(20)
+    for (const o of p.lp!.overview) expect(o.image).toMatch(/^\/images\/.+\.webp$/)
+    for (const s of p.lp!.stats) expect(s).not.toHaveProperty('desc')
   }
-  expect(programs[0].lp!.overview[0]).toEqual({
+  expect(programs[0].lp!.overview[0]).toMatchObject({
     title: 'Relevan untuk Staf Entry hingga Mid Level',
     desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja sales dan Business Development.',
   })
