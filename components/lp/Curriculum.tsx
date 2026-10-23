@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { ProgramLp } from '@/content/types'
+import type { ProgramLp, Session } from '@/content/types'
 
 const shortDate = (d: string) =>
   new Date(`${d}T00:00:00+07:00`).toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'Asia/Jakarta' })
@@ -35,6 +35,17 @@ function Card({ index, meta, title, desc, tags }: CardProps) {
       <Tags items={tags} />
     </li>
   )
+}
+
+// Consecutive sessions sharing a module form one group; numbering stays continuous across groups.
+function groupByModule(sessions: Session[]) {
+  const groups: { module?: string; sessions: { session: Session; index: number }[] }[] = []
+  sessions.forEach((session, index) => {
+    const last = groups[groups.length - 1]
+    if (last && last.module === session.module) last.sessions.push({ session, index })
+    else groups.push({ module: session.module, sessions: [{ session, index }] })
+  })
+  return groups
 }
 
 export function Curriculum({ lp }: { lp: ProgramLp }) {
@@ -80,13 +91,39 @@ export function Curriculum({ lp }: { lp: ProgramLp }) {
           <p className="max-w-xl text-base leading-relaxed">{active.intro}</p>
           <p className="justify-self-start rounded-full border border-line px-4 py-1.5 text-sm lg:justify-self-end">{active.meta}</p>
         </div>
-        <ol className="mobile-carousel mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {tab === 0
-            ? lp.phase1.sessions.map((s, i) => (
-                <Card key={s.code} index={i} meta={`${shortDate(s.date)} · ${lp.phase1.time}`} title={s.title} desc={s.desc} tags={s.tags} />
-              ))
-            : lp.phase2.modules.map((m, i) => <Card key={m.title} index={i} title={m.title} desc={m.desc} tags={m.tags} />)}
-        </ol>
+        {tab === 0 ? (
+          groupByModule(lp.phase1.sessions).map((group, g) => (
+            <div key={group.module ?? g} className="mt-9">
+              {group.module && (
+                <h3 className="flex items-center gap-3 text-xl tracking-[-0.02em]">
+                  <span aria-hidden="true" className="rounded-md bg-sun px-2.5 py-1 text-xs font-semibold text-ink [text-shadow:none]">
+                    Modul {g + 1}
+                  </span>
+                  <span aria-hidden="true">{group.module}</span>
+                  <span className="sr-only">{`Modul ${g + 1} — ${group.module}`}</span>
+                </h3>
+              )}
+              <ol className={`mobile-carousel grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${group.module ? 'mt-5' : ''}`}>
+                {group.sessions.map(({ session: s, index }) => (
+                  <Card
+                    key={s.code}
+                    index={index}
+                    meta={s.date ? `${shortDate(s.date)} · ${lp.phase1.time}` : 'Tanggal perlu dikonfirmasi'}
+                    title={s.title}
+                    desc={s.desc}
+                    tags={s.tags}
+                  />
+                ))}
+              </ol>
+            </div>
+          ))
+        ) : (
+          <ol className="mobile-carousel mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {lp.phase2.modules.map((m, i) => (
+              <Card key={m.title} index={i} title={m.title} desc={m.desc} tags={m.tags} />
+            ))}
+          </ol>
+        )}
       </div>
     </div>
   )

@@ -9,10 +9,23 @@ test('phase 1 tab is open by default and shows numbered sessions with date and t
   render(<Curriculum lp={lp} />)
   expect(screen.getByRole('tab', { name: /Fase 1/ })).toHaveAttribute('aria-selected', 'true')
   const panel = screen.getByRole('tabpanel')
-  const first = within(panel).getByRole('heading', { name: 'Onboarding Program' }).closest('li')!
+  const first = within(panel).getByRole('heading', { name: 'Business Acumen & Revenue Diagnostic' }).closest('li')!
   expect(within(first).getByText('01')).toBeInTheDocument()
-  expect(first.textContent).toMatch(/10 Nov · 19\.30 WIB/)
+  expect(first.textContent).toMatch(/11 Nov · 19\.30 WIB/)
   expect(within(panel).queryByRole('heading', { name: 'Project Brief & Business Context' })).toBeNull()
+})
+
+test('phase 1 groups sessions under their module headings', () => {
+  render(<Curriculum lp={lp} />)
+  const panel = screen.getByRole('tabpanel')
+  expect(within(panel).getByRole('heading', { name: /Modul 1 — Market Intelligence/ })).toBeInTheDocument()
+  expect(within(panel).getByRole('heading', { name: /Modul 3 — Deal Making & Strategic Partnerships/ })).toBeInTheDocument()
+})
+
+test('a session without a date says the date is still to be confirmed', () => {
+  render(<Curriculum lp={lp} />)
+  const last = screen.getByRole('heading', { name: 'Mentoring Project Portfolio & Post-Test' }).closest('li')!
+  expect(last.textContent).toMatch(/Tanggal perlu dikonfirmasi/)
 })
 
 test('switching to phase 2 shows the mentoring modules', async () => {
@@ -21,5 +34,5 @@ test('switching to phase 2 shows the mentoring modules', async () => {
   expect(screen.getByRole('tab', { name: /Fase 2/ })).toHaveAttribute('aria-selected', 'true')
   const panel = screen.getByRole('tabpanel')
   expect(within(panel).getByRole('heading', { name: 'Project Brief & Business Context' })).toBeInTheDocument()
-  expect(within(panel).queryByRole('heading', { name: 'Onboarding Program' })).toBeNull()
+  expect(within(panel).queryByRole('heading', { name: 'Business Acumen & Revenue Diagnostic' })).toBeNull()
 })

@@ -35,10 +35,20 @@ test('all talents are samples for now', () => {
   expect(talents.every((t) => t.sample)).toBe(true)
 })
 
-test('BD phase 1 has 11 sessions starting with onboarding', () => {
-  const s = bySlug('business-development').lp!.phase1.sessions
-  expect(s.length).toBe(11)
-  expect(s[0]).toMatchObject({ code: 'S1', date: '2026-11-10', title: 'Onboarding Program' })
+test('BD curriculum: 9 sessions in 3 modules, starting 11 Nov, last session date to be confirmed', () => {
+  const lp = bySlug('business-development').lp!
+  const s = lp.phase1.sessions
+  expect(s.length).toBe(9)
+  expect(s[0]).toMatchObject({ code: 'S1', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', module: 'Market Intelligence' })
+  expect([...new Set(s.map((x) => x.module))]).toEqual([
+    'Market Intelligence',
+    'Lead Generation & Commercial Operations',
+    'Deal Making & Strategic Partnerships',
+  ])
+  expect(s[8]).toMatchObject({ code: 'S9', title: 'Mentoring Project Portfolio & Post-Test' })
+  expect(s[8].date).toBeUndefined()
+  expect(lp.stats[0]).toEqual({ value: '9', label: 'Sesi live class' })
+  expect(bySlug('business-development').batchStart).toBe('11 Nov 2026')
 })
 
 test('checkout urls point to CO Edu', () => {
@@ -80,7 +90,10 @@ test('curriculum sessions, phase 2 modules and projects all carry description an
     const lp = p.lp!
     expect(lp.phase1.intro.length).toBeGreaterThan(30)
     expect(lp.phase2.intro.length).toBeGreaterThan(30)
-    for (const s of lp.phase1.sessions) expect(s.tags?.length).toBe(3)
+    for (const s of lp.phase1.sessions) {
+      expect(s.tags!.length).toBeGreaterThanOrEqual(3)
+      expect(s.tags!.length).toBeLessThanOrEqual(4)
+    }
     for (const m of lp.phase2.modules) {
       expect(m.desc.length).toBeGreaterThan(30)
       expect(m.tags.length).toBe(3)
@@ -90,10 +103,12 @@ test('curriculum sessions, phase 2 modules and projects all carry description an
   }
 })
 
-test('BD session 2 uses the Talentiv description', () => {
+test('BD session 2 uses the owner-supplied curriculum text', () => {
   const s2 = programs[0].lp!.phase1.sessions[1]
-  expect(s2.desc).toBe('Memahami anatomi model bisnis, revenue stream, dan framework keuangan untuk mengidentifikasi peluang bisnis.')
-  expect(s2.tags).toEqual(['Business Acumen', 'Revenue Stream', 'Business Diagnostic'])
+  expect(s2.desc).toBe(
+    'Kuasai teknik riset pasar, perhitungan potensi pasar, analisis kompetitor, dan pengolahan data menggunakan Excel untuk mendukung strategi bisnis.',
+  )
+  expect(s2.tags).toEqual(['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel'])
 })
 
 test('Facebook is a separate tool on every landing page', () => {
@@ -117,4 +132,22 @@ test('overview points are image cards with a description; stats stay short', () 
     title: 'Relevan untuk Staf Entry hingga Mid Level',
     desc: 'Perkuat fondasi dan asah keterampilan melalui praktik serta simulasi alur kerja sales dan Business Development.',
   })
+})
+
+test('DM curriculum: 8 owner-supplied sessions without dates yet', () => {
+  const lp = bySlug('digital-marketing').lp!
+  const s = lp.phase1.sessions
+  expect(s.map((x) => x.title)).toEqual([
+    'Business Acumen & Revenue Diagnostic',
+    'Market Research & Competitor Analysis',
+    'Business Model Canvas',
+    'Lead Generation & Pipeline Management',
+    'Negotiation Strategy',
+    'Closing Strategy',
+    'Pitching, Pitch Deck & Business Presentation',
+    'Building Relation & Retention with Customers',
+  ])
+  expect(s.every((x) => x.date === undefined)).toBe(true)
+  expect(s[1].tags).toEqual(['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'])
+  expect(lp.stats[0]).toEqual({ value: '8', label: 'Sesi live class' })
 })

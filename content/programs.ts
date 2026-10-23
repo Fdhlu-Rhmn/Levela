@@ -9,7 +9,7 @@ const bdLp: ProgramLp = {
     { title: 'Business Acumen & Market Analysis', desc: 'Baca pasar, kompetitor, dan peluang revenue sebelum melangkah.' },
     { title: 'CRM & Pipeline', desc: 'Kelola prospek dari kontak pertama sampai closing dengan sistem yang rapi.' },
     { title: 'Negotiation & Sales', desc: 'Susun penawaran, tangani keberatan, dan tutup kesepakatan.' },
-    { title: 'Performance Marketing', desc: 'Dukung target penjualan dengan channel digital yang terukur.' },
+    { title: 'Pitching & Customer Retention', desc: 'Presentasikan solusi dengan meyakinkan dan jaga hubungan pelanggan setelah deal.' },
   ],
   // Overview dari talentiv.id/bizdev (Okt 2026); nama sertifikat disesuaikan ke Levela.
   overview: [
@@ -19,9 +19,8 @@ const bdLp: ProgramLp = {
     { title: 'Real Project & Mentoring', desc: 'Kerjakan proyek bisnis untuk menerapkan strategi yang dipelajari, lalu gunakan arahan dan feedback mentor untuk memperbaiki hasilnya.', image: '/images/class-mentoring.webp' },
     { title: 'Sertifikat & Profil di Talentiv Jobs', desc: 'Lengkapi profil profesionalmu di Talentiv Jobs dengan sertifikat dan portofolio untuk menunjukkan kemampuan sales serta Business Development.', image: '/images/overview-profile.webp' },
   ],
-  // TODO: konfirmasi jumlah live class (sumber Talentiv menyebut 21+, daftar sesi berisi 11)
   stats: [
-    { value: '11', label: 'Sesi live class' },
+    { value: '9', label: 'Sesi live class' },
     { value: '30 hari', label: 'Fase intensif' },
     { value: 'Entry', label: 'Level peserta' },
     { value: 'Online', label: 'Metode belajar' },
@@ -48,6 +47,7 @@ const bdLp: ProgramLp = {
     { name: 'Google Ads', use: 'Menjangkau calon klien yang sedang mencari solusi lewat pencarian Google.' },
     { name: 'Facebook', use: 'Mencari calon klien di grup dan halaman bisnis, lalu melakukan online canvassing.' },
     { name: 'Instagram', use: 'Riset kompetitor dan membangun kredibilitas lewat profil bisnis sebelum menghubungi klien.' },
+    { name: 'Microsoft Excel', use: 'Mengolah data riset pasar, menghitung market size, dan menyusun pipeline penjualan.' },
     { name: 'ChatGPT', use: 'Menyusun draft riset pasar, pesan prospek, dan kerangka proposal lebih cepat.' },
     { name: 'Claude', use: 'Merangkum data riset dan merapikan isi pitch deck sebelum presentasi.' },
   ],
@@ -58,18 +58,17 @@ const bdLp: ProgramLp = {
       'Pahami bisnis dan target pelanggan, bangun pipeline, lalu latih cara menyampaikan penawaran, bernegosiasi, dan mengarahkan percakapan menuju closing.',
     time: '19.30 WIB',
     sessions: [
-      { code: 'S1', date: '2026-11-10', title: 'Onboarding Program', desc: 'Memahami learning journey, tujuan program, kontrak belajar, serta mendapatkan insight dan motivasi untuk memulai perjalanan sebagai Business Development.', tags: ['Learning Journey', 'Kontrak Belajar', 'Insight Business Development'] },
-      { code: 'S2', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', desc: 'Memahami anatomi model bisnis, revenue stream, dan framework keuangan untuk mengidentifikasi peluang bisnis.', tags: ['Business Acumen', 'Revenue Stream', 'Business Diagnostic'] },
-      { code: 'S3', date: '2026-11-12', title: 'Market Research & Competitor Analysis', desc: 'Mempelajari metodologi riset pasar, market sizing, analisis kompetitif, dan segmentasi untuk menemukan peluang bisnis.', tags: ['Market Research', 'Market Sizing', 'Competitor Analysis'] },
-      { code: 'S4', date: '2026-11-16', title: 'Business Model Canvas', desc: 'Memahami 9 building blocks dan menyusun Business Model Canvas untuk melihat struktur bisnis secara menyeluruh.', tags: ['Business Model Canvas', 'Value Proposition', 'Revenue Streams'] },
-      { code: 'S5', date: '2026-11-17', title: 'Lead Generation & Pipeline Management', desc: 'Mempelajari inbound dan outbound prospecting, kualifikasi lead, segmentasi lead stage, hingga pengelolaan sales pipeline.', tags: ['Lead Generation', 'Lead Qualification', 'Sales Pipeline'] },
-      { code: 'S6', date: '2026-11-18', title: 'Pitching, Pitch Deck & Business Presentation', desc: 'Menyusun pitch deck persuasif, melakukan business storytelling, serta menangani pertanyaan dan objection.', tags: ['Pitch Deck', 'Business Storytelling', 'Business Presentation'] },
-      // Sumber menulis tag "Persuasive Communication" dua kali; tag kedua diganti "Objection Handling" sesuai deskripsi.
-      { code: 'S7', date: '2026-11-19', title: 'Negotiation Strategy', desc: 'Mempelajari prinsip dan taktik negosiasi, handling objection & rejection, serta komunikasi persuasif.', tags: ['Negotiation', 'Objection Handling', 'Persuasive Communication'] },
-      { code: 'S8', date: '2026-11-23', title: 'Closing Strategy', desc: 'Mengenali buying signals, menerapkan teknik closing, serta memahami post-closing dan retention strategy.', tags: ['Buying Signals', 'Closing', 'Retention Strategy'] },
-      { code: 'S9', date: '2026-11-25', title: 'Digital Marketing: Organic Source & Copywriting', desc: 'Memahami sumber organik dan copywriting untuk mendukung aktivitas marketing dan akuisisi pelanggan.', tags: ['Organic Source', 'Copywriting', 'Lead Acquisition'] },
-      { code: 'S10', date: '2026-11-26', title: 'Digital Marketing: Meta & Google Ads', desc: 'Mempelajari penggunaan Meta Ads dan Google Ads untuk mendukung lead generation dan aktivitas pemasaran.', tags: ['Meta Ads', 'Google Ads', 'Performance Marketing'] },
-      { code: 'S11', date: '2026-11-30', title: 'Mentoring Project Portfolio & Post Test', desc: 'Menerapkan hasil pembelajaran melalui project portfolio, final capstone project, simulasi pitching dan negosiasi, review, feedback, serta evaluasi akhir.', tags: ['Portfolio Project', 'Final Capstone', 'Post Test'] },
+      // Kurikulum dari pemilik (24 Okt 2026), 3 modul.
+      { code: 'S1', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', module: 'Market Intelligence', desc: 'Pelajari cara memahami model bisnis, mengidentifikasi sumber pendapatan, dan menganalisis aspek keuangan untuk menemukan peluang pertumbuhan bisnis.', tags: ['Business Acumen', 'Revenue Stream', 'Model Bisnis', 'Business Finance'] },
+      { code: 'S2', date: '2026-11-12', title: 'Market Research & Competitor Analysis', module: 'Market Intelligence', desc: 'Kuasai teknik riset pasar, perhitungan potensi pasar, analisis kompetitor, dan pengolahan data menggunakan Excel untuk mendukung strategi bisnis.', tags: ['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel'] },
+      { code: 'S3', date: '2026-11-13', title: 'Business Model Canvas', module: 'Market Intelligence', desc: 'Pelajari penyusunan Business Model Canvas (BMC) melalui 9 elemen utama untuk merancang model bisnis yang terstruktur dan berorientasi pada nilai pelanggan.', tags: ['Business Model Canvas', '9 Building Blocks', 'Value Proposition'] },
+      { code: 'S4', date: '2026-11-18', title: 'Lead Generation & Pipeline Management', module: 'Lead Generation & Commercial Operations', desc: 'Pelajari strategi mendapatkan prospek potensial, menentukan kualifikasi lead, serta menyusun dan mengelola sales pipeline melalui praktik kasus perusahaan.', tags: ['Lead Generation', 'Lead Qualification', 'Sales Pipeline', 'Praktik Pipeline'] },
+      { code: 'S5', date: '2026-11-19', title: 'Negotiation Strategy', module: 'Deal Making & Strategic Partnerships', desc: 'Kuasai strategi negosiasi bisnis, komunikasi persuasif, dan teknik menghadapi keberatan calon pelanggan untuk mencapai kesepakatan yang efektif.', tags: ['Business Negotiation', 'Handling Objections', 'Persuasive Communication'] },
+      { code: 'S6', date: '2026-11-23', title: 'Closing Strategy', module: 'Deal Making & Strategic Partnerships', desc: 'Pelajari cara mengenali sinyal pembelian, menerapkan teknik closing, serta membangun strategi tindak lanjut untuk menjaga hubungan pelanggan.', tags: ['Buying Signals', 'Closing Techniques', 'Customer Retention'] },
+      { code: 'S7', date: '2026-11-24', title: 'Pitching, Pitch Deck & Business Presentation', module: 'Deal Making & Strategic Partnerships', desc: 'Pelajari penyusunan pitch deck, teknik storytelling bisnis, dan pemanfaatan AI untuk menyampaikan presentasi yang persuasif serta menjawab pertanyaan audiens.', tags: ['Pitch Deck', 'Business Storytelling', 'Presentation Skills', 'AI Tools'] },
+      { code: 'S8', date: '2026-11-25', title: 'Building Relationships & Customer Retention', module: 'Deal Making & Strategic Partnerships', desc: 'Pelajari strategi membangun hubungan pelanggan, mengelola layanan aftersales, dan meningkatkan loyalitas untuk mendukung keberlanjutan bisnis.', tags: ['Customer Relationship', 'Aftersales Strategy', 'Customer Loyalty'] },
+      // TODO: tanggal sesi 9 perlu dikonfirmasi
+      { code: 'S9', title: 'Mentoring Project Portfolio & Post-Test', module: 'Deal Making & Strategic Partnerships', desc: 'Evaluasi pemahaman materi melalui post-test dan susun portofolio profesional sebagai dokumentasi keterampilan Sales & Business Development yang telah dipelajari.', tags: ['Post-Test', 'Portfolio Building', 'Project Mentoring'] },
     ],
   },
   phase2: {
@@ -153,6 +152,7 @@ const features = (program: string, mentoring: number) => [
 // CONTOH: seluruh isi Digital Marketing disalin dari BD dan disesuaikan. Ganti dengan isi asli.
 const dmLp: ProgramLp = {
   ...bdLp,
+  stats: bdLp.stats.map((st) => (st.label === 'Sesi live class' ? { ...st, value: '8' } : st)),
   heroSubtitle: '30 hari intensif belajar strategi digital marketing: riset audiens, campaign, dan iklan berbayar.',
   skills: [
     { title: 'Audience & Market Research', desc: 'Kenali siapa audiensmu dan apa yang mereka butuhkan.' },
@@ -195,17 +195,15 @@ const dmLp: ProgramLp = {
       'Pahami audiens dan kanal digital, rancang campaign, lalu jalankan dan optimasi iklan berdasarkan data.',
     time: '19.30 WIB',
     sessions: [
-      { code: 'S1', date: '2026-12-01', title: 'Onboarding Program', desc: 'Memahami learning journey, tujuan program, kontrak belajar, serta gambaran peran digital marketing di perusahaan.', tags: ['Learning Journey', 'Kontrak Belajar', 'Insight Digital Marketing'] },
-      { code: 'S2', date: '2026-12-02', title: 'Digital Marketing Fundamentals', desc: 'Memahami funnel pemasaran, peran setiap kanal digital, dan metrik dasar untuk mengukur keberhasilan campaign.', tags: ['Marketing Funnel', 'Digital Channel', 'Marketing Metrics'] },
-      { code: 'S3', date: '2026-12-03', title: 'Audience Research & Customer Journey', desc: 'Menyusun persona audiens dan memetakan perjalanan pelanggan dari mengenal brand hingga melakukan pembelian.', tags: ['Audience Persona', 'Customer Journey', 'Market Research'] },
-      { code: 'S4', date: '2026-12-07', title: 'Content Strategy & Copywriting', desc: 'Menyusun pilar konten dan menulis copy yang sesuai dengan audiens serta tujuan campaign.', tags: ['Content Pillar', 'Copywriting', 'Content Plan'] },
-      { code: 'S5', date: '2026-12-08', title: 'SEO Basics', desc: 'Mempelajari riset kata kunci dan optimasi konten agar website lebih mudah ditemukan di mesin pencari.', tags: ['Keyword Research', 'On-page SEO', 'Organic Traffic'] },
-      { code: 'S6', date: '2026-12-09', title: 'Campaign Planning', desc: 'Merancang campaign lengkap mulai dari tujuan, pesan utama, kanal, budget, hingga cara mengukur hasil.', tags: ['Campaign Objective', 'Media Plan', 'Budgeting'] },
-      { code: 'S7', date: '2026-12-10', title: 'Meta Ads', desc: 'Membuat struktur campaign, menentukan target audiens, dan mengoptimasi iklan di Facebook serta Instagram.', tags: ['Meta Ads', 'Audience Targeting', 'Ad Optimization'] },
-      { code: 'S8', date: '2026-12-14', title: 'Google Ads', desc: 'Menjalankan iklan pencarian, memilih kata kunci, dan mengatur bidding untuk mendatangkan calon pembeli.', tags: ['Google Ads', 'Search Campaign', 'Bidding Strategy'] },
-      { code: 'S9', date: '2026-12-15', title: 'Analytics & Reporting', desc: 'Membaca data di Google Analytics dan menyusun laporan performa campaign yang mudah dipahami.', tags: ['Google Analytics', 'Conversion Tracking', 'Reporting'] },
-      { code: 'S10', date: '2026-12-16', title: 'Optimization & A/B Testing', desc: 'Menguji variasi materi iklan dan landing page untuk menemukan kombinasi dengan hasil terbaik.', tags: ['A/B Testing', 'Creative Testing', 'Performance Marketing'] },
-      { code: 'S11', date: '2026-12-21', title: 'Mentoring Project Portfolio & Post Test', desc: 'Menerapkan hasil pembelajaran melalui project portfolio, review campaign bersama mentor, feedback, serta evaluasi akhir.', tags: ['Portfolio Project', 'Final Capstone', 'Post Test'] },
+      // Kurikulum dari pemilik (24 Okt 2026). TODO: tanggal sesi belum ada.
+      { code: 'S1', title: 'Business Acumen & Revenue Diagnostic', desc: 'Memahami sumber pendapatan, model bisnis, dan kerangka keuangan untuk mengidentifikasi peluang bisnis.', tags: ['Revenue Business', 'Business Model', 'Financial Framework'] },
+      { code: 'S2', title: 'Market Research & Competitor Analysis', desc: 'Mempelajari metodologi riset pasar, menghitung potensi pasar, menganalisis kompetitor, dan melakukan segmentasi berbasis data.', tags: ['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'] },
+      { code: 'S3', title: 'Business Model Canvas', desc: 'Memahami sembilan elemen Business Model Canvas dan menyusun model bisnis yang mencakup proposisi nilai, pelanggan, mitra, aktivitas, biaya, serta sumber pendapatan.', tags: ['9 Building Blocks', 'Value Proposition', 'Customer Relationship', 'Revenue Streams'] },
+      { code: 'S4', title: 'Lead Generation & Pipeline Management', desc: 'Mempelajari strategi pencarian prospek, kualifikasi dan segmentasi lead, serta pengelolaan sales pipeline untuk mendukung proses penjualan.', tags: ['Inbound & Outbound Prospecting', 'Lead Qualification', 'Sales Pipeline'] },
+      { code: 'S5', title: 'Negotiation Strategy', desc: 'Mengembangkan kemampuan negosiasi bisnis, menangani keberatan dan penolakan, serta menerapkan komunikasi persuasif untuk mencapai kesepakatan.', tags: ['Negotiation Tactics', 'Objection Handling', 'Persuasive Communication'] },
+      { code: 'S6', title: 'Closing Strategy', desc: 'Mengenali sinyal kesiapan membeli, menerapkan teknik closing, dan menyusun strategi tindak lanjut untuk meningkatkan keberhasilan penjualan.', tags: ['Buying Signals', 'Closing Techniques', 'Post-Closing Strategy'] },
+      { code: 'S7', title: 'Pitching, Pitch Deck & Business Presentation', desc: 'Menyusun pitch deck yang persuasif, mengembangkan storytelling bisnis, menjawab pertanyaan dan keberatan, serta memanfaatkan AI dalam presentasi bisnis.', tags: ['Pitch Deck', 'Business Storytelling', 'Handling Q&A', 'AI for Business Presentation'] },
+      { code: 'S8', title: 'Building Relation & Retention with Customers', desc: 'Membangun hubungan jangka panjang dengan pelanggan melalui manajemen relasi, pelayanan aftersales, dan strategi mempertahankan loyalitas pelanggan.', tags: ['Customer Relationship Management', 'Aftersales', 'Customer Loyalty'] },
     ],
   },
   phase2: {
@@ -247,7 +245,7 @@ export const programs: Program[] = [
     duration: '30 hari',
     level: 'Entry level',
     format: 'Online',
-    batchStart: '10 Nov 2026',
+    batchStart: '11 Nov 2026',
     whatsappText: waText('Business Development Fast Track'),
     // TODO: isi checkoutUrl dengan ID produk CO Edu Levela
     packages: [
