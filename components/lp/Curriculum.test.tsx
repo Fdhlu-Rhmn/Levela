@@ -15,11 +15,10 @@ test('phase 1 tab is open by default and shows numbered sessions with date and t
   expect(within(panel).queryByRole('heading', { name: 'Project Brief & Business Context' })).toBeNull()
 })
 
-test('phase 1 groups sessions under their module headings', () => {
+test('module names are not shown as headings', () => {
   render(<Curriculum lp={lp} />)
-  const panel = screen.getByRole('tabpanel')
-  expect(within(panel).getByRole('heading', { name: /Modul 1 — Market Intelligence/ })).toBeInTheDocument()
-  expect(within(panel).getByRole('heading', { name: /Modul 3 — Deal Making & Strategic Partnerships/ })).toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: /Modul d/ })).toBeNull()
+  expect(screen.queryByText('Market Intelligence')).toBeNull()
 })
 
 test('a session without a date says the date is still to be confirmed', () => {

@@ -35,16 +35,11 @@ test('all talents are samples for now', () => {
   expect(talents.every((t) => t.sample)).toBe(true)
 })
 
-test('BD curriculum: 9 sessions in 3 modules, starting 11 Nov, last session date to be confirmed', () => {
+test('BD curriculum: 9 sessions starting 11 Nov, last session date to be confirmed', () => {
   const lp = bySlug('business-development').lp!
   const s = lp.phase1.sessions
   expect(s.length).toBe(9)
-  expect(s[0]).toMatchObject({ code: 'S1', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic', module: 'Market Intelligence' })
-  expect([...new Set(s.map((x) => x.module))]).toEqual([
-    'Market Intelligence',
-    'Lead Generation & Commercial Operations',
-    'Deal Making & Strategic Partnerships',
-  ])
+  expect(s[0]).toMatchObject({ code: 'S1', date: '2026-11-11', title: 'Business Acumen & Revenue Diagnostic' })
   expect(s[8]).toMatchObject({ code: 'S9', title: 'Mentoring Project Portfolio & Post-Test' })
   expect(s[8].date).toBeUndefined()
   expect(lp.stats[0]).toEqual({ value: '9', label: 'Sesi live class' })
@@ -134,7 +129,7 @@ test('overview points are image cards with a description; stats stay short', () 
   })
 })
 
-test('DM curriculum: 8 owner-supplied sessions with dates, mentors and modules', () => {
+test('DM curriculum: 8 owner-supplied sessions with dates and mentors', () => {
   const lp = bySlug('digital-marketing').lp!
   const s = lp.phase1.sessions
   expect(s.map((x) => x.title)).toEqual([
@@ -149,7 +144,6 @@ test('DM curriculum: 8 owner-supplied sessions with dates, mentors and modules',
   ])
   expect(s.map((x) => x.date)).toEqual(['2026-11-11', '2026-11-12', '2026-11-13', '2026-11-18', '2026-11-19', '2026-11-23', '2026-11-24', '2026-11-25'])
   expect(s.map((x) => x.mentor)).toEqual(['Aziz', 'Hamid', 'Herdi', 'Herdi', 'Usamah', 'Usamah', 'Sahrul', 'Sahrul'])
-  expect(s.map((x) => x.module)).toEqual([...Array(3).fill('Market Intelligence'), 'Lead Generation & Commercial Operations', ...Array(4).fill('Deal Making & Strategic Partnerships')])
   expect(lp.mentors.map((m) => m.name)).toEqual(['Aziz', 'Hamid', 'Herdi', 'Usamah', 'Sahrul'])
   expect(bySlug('digital-marketing').batchStart).toBe('11 Nov 2026')
   expect(s[1].tags).toEqual(['Market Research', 'Market Sizing', 'Competitor Analysis', 'Excel Masterclass'])

@@ -21,7 +21,6 @@ export function ProgramCard({ program: p }: { program: Program }) {
           loading="lazy"
           className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#b83207]/45 to-transparent" />
         <StatusBadge status={p.status} className="absolute top-3 left-3" />
       </div>
       <div className="flex flex-1 flex-col p-6">

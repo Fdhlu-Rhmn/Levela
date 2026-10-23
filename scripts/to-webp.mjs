@@ -10,5 +10,5 @@ if (!input || !output) {
 }
 
 mkdirSync(dirname(output), { recursive: true })
-const info = await sharp(input).resize({ width: Number(width), withoutEnlargement: true }).webp({ quality: 78 }).toFile(output)
+const info = await sharp(input).resize({ width: Number(width), withoutEnlargement: true }).webp({ quality: 88, smartSubsample: true }).toFile(output)
 console.log(`${output}: ${info.width}x${info.height}, ${Math.round(info.size / 1024)} KB`)
